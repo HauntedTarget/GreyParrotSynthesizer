@@ -1,5 +1,6 @@
 ﻿namespace GreyParrotSynthesizer
 {
+    //AHHHHH
     partial class MainSythesizer
     {
         /// <summary>
