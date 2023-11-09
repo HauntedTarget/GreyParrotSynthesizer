@@ -1,8 +1,8 @@
 namespace GreyParrotSynthesizer
 {
-    public partial class Form1 : Form
+    public partial class MainSythesizer : Form
     {
-        public Form1()
+        public MainSythesizer()
         {
             InitializeComponent();
         }

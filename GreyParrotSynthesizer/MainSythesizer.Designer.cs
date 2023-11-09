@@ -1,6 +1,6 @@
 ﻿namespace GreyParrotSynthesizer
 {
-    partial class Form1
+    partial class MainSythesizer
     {
         /// <summary>
         ///  Required designer variable.
