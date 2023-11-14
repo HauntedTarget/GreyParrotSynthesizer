@@ -6,5 +6,10 @@ namespace GreyParrotSynthesizer
         {
             InitializeComponent();
         }
+
+        private void MainSythesizer_KeyDown(object sender, KeyEventArgs e)
+        {
+            Audio.PlaySineSound(440f);
+        }
     }
 }

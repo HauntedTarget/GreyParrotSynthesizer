@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            SuspendLayout();
+            // 
+            // MainSythesizer
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Name = "MainSythesizer";
             Text = "Form1";
+            KeyDown += MainSythesizer_KeyDown;
+            ResumeLayout(false);
         }
 
         #endregion
