@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Media;
 using System.IO;
-
-
+using System.Drawing.Text;
 
 namespace GreyParrotSynthesizer
 {
@@ -20,19 +19,34 @@ namespace GreyParrotSynthesizer
         private const int SAMPLE_RATE = 44100;
         private const short BITS_PER_SAMPLE = 16;
 
-        public static void PlaySineSound(float frequency) // WE MIGHT WANT TO ADD AN AMPLITUDE PARAMETER
+        public static Enum waveType { SINE, SQUARE, SAWTOOTH, TRIANGLE, NOISE };
+
+        public static void PlaySineSound(float frequency, short amplitude) // WE MIGHT WANT TO ADD AN AMPLITUDE PARAMETER
         {
 
             // Only plays for like 1 second though.
             short[] wave = new short[SAMPLE_RATE];
             byte[] binaryWave = new byte[SAMPLE_RATE * sizeof(short)]; // 2 * samplerate
-            frequency = 200f;
-            for (int i = 0; i < SAMPLE_RATE; i++)
+
+            switch (waveType)
             {
-                // This is a sine wave
-                // Could have a switch statement here for multiple wave types
-                wave[i] = Convert.ToInt16(short.MaxValue * Math.Sin((2 * Math.PI * frequency / SAMPLE_RATE) * i));
+                case waveType.SINE:
+                    wave = SineWave(frequency, amplitude);
+                    break;
+                case waveType.SQUARE:
+                    wave = SquareWave(frequency, amplitude);
+                    break;
+                case waveType.SAWTOOTH:
+                    wave = SawtoothWave(frequency, amplitude);
+                    break;
+                case waveType.TRIANGLE:
+                    wave = TriangleWave(frequency, amplitude);
+                    break;
+                case waveType.NOISE:
+                    wave = NoiseWave(frequency, amplitude);
+                    break;
             }
+
             Buffer.BlockCopy(wave, 0, binaryWave, 0, wave.Length * sizeof(short));
             // Can also use FileSteam to write to a file so we can save it for later
             using (MemoryStream memoryStream = new MemoryStream())
@@ -61,5 +75,62 @@ namespace GreyParrotSynthesizer
             }
 
         }
+        private short[] SineWave(float frequency, short amplitude)
+        {
+            short[] wave = new short[SAMPLE_RATE];
+            for (int i = 0; i < SAMPLE_RATE; i++)
+            {
+                wave[i] = Convert.ToInt16(amplitude * Math.Sin((2 * Math.PI * frequency / SAMPLE_RATE) * i));
+            }
+            return wave;
+        }
+
+        private short[] SquareWave(float frequency, short amplitude)
+        {
+            short[] wave = new short[SAMPLE_RATE];
+            for (int i = 0; i < SAMPLE_RATE; i++)
+            {
+                wave[i] = Convert.ToInt16(amplitude * Math.Sign(Math.Sin((2 * Math.PI * frequency / SAMPLE_RATE) * i)));
+            }
+            return wave;
+        }
+
+        private short[] SawtoothWave(float frequency, short amplitude)
+        {
+            // TODO: Implement this
+            short[] wave = new short[SAMPLE_RATE];
+            for (int i = 0; i < SAMPLE_RATE; i++)
+            {
+                wave[i] = Convert.ToInt16(amplitude * Math.Sin((2 * Math.PI * frequency / SAMPLE_RATE) * i));
+            }
+            return wave;
+        }
+
+        private short[] TriangleWave(float frequency, short amplitude)
+        {
+            // TODO: Implement this
+            short[] wave = new short[SAMPLE_RATE];
+            for (int i = 0; i < SAMPLE_RATE; i++)
+            {
+                wave[i] = Convert.ToInt16(amplitude * Math.Sin((2 * Math.PI * frequency / SAMPLE_RATE) * i));
+            }
+            return wave;
+        }
+
+        private short[] NoiseWave(float frequency, short amplitude)
+        {
+            Random random = new Random();
+            short randomValue = 0;
+
+            short[] wave = new short[SAMPLE_RATE];
+            for (int i = 0; i < SAMPLE_RATE; i++)
+            {
+                randomValue = Convert.ToInt16(random.Next(-amplitude, amplitude));
+                wave[i] = randomValue;
+            }
+            return wave;
+        }
+
+
     }
 }
