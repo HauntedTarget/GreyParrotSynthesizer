@@ -59,7 +59,7 @@
             // FrequencyBar
             // 
             FrequencyBar.BackColor = SystemColors.ActiveCaptionText;
-            FrequencyBar.Location = new Point(683, 65);
+            FrequencyBar.Location = new Point(681, 65);
             FrequencyBar.Maximum = 400;
             FrequencyBar.Minimum = 200;
             FrequencyBar.Name = "FrequencyBar";
@@ -75,11 +75,15 @@
             // 
             AmplitudeBar.BackColor = SystemColors.ActiveCaptionText;
             AmplitudeBar.Location = new Point(576, 65);
+            AmplitudeBar.Maximum = 10000;
+            AmplitudeBar.Minimum = 1000;
             AmplitudeBar.Name = "AmplitudeBar";
             AmplitudeBar.Orientation = Orientation.Vertical;
             AmplitudeBar.Size = new Size(69, 298);
             AmplitudeBar.TabIndex = 3;
+            AmplitudeBar.TickFrequency = 300;
             AmplitudeBar.TickStyle = TickStyle.Both;
+            AmplitudeBar.Value = 1000;
             AmplitudeBar.Scroll += AmplitudeBar_Scroll;
             // 
             // MainSythesizer

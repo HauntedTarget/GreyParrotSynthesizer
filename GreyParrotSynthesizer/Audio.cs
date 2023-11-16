@@ -214,7 +214,7 @@ namespace GreyParrotSynthesizer
                         tempSample = (short)-amplitude;
                     }
                     tempSample += amplitudeStep;
-                    wave[i+ channel] = tempSample;
+                    wave[i] = tempSample;
                 }
             }
             return wave;
