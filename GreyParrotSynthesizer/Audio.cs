@@ -16,7 +16,7 @@ namespace GreyParrotSynthesizer
         private const int SAMPLE_RATE = 44100;
         private const short BITS_PER_SAMPLE = 16;
 
-        public static Enum waveType { SINE, SQUARE, SAWTOOTH, TRIANGLE, NOISE };
+        public Enum waveType { SINE, SQUARE, SAWTOOTH, TRIANGLE, NOISE };
 
         public static void PlaySound(float frequency, short amplitude, Enum waveEnum) // WE MIGHT WANT TO ADD AN AMPLITUDE PARAMETER
         {
