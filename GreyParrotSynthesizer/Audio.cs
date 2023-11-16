@@ -18,7 +18,7 @@ namespace GreyParrotSynthesizer
 
         public enum WaveType { SINE, SQUARE, SAWTOOTH, TRIANGLE, NOISE };
 
-        public void PlaySound(float frequency, short amplitude, enum waveEnum) // WE MIGHT WANT TO ADD AN AMPLITUDE PARAMETER
+        public void PlaySound(float frequency, short amplitude, WaveType waveType) // WE MIGHT WANT TO ADD AN AMPLITUDE PARAMETER
 
         {
 
@@ -28,7 +28,7 @@ namespace GreyParrotSynthesizer
 
             // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
             // wave alogirthms made with help from the above link
-            switch (waveEnum)
+            switch (waveType)
             {
                 case WaveType.SINE:
                     wave = SineWave(frequency, amplitude);
@@ -79,7 +79,7 @@ namespace GreyParrotSynthesizer
 
         }
 
-        public static void SaveSound(float frequency, short amplitude, Enum waveEnum, string filepath)
+        public static void SaveSound(float frequency, short amplitude, WaveType waveType, string filepath)
         {
             // TODO: I wanna do this later,, should be easy
             // Only plays for like 1 second though.
@@ -88,7 +88,7 @@ namespace GreyParrotSynthesizer
 
             // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
             // wave alogirthms made with help from the above link
-            switch (waveEnum)
+            switch (waveType)
             {
                 case WaveType.SINE:
                     wave = SineWave(frequency, amplitude);
@@ -217,6 +217,7 @@ namespace GreyParrotSynthesizer
                     wave[i+ channel] = tempSample;
                 }
             }
+            return wave;
         }
 
         private static short[] NoiseWave(float frequency, short amplitude)
