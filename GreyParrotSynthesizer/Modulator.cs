@@ -11,51 +11,51 @@ namespace GreyParrotSynthesizer
     {
         ///<TODO> convert to use Wave class once made.</TODO>
         ///<Summary>
-        ///Modulates amplitude of the carrier wave based on input wave.
+        ///Modulates amplitude of the carrier sin wave based on input sin wave.
         ///</Summary>
         ///<returns>
         ///Returns a modulated wave as a Int16.
         ///</returns>
         ///<param name="carrier">
-        /// the wave to be modulated.
+        /// the sin wave to be modulated.
         ///</param>
         ///<param name="input">
-        /// the modulating wave.
+        /// the modulating sin wave.
         ///</param>
         ///<param name="index">
         /// The ammount of modulation.
         ///</param>
-        public static int AM(double carrier, double input, double index)
+        public static int sinAM(double carrier, double input, double index)
         {
             return Convert.ToInt16(Math.Sin(1 + index * input) * carrier);
         }
 
         ///<TODO> convert to use Wave class once made.</TODO>
         ///<Summary>
-        ///Modulates amplitude of the carrier wave based on input wave.
+        ///Modulates amplitude of the carrier sin wave based on the input sin wave.
         ///</Summary>
         ///<returns>
         ///Returns a modulated wave as a Int16.
         ///</returns>
         ///<param name="carrierFrequency">
-        /// the frequency of wave to be modulated.
+        /// the frequency of the sin wave to be modulated.
         ///</param>
         ///<param name="carrierRate">
-        /// the rate of wave to be modulated.
+        /// the rate of the sin wave to be modulated.
         ///</param>
         ///<param name="carrierAmplitude">
-        /// the amplitude of wave to be modulated.
+        /// the amplitude of the sin wave to be modulated.
         ///</param>
         ///<param name="inputFrequency">
-        /// the frequency of modulating wave.
+        /// the frequency of the modulating sin wave.
         ///</param>
         ///<param name="inputRate">
-        /// the rate of modulating wave.
+        /// the rate of the modulating sin wave.
         ///</param>
         ///<param name="index">
         /// The ammount of modulation.
         ///</param>
-        public static int FM(double index, float carrierFrequency, float carrierAmplitude, float carrierRate, float inputFrequency, float inputRate)
+        public static int sinFM(double index, float carrierFrequency, float carrierAmplitude, float carrierRate, float inputFrequency, float inputRate)
         {
             return Convert.ToInt16(carrierAmplitude * 
                 Math.Sin(2 * Math.PI * carrierFrequency * carrierRate + index *
