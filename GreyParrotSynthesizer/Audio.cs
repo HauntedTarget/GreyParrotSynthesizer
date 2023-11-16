@@ -78,9 +78,63 @@ namespace GreyParrotSynthesizer
 
         }
 
-        public static void SaveSound(float frequency, short amplitude, Enum waveEnum)
+        public static void SaveSound(float frequency, short amplitude, Enum waveEnum, string filepath)
         {
             // TODO: I wanna do this later,, should be easy
+            // Only plays for like 1 second though.
+            short[] wave = new short[SAMPLE_RATE];
+            byte[] binaryWave = new byte[SAMPLE_RATE * sizeof(short)]; // 2 * samplerate
+
+            // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
+            // wave alogirthms made with help from the above link
+            switch (waveEnum)
+            {
+                case waveType.SINE:
+                    wave = SineWave(frequency, amplitude);
+                    break;
+                case waveType.SQUARE:
+                    wave = SquareWave(frequency, amplitude);
+                    break;
+                case waveType.SAWTOOTH:
+                    wave = SawtoothWave(frequency, amplitude);
+                    break;
+                case waveType.TRIANGLE:
+                    wave = TriangleWave(frequency, amplitude);
+                    break;
+                case waveType.NOISE:
+                    wave = NoiseWave(frequency, amplitude);
+                    break;
+            }
+
+
+            // http://soundfile.sapp.org/doc/WaveFormat/
+            // wave file format made with help from the above link
+            Buffer.BlockCopy(wave, 0, binaryWave, 0, wave.Length * sizeof(short));
+            // Can also use FileSteam to write to a file so we can save it for later
+            using (FileStream fileStream = new FileStream(filepath, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+            using (BinaryWriter binWriter = new BinaryWriter(fileStream))
+            {
+                short blockAlign = BITS_PER_SAMPLE / 8;
+                int subChunkTwoSize = SAMPLE_RATE * blockAlign;
+                // HEAD CHUNK
+                binWriter.Write(new char[] { 'R', 'I', 'F', 'F' });
+                binWriter.Write(36 + subChunkTwoSize);
+                binWriter.Write(new char[] { 'W', 'A', 'V', 'E', 'f', 'm', 't', ' ' });
+                binWriter.Write(16);
+                binWriter.Write((short)1);
+                binWriter.Write((short)1);
+                binWriter.Write(SAMPLE_RATE);
+                binWriter.Write(SAMPLE_RATE * blockAlign);
+                binWriter.Write(blockAlign);
+                binWriter.Write(BITS_PER_SAMPLE);
+                // DATA CHUNK
+                binWriter.Write(new char[] { 'd', 'a', 't', 'a' });
+                binWriter.Write(subChunkTwoSize);
+                binWriter.Write(binaryWave);
+                // Point the stream pointer to the beginning of the stream
+                memoryStream.Position = 0;
+                new SoundPlayer(memoryStream).Play();
+            }
         }
 
         #region WaveTypes
