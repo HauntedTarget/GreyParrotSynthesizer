@@ -16,9 +16,10 @@ namespace GreyParrotSynthesizer
         private const int SAMPLE_RATE = 44100;
         private const short BITS_PER_SAMPLE = 16;
 
-        public Enum waveType { SINE, SQUARE, SAWTOOTH, TRIANGLE, NOISE };
+        public enum WaveType { SINE, SQUARE, SAWTOOTH, TRIANGLE, NOISE };
 
-        public static void PlaySound(float frequency, short amplitude, Enum waveEnum) // WE MIGHT WANT TO ADD AN AMPLITUDE PARAMETER
+        public void PlaySound(float frequency, short amplitude, enum waveEnum) // WE MIGHT WANT TO ADD AN AMPLITUDE PARAMETER
+
         {
 
             // Only plays for like 1 second though.
@@ -29,19 +30,19 @@ namespace GreyParrotSynthesizer
             // wave alogirthms made with help from the above link
             switch (waveEnum)
             {
-                case waveType.SINE:
+                case WaveType.SINE:
                     wave = SineWave(frequency, amplitude);
                     break;
-                case waveType.SQUARE:
+                case WaveType.SQUARE:
                     wave = SquareWave(frequency, amplitude);
                     break;
-                case waveType.SAWTOOTH:
+                case WaveType.SAWTOOTH:
                     wave = SawtoothWave(frequency, amplitude);
                     break;
-                case waveType.TRIANGLE:
+                case WaveType.TRIANGLE:
                     wave = TriangleWave(frequency, amplitude);
                     break;
-                case waveType.NOISE:
+                case WaveType.NOISE:
                     wave = NoiseWave(frequency, amplitude);
                     break;
             }
@@ -89,19 +90,19 @@ namespace GreyParrotSynthesizer
             // wave alogirthms made with help from the above link
             switch (waveEnum)
             {
-                case waveType.SINE:
+                case WaveType.SINE:
                     wave = SineWave(frequency, amplitude);
                     break;
-                case waveType.SQUARE:
+                case WaveType.SQUARE:
                     wave = SquareWave(frequency, amplitude);
                     break;
-                case waveType.SAWTOOTH:
+                case WaveType.SAWTOOTH:
                     wave = SawtoothWave(frequency, amplitude);
                     break;
-                case waveType.TRIANGLE:
+                case WaveType.TRIANGLE:
                     wave = TriangleWave(frequency, amplitude);
                     break;
-                case waveType.NOISE:
+                case WaveType.NOISE:
                     wave = NoiseWave(frequency, amplitude);
                     break;
             }
@@ -141,7 +142,7 @@ namespace GreyParrotSynthesizer
         }
 
         #region WaveTypes
-        private short[] SineWave(float frequency, short amplitude)
+        private static short[] SineWave(float frequency, short amplitude)
         {
             short[] wave = new short[SAMPLE_RATE];
             for (int i = 0; i < SAMPLE_RATE; i++)
@@ -151,7 +152,7 @@ namespace GreyParrotSynthesizer
             return wave;
         }
 
-        private short[] SquareWave(float frequency, short amplitude)
+        private static short[] SquareWave(float frequency, short amplitude)
         {
             short[] wave = new short[SAMPLE_RATE];
             for (int i = 0; i < SAMPLE_RATE; i++)
@@ -161,7 +162,7 @@ namespace GreyParrotSynthesizer
             return wave;
         }
 
-        private short[] SawtoothWave(float frequency, short amplitude)
+        private static short[] SawtoothWave(float frequency, short amplitude)
         {
             
             int samplesPerWavelength = Convert.ToInt32(SAMPLE_RATE / frequency);
@@ -195,8 +196,10 @@ namespace GreyParrotSynthesizer
             
         }
 
-        private short[] TriangleWave(float frequency, short amplitude)
+        private static short[] TriangleWave(float frequency, short amplitude)
         {
+            int samplesPerWavelength = Convert.ToInt32(SAMPLE_RATE / frequency);
+
             short amplitudeStep = Convert.ToInt16((amplitude * 2) / samplesPerWavelength);
 
             short tempSample = (short)-amplitude;
@@ -216,7 +219,7 @@ namespace GreyParrotSynthesizer
             }
         }
 
-        private short[] NoiseWave(float frequency, short amplitude)
+        private static short[] NoiseWave(float frequency, short amplitude)
         {
             Random random = new Random();
             short randomValue = 0;
