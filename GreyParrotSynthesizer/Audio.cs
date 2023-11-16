@@ -11,9 +11,6 @@ namespace GreyParrotSynthesizer
 {
     internal class Audio
     {
-
-        // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
-        // http://soundfile.sapp.org/doc/WaveFormat/
         // Every second we want to generate SAMPLE_RATE samples (i.e. 44100 samples per second)
         // Every second, there will be 16 bits per sample (i.e. 16 bits per sample)
         private const int SAMPLE_RATE = 44100;
@@ -21,14 +18,16 @@ namespace GreyParrotSynthesizer
 
         public static Enum waveType { SINE, SQUARE, SAWTOOTH, TRIANGLE, NOISE };
 
-        public static void PlaySineSound(float frequency, short amplitude) // WE MIGHT WANT TO ADD AN AMPLITUDE PARAMETER
+        public static void PlaySound(float frequency, short amplitude, Enum waveEnum) // WE MIGHT WANT TO ADD AN AMPLITUDE PARAMETER
         {
 
             // Only plays for like 1 second though.
             short[] wave = new short[SAMPLE_RATE];
             byte[] binaryWave = new byte[SAMPLE_RATE * sizeof(short)]; // 2 * samplerate
 
-            switch (waveType)
+            // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
+            // wave alogirthms made with help from the above link
+            switch (waveEnum)
             {
                 case waveType.SINE:
                     wave = SineWave(frequency, amplitude);
@@ -47,6 +46,9 @@ namespace GreyParrotSynthesizer
                     break;
             }
 
+
+            // http://soundfile.sapp.org/doc/WaveFormat/
+            // wave file format made with help from the above link
             Buffer.BlockCopy(wave, 0, binaryWave, 0, wave.Length * sizeof(short));
             // Can also use FileSteam to write to a file so we can save it for later
             using (MemoryStream memoryStream = new MemoryStream())
@@ -75,6 +77,13 @@ namespace GreyParrotSynthesizer
             }
 
         }
+
+        public static void SaveSound(float frequency, short amplitude, Enum waveEnum)
+        {
+            // TODO: I wanna do this later,, should be easy
+        }
+
+        #region WaveTypes
         private short[] SineWave(float frequency, short amplitude)
         {
             short[] wave = new short[SAMPLE_RATE];
@@ -97,24 +106,57 @@ namespace GreyParrotSynthesizer
 
         private short[] SawtoothWave(float frequency, short amplitude)
         {
-            // TODO: Implement this
+            
+            int samplesPerWavelength = Convert.ToInt32(SAMPLE_RATE / frequency);
+
+            short amplitudeStep = Convert.ToInt16((amplitude * 2) / samplesPerWavelength);
+
+            short tempSample = (short)-amplitude;
+
+            // Number of samples written so we know when to stop
+            int totalSamplesWritten = 0;
+
             short[] wave = new short[SAMPLE_RATE];
-            for (int i = 0; i < SAMPLE_RATE; i++)
+            while (totalSamplesWritten < SAMPLE_RATE)
             {
-                wave[i] = Convert.ToInt16(amplitude * Math.Sin((2 * Math.PI * frequency / SAMPLE_RATE) * i));
+                tempSample = (short)-amplitude;
+
+                for (uint i = 0; i < samplesPerWavelength && totalSamplesWritten < SAMPLE_RATE; i++)
+                {
+                    // 2 is the number of channels (stereo)
+                    for (int channel = 0; channel < 2; channel++)
+                    {
+                        tempSample += amplitudeStep;
+                        wave[i] = tempSample;
+
+                        totalSamplesWritten++;
+                    
+                    }
+                }
             }
             return wave;
+            
         }
 
         private short[] TriangleWave(float frequency, short amplitude)
         {
-            // TODO: Implement this
+            short amplitudeStep = Convert.ToInt16((amplitude * 2) / samplesPerWavelength);
+
+            short tempSample = (short)-amplitude;
+
             short[] wave = new short[SAMPLE_RATE];
             for (int i = 0; i < SAMPLE_RATE; i++)
             {
-                wave[i] = Convert.ToInt16(amplitude * Math.Sin((2 * Math.PI * frequency / SAMPLE_RATE) * i));
+                for (int channel = 0 ; channel < 2 ; channel++)
+                {
+                    if (Math.Abs(tempSample) > amplitude)
+                    {
+                        tempSample = (short)-amplitude;
+                    }
+                    tempSample += amplitudeStep;
+                    wave[i+ channel] = tempSample;
+                }
             }
-            return wave;
         }
 
         private short[] NoiseWave(float frequency, short amplitude)
@@ -130,6 +172,7 @@ namespace GreyParrotSynthesizer
             }
             return wave;
         }
+        #endregion WaveTypes
 
 
     }
