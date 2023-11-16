@@ -18,7 +18,7 @@ namespace GreyParrotSynthesizer
 
         public enum WaveType { SINE, SQUARE, SAWTOOTH, TRIANGLE, NOISE };
 
-        public void PlaySound(float frequency, short amplitude, WaveType waveType) // WE MIGHT WANT TO ADD AN AMPLITUDE PARAMETER
+        public static void PlaySound(float frequency, short amplitude, WaveType waveType) // WE MIGHT WANT TO ADD AN AMPLITUDE PARAMETER
 
         {
 

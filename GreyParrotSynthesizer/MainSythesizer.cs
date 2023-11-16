@@ -9,7 +9,7 @@ namespace GreyParrotSynthesizer
 
         private void MainSythesizer_KeyDown(object sender, KeyEventArgs e)
         {
-            Audio.PlaySineSound(440f);
+            Audio.PlaySound(440f, (short)1000, Audio.WaveType.SINE);
         }
     }
 }
