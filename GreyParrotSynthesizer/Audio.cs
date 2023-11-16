@@ -131,9 +131,12 @@ namespace GreyParrotSynthesizer
                 binWriter.Write(new char[] { 'd', 'a', 't', 'a' });
                 binWriter.Write(subChunkTwoSize);
                 binWriter.Write(binaryWave);
-                // Point the stream pointer to the beginning of the stream
-                memoryStream.Position = 0;
-                new SoundPlayer(memoryStream).Play();
+
+                // Close the file
+                binWriter.Close();
+                fileStream.Close();
+                
+                
             }
         }
 
