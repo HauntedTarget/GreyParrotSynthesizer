@@ -47,8 +47,6 @@ namespace GreyParrotSynthesizer
                     break;
             }
 
-            QueryContinueDragEventArgs;
-
 
             // http://soundfile.sapp.org/doc/WaveFormat/
             // wave file format made with help from the above link
