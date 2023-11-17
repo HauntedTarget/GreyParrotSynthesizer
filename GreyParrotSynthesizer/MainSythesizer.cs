@@ -13,11 +13,7 @@ namespace GreyParrotSynthesizer
         {
             if (e.KeyCode == Keys.E) 
             {
-                Audio.PlaySineSound(400f);
-            }
-            else if (e.KeyCode == Keys.R)
-            {
-                Audio.PlayNoise();
+                Audio.PlaySound(400f);
             }
         }
     }
