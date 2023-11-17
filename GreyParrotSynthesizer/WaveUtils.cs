@@ -9,6 +9,7 @@ namespace GreyParrotSynthesizer
 {
     internal class WaveUtils
     {
+        //enum to help simplify the wave choosing process through enum bound integers
         public enum WaveType
         {
             SINE = 1,
@@ -17,6 +18,7 @@ namespace GreyParrotSynthesizer
             NOISE = 4
         }
 
+        //function to return the wave function based on input of wave variables and chosen wavetype, returns Int16
         public static Int16 WaveCalc(float frequency, int waveLocation, WaveType waveType, int samepleRate = 44100, int seed = -1)
         {
             switch (waveType)
