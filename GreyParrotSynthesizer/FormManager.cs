@@ -16,11 +16,15 @@ namespace GreyParrotSynthesizer
         public enum FormSelection { MainSynthesizer = 0, UserWaveView = 1, TestForm = 2 }
         public FormManager()
         {
+            //adds forms
             forms.Add(CreateForm<MainSythesizer>());
             forms.Add(CreateForm<UserWaveView>());
             forms.Add(CreateForm<TestForm>());
+            //sets first form to the main one
             OpenOneForm(FormSelection.MainSynthesizer);
         }
+
+        //opens one form closes the others
         public void OpenOneForm(FormSelection FormToOpen)
         {
             if (FormToOpen == FormSelection.MainSynthesizer)
@@ -51,16 +55,19 @@ namespace GreyParrotSynthesizer
             }
         }
 
+        //opens a form but leaves the others open
         public void OpenForm(FormSelection FormToOpen)
         {
             forms[(int)FormToOpen].Show();
         }
 
+        //opens one form that is required to finish before going to the others
         public void OpenRequiredForm(FormSelection FormToRequire)
         {
             forms[(int)FormToRequire].ShowDialog();
         }
 
+        //hides the selected form
         public void HideForm(FormSelection FormToHide)
         {
             forms[(int)FormToHide].Hide();

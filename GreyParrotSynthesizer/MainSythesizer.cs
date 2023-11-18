@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace GreyParrotSynthesizer
 {
     public partial class MainSythesizer : Form
@@ -44,11 +46,13 @@ namespace GreyParrotSynthesizer
             amplitude = (short)AmplitudeBar.Value;
         }
 
+        //changes padding of radio buttons to 0
         private void changeRBPadding0(RadioButton radioButton)
         {
             radioButton.Padding = new Padding(0, 0, 0, 0);
         }
 
+        //sets bottom padding to 100, this makes it so the background image is visible
         private void changeRBPaddingImageVisible(RadioButton radioButton)
         {
             radioButton.Padding = new Padding(0, 100, 0, 0);
@@ -56,6 +60,8 @@ namespace GreyParrotSynthesizer
 
         private void radioButton1_Click(object sender, EventArgs e)
         {
+            //for each of these it changes the padding of the active radiobutton back to 0 to indicate that it has been accessed
+            //it sets the other ones to 100 so that you can see the button image again
             changeRBPadding0(radioButton1);
             changeRBPaddingImageVisible(radioButton2);
             changeRBPaddingImageVisible(radioButton3);
