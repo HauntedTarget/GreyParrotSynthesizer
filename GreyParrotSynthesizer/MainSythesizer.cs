@@ -3,7 +3,7 @@ namespace GreyParrotSynthesizer
     public partial class MainSythesizer : Form
     {
 
-        Audio.WaveType waveType = Audio.WaveType.SINE;
+        WaveUtils.WaveType waveType = WaveUtils.WaveType.SINE;
         float frequency = 200f;
         short amplitude = 1000;
 
@@ -15,18 +15,18 @@ namespace GreyParrotSynthesizer
 
         private void WaveFormDropDown_Load()
         {
-            WaveFormDropDown.DataSource = System.Enum.GetValues(typeof(Audio.WaveType));
+            WaveFormDropDown.DataSource = System.Enum.GetValues(typeof(WaveUtils.WaveType));
         }
 
         private void MainSythesizer_KeyDown(object sender, KeyEventArgs e)
         {
-            Audio.PlaySound(440f, (short)1000, Audio.WaveType.SINE);
+            Audio.PlaySound(440f, (short)1000, WaveUtils.WaveType.SINE);
         }
 
         private void WaveFormDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             string str = WaveFormDropDown.Items[WaveFormDropDown.SelectedIndex].ToString();
-            waveType = (Audio.WaveType)Enum.Parse(typeof(Audio.WaveType), str);
+            waveType = (WaveUtils.WaveType)Enum.Parse(typeof(WaveUtils.WaveType), str);
         }
 
         private void PlaySound_Click(object sender, EventArgs e)
