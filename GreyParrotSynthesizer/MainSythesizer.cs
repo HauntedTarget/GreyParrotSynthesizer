@@ -5,6 +5,7 @@ namespace GreyParrotSynthesizer
     public partial class MainSythesizer : Form
     {
     int dollars = 199999;
+        int dollars3 = 3;
 
         Audio.WaveType waveType = Audio.WaveType.SINE;
         float frequency = 200f;
