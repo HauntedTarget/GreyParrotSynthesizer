@@ -28,7 +28,7 @@ namespace GreyParrotSynthesizer
 
             // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
             // wave alogirthms made with help from the above link
-            wave = WaveUtils.WaveCalc(wave, frequency, waveType, SAMPLE_RATE, seed);
+            wave = WaveUtils.WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
 
 
 
@@ -72,7 +72,7 @@ namespace GreyParrotSynthesizer
 
             // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
             // wave alogirthms made with help from the above link
-            wave = WaveUtils.WaveCalc(wave, frequency, waveType, SAMPLE_RATE, seed);
+            wave = WaveUtils.WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
 
 
             // http://soundfile.sapp.org/doc/WaveFormat/
