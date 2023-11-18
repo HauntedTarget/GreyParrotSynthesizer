@@ -136,6 +136,8 @@ namespace GreyParrotSynthesizer
                 // Close the file
                 binWriter.Close();
                 fileStream.Close();
+
+                new SoundPlayer(filepath).Play();
                 
                 
             }

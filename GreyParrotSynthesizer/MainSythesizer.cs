@@ -31,7 +31,8 @@ namespace GreyParrotSynthesizer
 
         private void PlaySound_Click(object sender, EventArgs e)
         {
-            Audio.PlaySound(frequency, amplitude, waveType);
+            //Audio.PlaySound(frequency, amplitude, waveType);
+            Audio.SaveSound(frequency, amplitude, waveType, "test.wav");
         }
 
         private void FrequencyBar_Scroll(object sender, EventArgs e)
