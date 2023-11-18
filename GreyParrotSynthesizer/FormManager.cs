@@ -29,10 +29,12 @@ namespace GreyParrotSynthesizer
         {
             if (FormToOpen == FormSelection.MainSynthesizer)
             {
+                //opening selected form
                 forms[(int)FormSelection.MainSynthesizer].Show();
             }
             else
             {
+                //hiding other forms
                 forms[(int)FormSelection.MainSynthesizer].Hide();
             }
 
