@@ -1,3 +1,3 @@
 # GreyParrotSynthesizer
 
-To use (for now) hit letter buttons to play notes (not all buttons do stuff)
+Choose a wave type using the drop down menu, slide the sliders to change volume and frequencies, and hit Play Sound to play a wave type.

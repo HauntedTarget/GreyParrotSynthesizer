@@ -23,4 +23,8 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Accord.Statistics" Version="3.8.0" />
+  </ItemGroup>
+
 </Project>
