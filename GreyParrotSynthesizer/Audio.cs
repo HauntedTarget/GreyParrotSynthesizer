@@ -66,6 +66,7 @@ namespace GreyParrotSynthesizer
 
         public static void SaveSound(float frequency, short amplitude, WaveType waveType, float seconds, string filepath, int seed = -1)
         {
+            filepath = filepath + ".wav";
             // Only plays for like 1 second though.
             int waveLength = (int)(SAMPLE_RATE * seconds);
             short[] wave = new short[waveLength];
