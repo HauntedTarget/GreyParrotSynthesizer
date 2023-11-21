@@ -32,6 +32,7 @@
             PlaySound = new Button();
             FrequencyBar = new TrackBar();
             AmplitudeBar = new TrackBar();
+            TestSave = new Button();
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).BeginInit();
             SuspendLayout();
@@ -86,11 +87,22 @@
             AmplitudeBar.Value = 1000;
             AmplitudeBar.Scroll += AmplitudeBar_Scroll;
             // 
+            // TestSave
+            // 
+            TestSave.Location = new Point(104, 329);
+            TestSave.Name = "TestSave";
+            TestSave.Size = new Size(112, 34);
+            TestSave.TabIndex = 4;
+            TestSave.Text = "Test Save";
+            TestSave.UseVisualStyleBackColor = true;
+            TestSave.Click += TestSave_Click;
+            // 
             // MainSythesizer
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(TestSave);
             Controls.Add(AmplitudeBar);
             Controls.Add(FrequencyBar);
             Controls.Add(PlaySound);
@@ -110,5 +122,6 @@
         private Button PlaySound;
         private TrackBar FrequencyBar;
         private TrackBar AmplitudeBar;
+        private Button TestSave;
     }
 }

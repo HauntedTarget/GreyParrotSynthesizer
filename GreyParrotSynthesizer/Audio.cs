@@ -86,6 +86,8 @@ namespace GreyParrotSynthesizer
             short[] wave = new short[SAMPLE_RATE];
             byte[] binaryWave = new byte[SAMPLE_RATE * sizeof(short)]; // 2 * samplerate
 
+            filepath = filepath + ".wav";
+
             // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
             // wave alogirthms made with help from the above link
             switch (waveType)
