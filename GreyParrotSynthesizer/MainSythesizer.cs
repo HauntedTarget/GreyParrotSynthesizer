@@ -10,6 +10,7 @@ namespace GreyParrotSynthesizer
         WaveType waveType = WaveType.SINE;
         float frequency = 200f;
         short amplitude = 1000;
+        float seconds = 0.5f;
 
         public MainSythesizer()
         {
@@ -24,7 +25,7 @@ namespace GreyParrotSynthesizer
 
         private void MainSythesizer_KeyDown(object sender, KeyEventArgs e)
         {
-            Audio.PlaySound(440f, (short)1000, WaveType.SINE);
+            Audio.PlaySound(440f, (short)1000, WaveType.SINE, seconds);
         }
 
         private void WaveFormDropDown_SelectedIndexChanged(object sender, EventArgs e)
@@ -35,7 +36,8 @@ namespace GreyParrotSynthesizer
 
         private void PlaySound_Click(object sender, EventArgs e)
         {
-            Audio.PlaySound(frequency, amplitude, waveType);
+            Audio.PlaySound(frequency, amplitude, waveType, seconds);
+            //Audio.SaveSound(frequency, amplitude, waveType, "test.wav");
         }
 
         private void FrequencyBar_Scroll(object sender, EventArgs e)
