@@ -21,6 +21,28 @@ namespace GreyParrotSynthesizer
             NOISE = 5
         }
 
+        public enum Notes
+        {
+            q = Keys.Q,
+            two = Keys.D2,
+            w = Keys.W,
+            three = Keys.D3,
+            e = Keys.E,
+            r = Keys.R,
+            five = Keys.D5,
+            t = Keys.T,
+            six = Keys.D6,
+            // Origin of A (A4 on init)
+            y = Keys.Y,
+            seven = Keys.D7,
+            u = Keys.U,
+            i = Keys.I,
+            nine = Keys.D9,
+            o = Keys.O,
+            zero = Keys.D0,
+            p = Keys.P
+        }
+
         //function to return the wave function based on input of wave variables and chosen wavetype, returns Int16
         public static short[] WaveCalc(short[] wave,float amplitude, float frequency, WaveType waveType, int samepleRate = 44100, int seed = -1)
         {
@@ -73,7 +95,8 @@ namespace GreyParrotSynthesizer
     }
 
     /*
-     - 
-     -
+     - Note Keys: q2w3er5t6y7ui9o0p
+     - Octave Keys: -, +
+     + 
      */
 }

@@ -1,4 +1,5 @@
-﻿namespace GreyParrotSynthesizer
+﻿
+namespace GreyParrotSynthesizer
 {
     partial class MainSythesizer
     {
@@ -448,7 +449,7 @@
             Controls.Add(outlinecolor2);
             Name = "MainSythesizer";
             Text = "Form1";
-            KeyDown += MainSythesizer_KeyDown;
+            KeyPress += OnKeyPress;
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).EndInit();
             radioButtonGroup.ResumeLayout(false);

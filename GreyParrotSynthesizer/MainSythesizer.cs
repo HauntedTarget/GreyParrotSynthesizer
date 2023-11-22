@@ -6,11 +6,15 @@ namespace GreyParrotSynthesizer
 {
     public partial class MainSythesizer : Form
     {
-
         WaveType waveType = WaveType.SINE;
         float frequency = 200f;
+        // frequency of C note: 523.25
+        // note frequency algorithm = 440 * (1.059463..)^n
+        // n = steps away from A4
         short amplitude = 1000;
         float seconds = 0.5f;
+        // ranges 0 to 8
+        short octive = 4;
 
         public MainSythesizer()
         {
@@ -23,9 +27,10 @@ namespace GreyParrotSynthesizer
             WaveFormDropDown.DataSource = System.Enum.GetValues(typeof(WaveType));
         }
 
-        private void MainSythesizer_KeyDown(object sender, KeyEventArgs e)
+        private void OnKeyPress(object sender, KeyPressEventArgs e)
         {
-            Audio.PlaySound(440f, (short)1000, WaveType.SINE, seconds);
+            Audio.PlaySound(frequency, amplitude, waveType, seconds);
+            throw new NotImplementedException();
         }
 
         private void WaveFormDropDown_SelectedIndexChanged(object sender, EventArgs e)
