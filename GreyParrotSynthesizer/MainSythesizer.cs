@@ -16,6 +16,24 @@ namespace GreyParrotSynthesizer
         {
             InitializeComponent();
             WaveFormDropDown_Load();
+
+            CreateFiles();
+        }
+
+        private void CreateFiles()
+        {
+            if (File.Exists(Path.Combine(path, "Sounds", filename, "1")))
+            {
+                return;
+            }
+            else
+            {
+                Directory.CreateDirectory(Path.Combine(path, "Sounds"));
+                for (int i = 0; i < 8; i++)
+                {
+                    Audio.SaveSound(frequency, amplitude, waveType, Path.Combine(path, "Sounds", filename + (i + 1).ToString()));
+                }
+            }
         }
 
         private void WaveFormDropDown_Load()
