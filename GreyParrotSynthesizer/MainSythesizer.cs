@@ -202,5 +202,10 @@ namespace GreyParrotSynthesizer
             changeRBPaddingImageVisible(radioButton9);
             changeRBPaddingImageVisible(radioButton8);
         }
+
+        private void saveButtton_Click(object sender, EventArgs e)
+        {
+            Audio.SaveSound(frequency, amplitude, waveType, Path.Combine(path, "Sounds", filename + "1"));
+        }
     }
 }
