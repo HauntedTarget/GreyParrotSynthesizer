@@ -6,8 +6,11 @@ namespace GreyParrotSynthesizer
 {
     public partial class MainSythesizer : Form
     {
+        private static string directoryPath = Path.Combine(Environment.CurrentDirectory, "Sounds");
+        private string filename;
+        private string existingSound = Path.Combine(directoryPath, "sound");
 
-        WaveType waveType = WaveType.SINE;
+        Audio.WaveType waveType = Audio.WaveType.SINE;
         float frequency = 200f;
         short amplitude = 1000;
         float seconds = 0.5f;
@@ -22,34 +25,34 @@ namespace GreyParrotSynthesizer
 
         private void CreateFiles()
         {
-            if (File.Exists(Path.Combine(path, "Sounds", filename, "1")))
+            if (File.Exists(existingSound + "1"))
             {
                 return;
             }
             else
             {
-                Directory.CreateDirectory(Path.Combine(path, "Sounds"));
-                for (int i = 0; i < 8; i++)
+                Directory.CreateDirectory(directoryPath);
+                for (int i = 0; i < 10; i++)
                 {
-                    Audio.SaveSound(frequency, amplitude, waveType, Path.Combine(path, "Sounds", filename + (i + 1).ToString()));
+                    Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + (i + 1).ToString());
                 }
             }
         }
 
         private void WaveFormDropDown_Load()
         {
-            WaveFormDropDown.DataSource = System.Enum.GetValues(typeof(WaveType));
+            WaveFormDropDown.DataSource = System.Enum.GetValues(typeof(Audio.WaveType));
         }
 
         private void MainSythesizer_KeyDown(object sender, KeyEventArgs e)
         {
-            Audio.PlaySound(440f, (short)1000, WaveType.SINE, seconds);
+            Audio.PlaySound(440f, (short)1000, Audio.WaveType.SINE, seconds);
         }
 
         private void WaveFormDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             string str = WaveFormDropDown.Items[WaveFormDropDown.SelectedIndex].ToString();
-            waveType = (WaveType)Enum.Parse(typeof(WaveType), str);
+            waveType = (Audio.WaveType)Enum.Parse(typeof(Audio.WaveType), str);
         }
 
         private void PlaySound_Click(object sender, EventArgs e)
@@ -223,7 +226,32 @@ namespace GreyParrotSynthesizer
 
         private void saveButtton_Click(object sender, EventArgs e)
         {
-            Audio.SaveSound(frequency, amplitude, waveType, Path.Combine(path, "Sounds", filename + "1"));
+
+            if(/*textbox with filename not empty*/ false)
+            {
+                Audio.SaveSound(frequency, amplitude, waveType, seconds, Path.Combine(directoryPath,/*textbox filename*/ "") );
+            }
+
+
+            if (radioButton1.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "1");
+            else if (radioButton2.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "2");
+            else if (radioButton3.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "3");
+            else if (radioButton4.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "4");
+            else if (radioButton5.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "5");
+            else if (radioButton6.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "6");
+            else if (radioButton7.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "7");
+            else if (radioButton8.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "8");
+            else if (radioButton9.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "9");
+            else if (radioButton10.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "10");
+        }
+
+        private void playSoundStorage_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                string temp = existingSound + (i + 1).ToString();
+                Audio.PlaySoundFromFile(temp);
+            }
         }
     }
 }

@@ -71,7 +71,7 @@
             WaveFormDropDown.ForeColor = Color.DodgerBlue;
             WaveFormDropDown.FormattingEnabled = true;
             WaveFormDropDown.Location = new Point(34, 23);
-            WaveFormDropDown.Margin = new Padding(2, 2, 2, 2);
+            WaveFormDropDown.Margin = new Padding(2);
             WaveFormDropDown.Name = "WaveFormDropDown";
             WaveFormDropDown.Size = new Size(131, 33);
             WaveFormDropDown.TabIndex = 0;
@@ -84,7 +84,7 @@
             PlaySound.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             PlaySound.ForeColor = Color.DodgerBlue;
             PlaySound.Location = new Point(34, 87);
-            PlaySound.Margin = new Padding(2, 2, 2, 2);
+            PlaySound.Margin = new Padding(2);
             PlaySound.Name = "PlaySound";
             PlaySound.Size = new Size(130, 32);
             PlaySound.TabIndex = 1;
@@ -98,7 +98,7 @@
             FrequencyBar.Anchor = AnchorStyles.None;
             FrequencyBar.BackColor = SystemColors.ActiveCaptionText;
             FrequencyBar.Location = new Point(491, 80);
-            FrequencyBar.Margin = new Padding(2, 2, 2, 2);
+            FrequencyBar.Margin = new Padding(2);
             FrequencyBar.Maximum = 400;
             FrequencyBar.Minimum = 200;
             FrequencyBar.Name = "FrequencyBar";
@@ -115,7 +115,7 @@
             AmplitudeBar.Anchor = AnchorStyles.None;
             AmplitudeBar.BackColor = SystemColors.ActiveCaptionText;
             AmplitudeBar.Location = new Point(370, 80);
-            AmplitudeBar.Margin = new Padding(2, 2, 2, 2);
+            AmplitudeBar.Margin = new Padding(2);
             AmplitudeBar.Maximum = 10000;
             AmplitudeBar.Minimum = 1000;
             AmplitudeBar.Name = "AmplitudeBar";
@@ -134,7 +134,7 @@
             radioButton1.BackgroundImageLayout = ImageLayout.Zoom;
             radioButton1.ForeColor = Color.Transparent;
             radioButton1.Location = new Point(12, 7);
-            radioButton1.Margin = new Padding(2, 2, 2, 2);
+            radioButton1.Margin = new Padding(2);
             radioButton1.Name = "radioButton1";
             radioButton1.Padding = new Padding(0, 60, 0, 0);
             radioButton1.Size = new Size(15, 12);
@@ -160,7 +160,7 @@
             radioButtonGroup.Controls.Add(radioButton1);
             radioButtonGroup.ForeColor = Color.Black;
             radioButtonGroup.Location = new Point(94, 250);
-            radioButtonGroup.Margin = new Padding(2, 2, 2, 2);
+            radioButtonGroup.Margin = new Padding(2);
             radioButtonGroup.Name = "radioButtonGroup";
             radioButtonGroup.Size = new Size(482, 29);
             radioButtonGroup.TabIndex = 6;
@@ -171,7 +171,7 @@
             radioButton10.BackgroundImage = (Image)resources.GetObject("radioButton10.BackgroundImage");
             radioButton10.BackgroundImageLayout = ImageLayout.Zoom;
             radioButton10.Location = new Point(453, 7);
-            radioButton10.Margin = new Padding(2, 2, 2, 2);
+            radioButton10.Margin = new Padding(2);
             radioButton10.Name = "radioButton10";
             radioButton10.Padding = new Padding(0, 60, 0, 0);
             radioButton10.Size = new Size(15, 12);
@@ -185,7 +185,7 @@
             radioButton9.BackgroundImage = (Image)resources.GetObject("radioButton9.BackgroundImage");
             radioButton9.BackgroundImageLayout = ImageLayout.Zoom;
             radioButton9.Location = new Point(404, 7);
-            radioButton9.Margin = new Padding(2, 2, 2, 2);
+            radioButton9.Margin = new Padding(2);
             radioButton9.Name = "radioButton9";
             radioButton9.Padding = new Padding(0, 60, 0, 0);
             radioButton9.Size = new Size(15, 12);
@@ -199,7 +199,7 @@
             radioButton7.BackgroundImage = (Image)resources.GetObject("radioButton7.BackgroundImage");
             radioButton7.BackgroundImageLayout = ImageLayout.Zoom;
             radioButton7.Location = new Point(306, 7);
-            radioButton7.Margin = new Padding(2, 2, 2, 2);
+            radioButton7.Margin = new Padding(2);
             radioButton7.Name = "radioButton7";
             radioButton7.Padding = new Padding(0, 60, 0, 0);
             radioButton7.Size = new Size(15, 12);
@@ -213,7 +213,7 @@
             radioButton8.BackgroundImage = (Image)resources.GetObject("radioButton8.BackgroundImage");
             radioButton8.BackgroundImageLayout = ImageLayout.Zoom;
             radioButton8.Location = new Point(355, 7);
-            radioButton8.Margin = new Padding(2, 2, 2, 2);
+            radioButton8.Margin = new Padding(2);
             radioButton8.Name = "radioButton8";
             radioButton8.Padding = new Padding(0, 60, 0, 0);
             radioButton8.Size = new Size(15, 12);
@@ -227,7 +227,7 @@
             radioButton6.BackgroundImage = (Image)resources.GetObject("radioButton6.BackgroundImage");
             radioButton6.BackgroundImageLayout = ImageLayout.Zoom;
             radioButton6.Location = new Point(257, 7);
-            radioButton6.Margin = new Padding(2, 2, 2, 2);
+            radioButton6.Margin = new Padding(2);
             radioButton6.Name = "radioButton6";
             radioButton6.Padding = new Padding(0, 60, 0, 0);
             radioButton6.Size = new Size(15, 12);
@@ -241,7 +241,7 @@
             radioButton5.BackgroundImage = (Image)resources.GetObject("radioButton5.BackgroundImage");
             radioButton5.BackgroundImageLayout = ImageLayout.Zoom;
             radioButton5.Location = new Point(208, 7);
-            radioButton5.Margin = new Padding(2, 2, 2, 2);
+            radioButton5.Margin = new Padding(2);
             radioButton5.Name = "radioButton5";
             radioButton5.Padding = new Padding(0, 60, 0, 0);
             radioButton5.Size = new Size(15, 12);
@@ -255,7 +255,7 @@
             radioButton4.BackgroundImage = (Image)resources.GetObject("radioButton4.BackgroundImage");
             radioButton4.BackgroundImageLayout = ImageLayout.Zoom;
             radioButton4.Location = new Point(159, 7);
-            radioButton4.Margin = new Padding(2, 2, 2, 2);
+            radioButton4.Margin = new Padding(2);
             radioButton4.Name = "radioButton4";
             radioButton4.Padding = new Padding(0, 60, 0, 0);
             radioButton4.Size = new Size(15, 12);
@@ -269,7 +269,7 @@
             radioButton3.BackgroundImage = (Image)resources.GetObject("radioButton3.BackgroundImage");
             radioButton3.BackgroundImageLayout = ImageLayout.Zoom;
             radioButton3.Location = new Point(110, 7);
-            radioButton3.Margin = new Padding(2, 2, 2, 2);
+            radioButton3.Margin = new Padding(2);
             radioButton3.Name = "radioButton3";
             radioButton3.Padding = new Padding(0, 60, 0, 0);
             radioButton3.Size = new Size(15, 12);
@@ -284,7 +284,7 @@
             radioButton2.BackgroundImageLayout = ImageLayout.Zoom;
             radioButton2.ForeColor = Color.Transparent;
             radioButton2.Location = new Point(61, 7);
-            radioButton2.Margin = new Padding(2, 2, 2, 2);
+            radioButton2.Margin = new Padding(2);
             radioButton2.Name = "radioButton2";
             radioButton2.Padding = new Padding(0, 60, 0, 0);
             radioButton2.Size = new Size(15, 12);
@@ -395,7 +395,7 @@
             saveButtton.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             saveButtton.ForeColor = Color.DodgerBlue;
             saveButtton.Location = new Point(34, 122);
-            saveButtton.Margin = new Padding(2, 2, 2, 2);
+            saveButtton.Margin = new Padding(2);
             saveButtton.Name = "saveButtton";
             saveButtton.Size = new Size(130, 32);
             saveButtton.TabIndex = 15;
@@ -411,7 +411,7 @@
             deleteSoundButton.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             deleteSoundButton.ForeColor = Color.DodgerBlue;
             deleteSoundButton.Location = new Point(34, 158);
-            deleteSoundButton.Margin = new Padding(2, 2, 2, 2);
+            deleteSoundButton.Margin = new Padding(2);
             deleteSoundButton.Name = "deleteSoundButton";
             deleteSoundButton.Size = new Size(130, 32);
             deleteSoundButton.TabIndex = 16;
@@ -446,11 +446,12 @@
             playSoundStorage.BackgroundImage = (Image)resources.GetObject("playSoundStorage.BackgroundImage");
             playSoundStorage.BackgroundImageLayout = ImageLayout.Zoom;
             playSoundStorage.Location = new Point(27, 217);
-            playSoundStorage.Margin = new Padding(2, 2, 2, 2);
+            playSoundStorage.Margin = new Padding(2);
             playSoundStorage.Name = "playSoundStorage";
             playSoundStorage.Size = new Size(57, 66);
             playSoundStorage.TabIndex = 19;
             playSoundStorage.UseVisualStyleBackColor = false;
+            playSoundStorage.Click += playSoundStorage_Click;
             // 
             // MainSythesizer
             // 
@@ -475,7 +476,7 @@
             Controls.Add(backcolor3);
             Controls.Add(outlinecolor);
             Controls.Add(outlinecolor2);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "MainSythesizer";
             Text = "Form1";
             KeyDown += MainSythesizer_KeyDown;

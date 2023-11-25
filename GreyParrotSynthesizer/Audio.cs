@@ -19,8 +19,9 @@ namespace GreyParrotSynthesizer
         private const int SAMPLE_RATE = 44100;
         private const short BITS_PER_SAMPLE = 16;
 
-        public static Enum waveType = { SINE, SQUARE, SAWTOOTH, TRIANGLE, NOISE };
+        public enum WaveType  { SINE, SQUARE, SAWTOOTH, TRIANGLE, NOISE };
 
+        public static void PlaySound(float frequency, short amplitude, WaveType waveType, float seconds, int seed = -1)
         {
             // Only plays for like 1 second though.
             int waveLength = (int)(SAMPLE_RATE * seconds);
@@ -62,6 +63,37 @@ namespace GreyParrotSynthesizer
                 new SoundPlayer(memoryStream).Play();
             }
 
+        }
+
+        public static void PlaySoundFromFile(string filename)
+        {
+            new SoundPlayer(filename + ".wav").Play();
+
+            // need to figure out how to get length of sound in milliseconds
+            wait(1000); 
+        }
+
+        private static void wait(int milliseconds)
+        {
+            var timer1 = new System.Windows.Forms.Timer();
+            if (milliseconds == 0 || milliseconds < 0) return;
+
+            // Console.WriteLine("start wait timer");
+            timer1.Interval = milliseconds;
+            timer1.Enabled = true;
+            timer1.Start();
+
+            timer1.Tick += (s, e) =>
+            {
+                timer1.Enabled = false;
+                timer1.Stop();
+                // Console.WriteLine("stop wait timer");
+            };
+
+            while (timer1.Enabled)
+            {
+                Application.DoEvents();
+            }
         }
 
         public static void SaveSound(float frequency, short amplitude, WaveType waveType, float seconds, string filepath, int seed = -1)
@@ -107,7 +139,7 @@ namespace GreyParrotSynthesizer
                 binWriter.Close();
                 fileStream.Close();
 
-                new SoundPlayer(filepath).Play();
+                //new SoundPlayer(filepath).Play();
                 
                 
             }
