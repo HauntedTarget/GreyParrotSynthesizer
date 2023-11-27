@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GreyParrotSynthesizer
 {
-    public partial class TestForm : Form
+    public partial class MainMenu : Form
     {
-        public TestForm()
+        public MainMenu()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormManager.Current.OpenOneForm(FormManager.FormSelection.MainSynthesizer);
         }
     }
 }

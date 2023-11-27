@@ -41,11 +41,17 @@ namespace GreyParrotSynthesizer
         private void FrequencyBar_Scroll(object sender, EventArgs e)
         {
             frequency = FrequencyBar.Value;
+            frequencyValueDisplay.Text = frequency.ToString();
         }
 
         private void AmplitudeBar_Scroll(object sender, EventArgs e)
         {
             amplitude = (short)AmplitudeBar.Value;
+            amplitudeDisplay.Text = amplitude.ToString();
+        }
+        private void durationBar_Scroll(object sender, EventArgs e)
+        {
+            durationValueDisplay.Text = durationBar.Value.ToString();
         }
 
         //changes padding of radio buttons to 0
@@ -200,5 +206,6 @@ namespace GreyParrotSynthesizer
             changeRBPaddingImageVisible(radioButton9);
             changeRBPaddingImageVisible(radioButton8);
         }
+
     }
 }
