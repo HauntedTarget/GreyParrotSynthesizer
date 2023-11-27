@@ -71,6 +71,7 @@ namespace GreyParrotSynthesizer
             WaveFormDropDown.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
             WaveFormDropDown.ForeColor = Color.DodgerBlue;
             WaveFormDropDown.FormattingEnabled = true;
+            WaveFormDropDown.ImeMode = ImeMode.NoControl;
             WaveFormDropDown.Location = new Point(48, 39);
             WaveFormDropDown.Name = "WaveFormDropDown";
             WaveFormDropDown.Size = new Size(185, 40);
@@ -447,10 +448,9 @@ namespace GreyParrotSynthesizer
             Controls.Add(backcolor3);
             Controls.Add(outlinecolor);
             Controls.Add(outlinecolor2);
+            KeyPreview = true;
             Name = "MainSythesizer";
             Text = "Form1";
-            //KeyPreview stuff learnt here: https://www.codeproject.com/Questions/217362/how-set-keypress-in-form-in-csharp
-            KeyPreview = true;
             KeyPress += OnKeyPress;
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).EndInit();

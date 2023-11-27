@@ -1,3 +1,4 @@
+using Accord;
 using System.Diagnostics.CodeAnalysis;
 
 using static GreyParrotSynthesizer.WaveUtils;
@@ -8,13 +9,10 @@ namespace GreyParrotSynthesizer
     {
         WaveType waveType = WaveType.SINE;
         float frequency = 200f;
-        // frequency of C note: 523.25
-        // note frequency algorithm = 440 * (1.059463..)^n
-        // n = steps away from A4
         short amplitude = 1000;
         float seconds = 0.5f;
         // ranges 0 to 8
-        short octive = 4;
+        short octave = 4;
 
         public MainSythesizer()
         {
@@ -29,7 +27,24 @@ namespace GreyParrotSynthesizer
 
         private void OnKeyPress(object sender, KeyPressEventArgs e)
         {
-            Audio.PlaySound(frequency, amplitude, waveType, seconds);
+            if (!e.KeyChar.Equals('-') && !e.KeyChar.Equals('='))
+            {
+                float frequencyPress = WaveUtils.KeyToNote(e, octave);
+
+                if (frequencyPress > 19) Audio.PlaySound(frequencyPress, amplitude, waveType, seconds);
+            }
+            else
+            {
+                switch (e.KeyChar) 
+                {
+                    default:
+                        if (octave > 0) octave--;
+                        break;
+                    case '=':
+                        if (octave < 8) octave++;
+                        break;
+                }
+            }
         }
 
         private void WaveFormDropDown_SelectedIndexChanged(object sender, EventArgs e)
