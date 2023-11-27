@@ -7,21 +7,21 @@ using System.Threading.Channels;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace GreyParrotSynthesizer
+namespace GreyParrotSynthesizer.Main
 {
     internal class WaveUtils
     {
         //enum to help simplify the wave choosing process through enum bound integers
-        
+
 
         //function to return the wave function based on input of wave variables and chosen wavetype, returns Int16
-        public static short[] WaveCalc(short[] wave,float amplitude, float frequency, Audio.WaveType waveType, int samepleRate = 44100, int seed = -1)
+        public static short[] WaveCalc(short[] wave, float amplitude, float frequency, Audio.WaveType waveType, int samepleRate = 44100, int seed = -1)
         {
             short tempSample = (short)-amplitude;
 
             int samplesPerWavelength = Convert.ToInt32(samepleRate / frequency);
 
-            short amplitudeStep = Convert.ToInt16((amplitude * 2) / samplesPerWavelength);
+            short amplitudeStep = Convert.ToInt16(amplitude * 2 / samplesPerWavelength);
 
             for (int i = 0; i < wave.Length; i++)
             {
@@ -29,11 +29,11 @@ namespace GreyParrotSynthesizer
                 switch (waveType)
                 {
                     default:
-                        wave[i] = Convert.ToInt16(short.MaxValue * Math.Sin((2 * Math.PI * frequency / samepleRate) * i));
+                        wave[i] = Convert.ToInt16(short.MaxValue * Math.Sin(2 * Math.PI * frequency / samepleRate * i));
                         break;
 
                     case Audio.WaveType.SQUARE:
-                        wave[i] = Convert.ToInt16(frequency * Math.Sign(Math.Sin((2 * Math.PI * frequency / samepleRate) * i)));
+                        wave[i] = Convert.ToInt16(frequency * Math.Sign(Math.Sin(2 * Math.PI * frequency / samepleRate * i)));
                         break;
 
                     case Audio.WaveType.SAWTOOTH:

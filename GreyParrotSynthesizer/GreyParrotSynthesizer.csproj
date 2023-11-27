@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <PackageReference Include="Accord.Statistics" Version="3.8.0" />
+    <PackageReference Include="WinForms.DataVisualization" Version="1.9.1" />
   </ItemGroup>
 
 </Project>

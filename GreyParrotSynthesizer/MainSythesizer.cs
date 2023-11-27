@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
-
-using static GreyParrotSynthesizer.WaveUtils;
+using GreyParrotSynthesizer.Main;
+using static GreyParrotSynthesizer.Main.WaveUtils;
 
 namespace GreyParrotSynthesizer
 {
@@ -15,12 +15,21 @@ namespace GreyParrotSynthesizer
         short amplitude = 1000;
         float seconds = 0.5f;
 
+        public event EventHandler<short[]> DataSend;
+
         public MainSythesizer()
         {
             InitializeComponent();
             WaveFormDropDown_Load();
 
             CreateFiles();
+            ShowWaveGraph();
+        }
+
+        private void ShowWaveGraph()
+        {
+            WaveGraph waveGraph = new WaveGraph();
+            waveGraph.Show();
         }
 
         private void CreateFiles()

@@ -1,3 +1,5 @@
+using GreyParrotSynthesizer.Main;
+
 namespace GreyParrotSynthesizer
 {
     internal static class Program
