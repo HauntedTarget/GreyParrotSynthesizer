@@ -30,12 +30,11 @@ namespace GreyParrotSynthesizer
         private void OnKeyPress(object sender, KeyPressEventArgs e)
         {
             Audio.PlaySound(frequency, amplitude, waveType, seconds);
-            throw new NotImplementedException();
         }
 
         private void WaveFormDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string str = WaveFormDropDown.Items[WaveFormDropDown.SelectedIndex].ToString();
+            string str = WaveFormDropDown.Items[WaveFormDropDown.SelectedIndex].ToString() + "";
             waveType = (WaveType)Enum.Parse(typeof(WaveType), str);
         }
 

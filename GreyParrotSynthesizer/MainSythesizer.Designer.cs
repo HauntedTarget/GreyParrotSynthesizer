@@ -449,6 +449,8 @@ namespace GreyParrotSynthesizer
             Controls.Add(outlinecolor2);
             Name = "MainSythesizer";
             Text = "Form1";
+            //KeyPreview stuff learnt here: https://www.codeproject.com/Questions/217362/how-set-keypress-in-form-in-csharp
+            KeyPreview = true;
             KeyPress += OnKeyPress;
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).EndInit();
