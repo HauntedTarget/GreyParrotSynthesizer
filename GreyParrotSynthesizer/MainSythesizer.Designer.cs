@@ -62,6 +62,7 @@
             amplitudeDisplay = new Label();
             frequencyValueDisplay = new Label();
             durationValueDisplay = new Label();
+            exitButton = new Button();
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).BeginInit();
             radioButtonGroup.SuspendLayout();
@@ -76,7 +77,7 @@
             WaveFormDropDown.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
             WaveFormDropDown.ForeColor = Color.DodgerBlue;
             WaveFormDropDown.FormattingEnabled = true;
-            WaveFormDropDown.Location = new Point(94, 56);
+            WaveFormDropDown.Location = new Point(72, 66);
             WaveFormDropDown.Name = "WaveFormDropDown";
             WaveFormDropDown.Size = new Size(185, 40);
             WaveFormDropDown.TabIndex = 0;
@@ -88,7 +89,7 @@
             PlaySound.BackColor = Color.Black;
             PlaySound.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
             PlaySound.ForeColor = Color.DodgerBlue;
-            PlaySound.Location = new Point(94, 162);
+            PlaySound.Location = new Point(72, 172);
             PlaySound.Name = "PlaySound";
             PlaySound.Size = new Size(185, 53);
             PlaySound.TabIndex = 1;
@@ -101,7 +102,7 @@
             // 
             FrequencyBar.Anchor = AnchorStyles.None;
             FrequencyBar.BackColor = SystemColors.ActiveCaptionText;
-            FrequencyBar.Location = new Point(716, 85);
+            FrequencyBar.Location = new Point(694, 95);
             FrequencyBar.Maximum = 400;
             FrequencyBar.Minimum = 200;
             FrequencyBar.Name = "FrequencyBar";
@@ -117,7 +118,7 @@
             // 
             AmplitudeBar.Anchor = AnchorStyles.None;
             AmplitudeBar.BackColor = SystemColors.ActiveCaptionText;
-            AmplitudeBar.Location = new Point(544, 85);
+            AmplitudeBar.Location = new Point(522, 95);
             AmplitudeBar.Maximum = 10000;
             AmplitudeBar.Minimum = 1000;
             AmplitudeBar.Name = "AmplitudeBar";
@@ -160,7 +161,7 @@
             radioButtonGroup.Controls.Add(radioButton2);
             radioButtonGroup.Controls.Add(radioButton1);
             radioButtonGroup.ForeColor = Color.Black;
-            radioButtonGroup.Location = new Point(180, 434);
+            radioButtonGroup.Location = new Point(158, 444);
             radioButtonGroup.Name = "radioButtonGroup";
             radioButtonGroup.Size = new Size(853, 48);
             radioButtonGroup.TabIndex = 6;
@@ -290,7 +291,7 @@
             frequencyLabel.BackColor = Color.Black;
             frequencyLabel.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
             frequencyLabel.ForeColor = Color.DodgerBlue;
-            frequencyLabel.Location = new Point(671, 35);
+            frequencyLabel.Location = new Point(649, 45);
             frequencyLabel.Name = "frequencyLabel";
             frequencyLabel.Size = new Size(178, 47);
             frequencyLabel.TabIndex = 7;
@@ -303,7 +304,7 @@
             amplitudeLabel.BackColor = Color.Black;
             amplitudeLabel.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
             amplitudeLabel.ForeColor = Color.DodgerBlue;
-            amplitudeLabel.Location = new Point(487, 35);
+            amplitudeLabel.Location = new Point(465, 45);
             amplitudeLabel.Name = "amplitudeLabel";
             amplitudeLabel.Size = new Size(178, 47);
             amplitudeLabel.TabIndex = 8;
@@ -314,7 +315,7 @@
             // 
             backgroundColor.Anchor = AnchorStyles.None;
             backgroundColor.BackColor = Color.Black;
-            backgroundColor.Location = new Point(487, 35);
+            backgroundColor.Location = new Point(465, 45);
             backgroundColor.Name = "backgroundColor";
             backgroundColor.Size = new Size(51, 391);
             backgroundColor.TabIndex = 9;
@@ -324,7 +325,7 @@
             // 
             backcolor2.Anchor = AnchorStyles.None;
             backcolor2.BackColor = Color.Black;
-            backcolor2.Location = new Point(617, 35);
+            backcolor2.Location = new Point(595, 45);
             backcolor2.Name = "backcolor2";
             backcolor2.Size = new Size(91, 391);
             backcolor2.TabIndex = 10;
@@ -336,7 +337,7 @@
             soundBarLabel.BackColor = Color.Black;
             soundBarLabel.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
             soundBarLabel.ForeColor = Color.DodgerBlue;
-            soundBarLabel.Location = new Point(181, 386);
+            soundBarLabel.Location = new Point(159, 396);
             soundBarLabel.Name = "soundBarLabel";
             soundBarLabel.Size = new Size(331, 40);
             soundBarLabel.TabIndex = 12;
@@ -347,7 +348,7 @@
             // 
             outlinecolor.Anchor = AnchorStyles.None;
             outlinecolor.BackColor = Color.White;
-            outlinecolor.Location = new Point(477, 26);
+            outlinecolor.Location = new Point(455, 36);
             outlinecolor.Name = "outlinecolor";
             outlinecolor.Size = new Size(562, 407);
             outlinecolor.TabIndex = 13;
@@ -356,7 +357,7 @@
             // 
             outlinecolor2.Anchor = AnchorStyles.None;
             outlinecolor2.BackColor = Color.White;
-            outlinecolor2.Location = new Point(172, 379);
+            outlinecolor2.Location = new Point(150, 389);
             outlinecolor2.Name = "outlinecolor2";
             outlinecolor2.Size = new Size(867, 110);
             outlinecolor2.TabIndex = 14;
@@ -367,7 +368,7 @@
             saveButtton.BackColor = Color.Black;
             saveButtton.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
             saveButtton.ForeColor = Color.DodgerBlue;
-            saveButtton.Location = new Point(94, 221);
+            saveButtton.Location = new Point(72, 231);
             saveButtton.Name = "saveButtton";
             saveButtton.Size = new Size(185, 53);
             saveButtton.TabIndex = 15;
@@ -381,7 +382,7 @@
             deleteSoundButton.BackColor = Color.Black;
             deleteSoundButton.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
             deleteSoundButton.ForeColor = Color.DodgerBlue;
-            deleteSoundButton.Location = new Point(94, 280);
+            deleteSoundButton.Location = new Point(72, 290);
             deleteSoundButton.Name = "deleteSoundButton";
             deleteSoundButton.Size = new Size(185, 53);
             deleteSoundButton.TabIndex = 16;
@@ -393,7 +394,7 @@
             // 
             line1.Anchor = AnchorStyles.None;
             line1.BackColor = Color.White;
-            line1.Location = new Point(172, 426);
+            line1.Location = new Point(150, 436);
             line1.Name = "line1";
             line1.Size = new Size(340, 5);
             line1.TabIndex = 17;
@@ -404,7 +405,7 @@
             playSoundStorage.BackColor = Color.Black;
             playSoundStorage.BackgroundImage = (Image)resources.GetObject("playSoundStorage.BackgroundImage");
             playSoundStorage.BackgroundImageLayout = ImageLayout.Zoom;
-            playSoundStorage.Location = new Point(85, 379);
+            playSoundStorage.Location = new Point(63, 389);
             playSoundStorage.Name = "playSoundStorage";
             playSoundStorage.Size = new Size(81, 110);
             playSoundStorage.TabIndex = 19;
@@ -416,7 +417,7 @@
             label1.BackColor = Color.Black;
             label1.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.DodgerBlue;
-            label1.Location = new Point(855, 35);
+            label1.Location = new Point(833, 45);
             label1.Name = "label1";
             label1.Size = new Size(178, 47);
             label1.TabIndex = 20;
@@ -427,7 +428,7 @@
             // 
             label2.Anchor = AnchorStyles.None;
             label2.BackColor = Color.Black;
-            label2.Location = new Point(791, 35);
+            label2.Location = new Point(769, 45);
             label2.Name = "label2";
             label2.Size = new Size(91, 391);
             label2.TabIndex = 21;
@@ -437,7 +438,7 @@
             // 
             durationBar.Anchor = AnchorStyles.None;
             durationBar.BackColor = SystemColors.ActiveCaptionText;
-            durationBar.Location = new Point(888, 85);
+            durationBar.Location = new Point(866, 95);
             durationBar.Maximum = 400;
             durationBar.Minimum = 200;
             durationBar.Name = "durationBar";
@@ -453,7 +454,7 @@
             // 
             label3.Anchor = AnchorStyles.None;
             label3.BackColor = Color.Black;
-            label3.Location = new Point(963, 35);
+            label3.Location = new Point(941, 45);
             label3.Name = "label3";
             label3.Size = new Size(70, 391);
             label3.TabIndex = 23;
@@ -465,7 +466,7 @@
             amplitudeDisplay.BackColor = Color.Black;
             amplitudeDisplay.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
             amplitudeDisplay.ForeColor = Color.DodgerBlue;
-            amplitudeDisplay.Location = new Point(529, 365);
+            amplitudeDisplay.Location = new Point(507, 375);
             amplitudeDisplay.Name = "amplitudeDisplay";
             amplitudeDisplay.Size = new Size(94, 61);
             amplitudeDisplay.TabIndex = 24;
@@ -478,7 +479,7 @@
             frequencyValueDisplay.BackColor = Color.Black;
             frequencyValueDisplay.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
             frequencyValueDisplay.ForeColor = Color.DodgerBlue;
-            frequencyValueDisplay.Location = new Point(701, 365);
+            frequencyValueDisplay.Location = new Point(679, 375);
             frequencyValueDisplay.Name = "frequencyValueDisplay";
             frequencyValueDisplay.Size = new Size(94, 61);
             frequencyValueDisplay.TabIndex = 25;
@@ -491,12 +492,27 @@
             durationValueDisplay.BackColor = Color.Black;
             durationValueDisplay.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
             durationValueDisplay.ForeColor = Color.DodgerBlue;
-            durationValueDisplay.Location = new Point(874, 365);
+            durationValueDisplay.Location = new Point(852, 375);
             durationValueDisplay.Name = "durationValueDisplay";
             durationValueDisplay.Size = new Size(94, 61);
             durationValueDisplay.TabIndex = 26;
             durationValueDisplay.Text = "200";
             durationValueDisplay.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // exitButton
+            // 
+            exitButton.Anchor = AnchorStyles.None;
+            exitButton.BackColor = Color.Black;
+            exitButton.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            exitButton.ForeColor = Color.DodgerBlue;
+            exitButton.Location = new Point(1037, 1);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(50, 50);
+            exitButton.TabIndex = 27;
+            exitButton.Text = "X";
+            exitButton.TextAlign = ContentAlignment.TopCenter;
+            exitButton.UseVisualStyleBackColor = false;
+            exitButton.Click += exitButton_Click;
             // 
             // MainSythesizer
             // 
@@ -504,6 +520,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DodgerBlue;
             ClientSize = new Size(1088, 509);
+            Controls.Add(exitButton);
             Controls.Add(durationValueDisplay);
             Controls.Add(frequencyValueDisplay);
             Controls.Add(amplitudeDisplay);
@@ -573,5 +590,6 @@
         private Label amplitudeDisplay;
         private Label frequencyValueDisplay;
         private Label durationValueDisplay;
+        private Button exitButton;
     }
 }

@@ -31,10 +31,13 @@
             label1 = new Label();
             label2 = new Label();
             button1 = new Button();
+            button2 = new Button();
+            label3 = new Label();
             SuspendLayout();
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.BackColor = Color.Black;
             label1.ForeColor = Color.DodgerBlue;
             label1.Location = new Point(199, 104);
@@ -46,6 +49,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe Fluent Icons", 8F, FontStyle.Bold, GraphicsUnit.Point);
             label2.Location = new Point(89, 747);
@@ -56,9 +60,10 @@
             // 
             // button1
             // 
+            button1.Anchor = AnchorStyles.None;
             button1.BackColor = Color.Black;
             button1.ForeColor = Color.DodgerBlue;
-            button1.Location = new Point(343, 337);
+            button1.Location = new Point(343, 301);
             button1.Name = "button1";
             button1.Size = new Size(109, 47);
             button1.TabIndex = 2;
@@ -67,17 +72,42 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.None;
+            button2.BackColor = Color.Black;
+            button2.ForeColor = Color.DodgerBlue;
+            button2.Location = new Point(343, 434);
+            button2.Name = "button2";
+            button2.Size = new Size(109, 47);
+            button2.TabIndex = 3;
+            button2.Text = "QUIT";
+            button2.TextAlign = ContentAlignment.TopCenter;
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.None;
+            label3.BackColor = Color.White;
+            label3.Location = new Point(193, 99);
+            label3.Name = "label3";
+            label3.Size = new Size(408, 48);
+            label3.TabIndex = 4;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(15F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DodgerBlue;
             ClientSize = new Size(794, 772);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(label3);
             Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "MainMenu";
             Text = "MainMenu";
             ResumeLayout(false);
@@ -89,5 +119,7 @@
         private Label label1;
         private Label label2;
         private Button button1;
+        private Button button2;
+        private Label label3;
     }
 }
