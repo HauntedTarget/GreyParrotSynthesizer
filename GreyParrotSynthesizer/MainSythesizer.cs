@@ -46,9 +46,26 @@ namespace GreyParrotSynthesizer
             WaveFormDropDown.DataSource = System.Enum.GetValues(typeof(Audio.WaveType));
         }
 
-        private void MainSythesizer_KeyDown(object sender, KeyEventArgs e)
+        private void OnKeyPress(object sender, KeyPressEventArgs e)
         {
-            Audio.PlaySound(440f, (short)1000, Audio.WaveType.SINE, seconds);
+            if (!e.KeyChar.Equals('-') && !e.KeyChar.Equals('='))
+            {
+                float frequencyPress = WaveUtils.KeyToNote(e, octave);
+
+                if (frequencyPress > 19) Audio.PlaySound(frequencyPress, amplitude, waveType, seconds);
+            }
+            else
+            {
+                switch (e.KeyChar)
+                {
+                    default:
+                        if (octave > 0) octave--;
+                        break;
+                    case '=':
+                        if (octave < 8) octave++;
+                        break;
+                }
+            }
         }
 
         private void WaveFormDropDown_SelectedIndexChanged(object sender, EventArgs e)
