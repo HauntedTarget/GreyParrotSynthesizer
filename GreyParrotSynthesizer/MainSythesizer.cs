@@ -268,9 +268,9 @@ namespace GreyParrotSynthesizer
 
         private void playSoundStorage_Click(object sender, EventArgs e)
         {
-            
-            Audio.PlayAllSoundsFromFiles(existingSound);
-          
+            FormManager.Current.OpenForm(FormManager.FormSelection.UserWaveView);
+            UserWaveView uwv = Application.OpenForms.OfType<UserWaveView>().First();
+            uwv.SetDesktopLocation(200, 875);
         }
     }
 }

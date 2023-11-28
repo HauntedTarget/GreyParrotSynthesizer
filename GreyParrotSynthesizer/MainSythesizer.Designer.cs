@@ -451,7 +451,109 @@
             playSoundStorage.Size = new Size(57, 66);
             playSoundStorage.TabIndex = 19;
             playSoundStorage.UseVisualStyleBackColor = false;
-            playSoundStorage.Click += playSoundStorage_Click;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.BackColor = Color.Black;
+            label1.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.DodgerBlue;
+            label1.Location = new Point(856, 45);
+            label1.Name = "label1";
+            label1.Size = new Size(178, 47);
+            label1.TabIndex = 20;
+            label1.Text = "DURATION";
+            label1.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.None;
+            label2.BackColor = Color.Black;
+            label2.Location = new Point(792, 45);
+            label2.Name = "label2";
+            label2.Size = new Size(91, 391);
+            label2.TabIndex = 21;
+            label2.Text = "label2";
+            // 
+            // durationBar
+            // 
+            durationBar.Anchor = AnchorStyles.None;
+            durationBar.BackColor = SystemColors.ActiveCaptionText;
+            durationBar.Location = new Point(889, 95);
+            durationBar.Maximum = 400;
+            durationBar.Minimum = 200;
+            durationBar.Name = "durationBar";
+            durationBar.Orientation = Orientation.Vertical;
+            durationBar.Size = new Size(69, 277);
+            durationBar.TabIndex = 22;
+            durationBar.TickFrequency = 20;
+            durationBar.TickStyle = TickStyle.Both;
+            durationBar.Value = 200;
+            durationBar.Scroll += durationBar_Scroll;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.None;
+            label3.BackColor = Color.Black;
+            label3.Location = new Point(964, 45);
+            label3.Name = "label3";
+            label3.Size = new Size(70, 391);
+            label3.TabIndex = 23;
+            label3.Text = "label3";
+            // 
+            // amplitudeDisplay
+            // 
+            amplitudeDisplay.Anchor = AnchorStyles.None;
+            amplitudeDisplay.BackColor = Color.Black;
+            amplitudeDisplay.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            amplitudeDisplay.ForeColor = Color.DodgerBlue;
+            amplitudeDisplay.Location = new Point(530, 375);
+            amplitudeDisplay.Name = "amplitudeDisplay";
+            amplitudeDisplay.Size = new Size(94, 61);
+            amplitudeDisplay.TabIndex = 24;
+            amplitudeDisplay.Text = "1000";
+            amplitudeDisplay.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // frequencyValueDisplay
+            // 
+            frequencyValueDisplay.Anchor = AnchorStyles.None;
+            frequencyValueDisplay.BackColor = Color.Black;
+            frequencyValueDisplay.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            frequencyValueDisplay.ForeColor = Color.DodgerBlue;
+            frequencyValueDisplay.Location = new Point(702, 375);
+            frequencyValueDisplay.Name = "frequencyValueDisplay";
+            frequencyValueDisplay.Size = new Size(94, 61);
+            frequencyValueDisplay.TabIndex = 25;
+            frequencyValueDisplay.Text = "200";
+            frequencyValueDisplay.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // durationValueDisplay
+            // 
+            durationValueDisplay.Anchor = AnchorStyles.None;
+            durationValueDisplay.BackColor = Color.Black;
+            durationValueDisplay.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            durationValueDisplay.ForeColor = Color.DodgerBlue;
+            durationValueDisplay.Location = new Point(875, 375);
+            durationValueDisplay.Name = "durationValueDisplay";
+            durationValueDisplay.Size = new Size(94, 61);
+            durationValueDisplay.TabIndex = 26;
+            durationValueDisplay.Text = "200";
+            durationValueDisplay.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // exitButton
+            // 
+            exitButton.Anchor = AnchorStyles.None;
+            exitButton.BackColor = Color.Black;
+            exitButton.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            exitButton.ForeColor = Color.DodgerBlue;
+            exitButton.Location = new Point(1073, 12);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(50, 50);
+            exitButton.TabIndex = 27;
+            exitButton.Text = "?";
+            exitButton.TextAlign = ContentAlignment.TopCenter;
+            exitButton.UseVisualStyleBackColor = false;
+            exitButton.Click += exitButton_Click;
             // 
             // MainSythesizer
             // 
