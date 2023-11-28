@@ -17,13 +17,13 @@ namespace GreyParrotSynthesizer
         double x = 0;
         ChartArea chartArea;
 
-        public WaveGraph(Form main)
+        public WaveGraph()
         {
             InitializeComponent();
             InitializeChart();
             InitializeTimer();
 
-            MainSythesizer.DataSend += RecieveData;
+            //MainSythesizer.DataSend += RecieveData;
         }
 
         private void InitializeChart()

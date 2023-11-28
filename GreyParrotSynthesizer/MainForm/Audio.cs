@@ -66,9 +66,8 @@ namespace GreyParrotSynthesizer.Main
 
         }
 
-        private void SendData()
+        private void SendData(short[] wave)
         {
-            short[] wave = new short;
             DataSend?.Invoke(this, wave);
         }
 
