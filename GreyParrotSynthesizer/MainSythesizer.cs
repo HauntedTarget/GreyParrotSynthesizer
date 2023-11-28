@@ -70,7 +70,7 @@ namespace GreyParrotSynthesizer
 
         private void WaveFormDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string str = WaveFormDropDown.Items[WaveFormDropDown.SelectedIndex].ToString();
+            string str = WaveFormDropDown.Items[WaveFormDropDown.SelectedIndex].ToString() + "";
             waveType = (WaveType)Enum.Parse(typeof(WaveType), str);
         }
 
@@ -248,7 +248,7 @@ namespace GreyParrotSynthesizer
 
             if(/*textbox with filename not empty*/ false)
             {
-                Audio.SaveSound(frequency, amplitude, waveType, seconds, Path.Combine(directoryPath,/*textbox filename*/ "") );
+                Audio.SaveSound(frequency, amplitude, waveType, seconds, Path.Combine(directoryPath,/*textbox filename*/ ""));
             }
 
 
