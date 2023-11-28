@@ -34,7 +34,7 @@ namespace GreyParrotSynthesizer
             else
             {
                 Directory.CreateDirectory(directoryPath);
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 8; i++)
                 {
                     Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + (i + 1).ToString());
                 }
@@ -66,6 +66,8 @@ namespace GreyParrotSynthesizer
                         break;
                 }
             }
+            // Fix found here: https://stackoverflow.com/questions/9648381/how-to-prevent-manual-input-into-a-combobox-in-c-sharp
+            e.Handled = true;
         }
 
         private void WaveFormDropDown_SelectedIndexChanged(object sender, EventArgs e)
@@ -266,11 +268,9 @@ namespace GreyParrotSynthesizer
 
         private void playSoundStorage_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                string temp = existingSound + (i + 1).ToString();
-                Audio.PlaySoundFromFile(temp);
-            }
+            
+            Audio.PlayAllSoundsFromFiles(existingSound);
+          
         }
     }
 }
