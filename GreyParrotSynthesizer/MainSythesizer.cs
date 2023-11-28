@@ -10,7 +10,7 @@ namespace GreyParrotSynthesizer
         private string filename;
         private string existingSound = Path.Combine(directoryPath, "sound");
 
-        WaveType waveType = WaveType.SINE;
+        WaveUtils.WaveType waveType = WaveUtils.WaveType.SINE;
         float frequency = 200f;
         short amplitude = 1000;
         float seconds = 0.5f;
