@@ -10,7 +10,7 @@ namespace GreyParrotSynthesizer
         private string filename;
         private string existingSound = Path.Combine(directoryPath, "sound");
 
-        Audio.WaveType waveType = Audio.WaveType.SINE;
+        WaveType waveType = WaveType.SINE;
         float frequency = 200f;
         short amplitude = 1000;
         float seconds = 0.5f;
@@ -43,7 +43,7 @@ namespace GreyParrotSynthesizer
 
         private void WaveFormDropDown_Load()
         {
-            WaveFormDropDown.DataSource = System.Enum.GetValues(typeof(Audio.WaveType));
+            WaveFormDropDown.DataSource = System.Enum.GetValues(typeof(WaveType));
         }
 
         private void OnKeyPress(object sender, KeyPressEventArgs e)
@@ -71,7 +71,7 @@ namespace GreyParrotSynthesizer
         private void WaveFormDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             string str = WaveFormDropDown.Items[WaveFormDropDown.SelectedIndex].ToString();
-            waveType = (Audio.WaveType)Enum.Parse(typeof(Audio.WaveType), str);
+            waveType = (WaveType)Enum.Parse(typeof(WaveType), str);
         }
 
         private void PlaySound_Click(object sender, EventArgs e)
