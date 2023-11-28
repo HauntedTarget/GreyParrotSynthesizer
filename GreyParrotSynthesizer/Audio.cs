@@ -28,7 +28,7 @@ namespace GreyParrotSynthesizer
 
             // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
             // wave alogirthms made with help from the above link
-            wave = WaveUtils.WaveCalc(wave, frequency, waveType, SAMPLE_RATE, seed);
+            wave = WaveUtils.WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
 
 
 
@@ -63,10 +63,45 @@ namespace GreyParrotSynthesizer
 
         }
 
+        public static void PlayAllSoundsFromFiles(string filename)
+        {
+            for (int i = 1; i <= 8; i++)
+            {
+                new SoundPlayer(filename + i + ".wav").Play();
+
+                // need to figure out how to get length of sound in milliseconds
+                Wait(500);
+            }
+
+        }
+
+        private static void Wait(int milliseconds)
+        {
+            var timer1 = new System.Windows.Forms.Timer();
+            if (milliseconds == 0 || milliseconds < 0) return;
+
+            // Console.WriteLine("start wait timer");
+            timer1.Interval = milliseconds;
+            timer1.Enabled = true;
+            timer1.Start();
+
+            timer1.Tick += (s, e) =>
+            {
+                timer1.Enabled = false;
+                timer1.Stop();
+                // Console.WriteLine("stop wait timer");
+            };
+
+            while (timer1.Enabled)
+            {
+                Application.DoEvents();
+            }
+        }
+
         public static void SaveSound(float frequency, short amplitude, WaveType waveType, string filepath, int seed = -1)
         {
             short[] wave = new short[2];
-            DataSend?.Invoke(this, wave);
+            //DataSend?.Invoke(this, wave);
         }
 
         public static void PlaySoundFromFile(string filename)
@@ -109,7 +144,7 @@ namespace GreyParrotSynthesizer
 
             // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
             // wave alogirthms made with help from the above link
-            wave = WaveUtils.WaveCalc(wave, frequency, waveType, SAMPLE_RATE, seed);
+            wave = WaveUtils.WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
 
 
             // http://soundfile.sapp.org/doc/WaveFormat/
