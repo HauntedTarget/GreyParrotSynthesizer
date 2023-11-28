@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
@@ -13,7 +12,70 @@ namespace GreyParrotSynthesizer
     internal class WaveUtils
     {
         //enum to help simplify the wave choosing process through enum bound integers
-        public enum WaveType { SINE, SQUARE, SAWTOOTH, TRIANGLE, NOISE };
+        public enum WaveType
+        {
+            SINE = 1,
+            SQUARE = 2,
+            SAW = 3,
+            TRIANGLE = 4,
+            NOISE = 5
+        }
+
+        public static float KeyToNote(KeyPressEventArgs keyPressed, short octave)
+        {
+            // frequency of C note: 523.25
+            // note frequency algorithm = 440 * (1.059463..)^n
+            // n = steps away from A4
+            //10 between octave
+            float frequency = 0;
+            int n = 0;
+            n += (octave * 10);
+            n -= 40;
+
+            switch (keyPressed.KeyChar)
+            {
+                default:
+                    return 0;
+                case 'q':
+                    n -= 9; break;
+                case '2':
+                    n -= 8; break;
+                case 'w':
+                    n -= 7; break;
+                case '3':
+                    n -= 6; break;
+                case 'e':
+                    n -= 5; break;
+                case 'r':
+                    n -= 4; break;
+                case '5':
+                    n -= 3; break;
+                case 't':
+                    n -= 2; break;
+                case '6':
+                    n -= 1; break;
+                case 'y':
+                    break;
+                case '7':
+                    n += 1; break;
+                case 'u':
+                    n += 2; break;
+                case 'i':
+                    n += 3; break;
+                case '9':
+                    n += 4; break;
+                case 'o':
+                    n += 5; break;
+                case '0':
+                    n += 6; break;
+                case 'p':
+                    n += 7; break;
+            }
+            float scalar = MathF.Pow(1.059463f, n);
+
+            frequency = 440 * scalar;
+            return frequency;
+        }
 
         //function to return the wave function based on input of wave variables and chosen wavetype, returns Int16
         public static short[] WaveCalc(short[] wave, float amplitude, float frequency, WaveType waveType, int samepleRate = 44100, int seed = -1)
@@ -22,8 +84,7 @@ namespace GreyParrotSynthesizer
 
             int samplesPerWavelength = Convert.ToInt32(samepleRate / frequency);
 
-            short amplitudeStep = Convert.ToInt16(amplitude * 2 / samplesPerWavelength);
-
+            short amplitudeStep = Convert.ToInt16((amplitude * 2) / samplesPerWavelength);
 
             for (int i = 0; i < wave.Length; i++)
             {
@@ -31,14 +92,14 @@ namespace GreyParrotSynthesizer
                 switch (waveType)
                 {
                     default:
-                        wave[i] = Convert.ToInt16(short.MaxValue * Math.Sin(2 * Math.PI * frequency / samepleRate * i));
+                        wave[i] = Convert.ToInt16(short.MaxValue * Math.Sin((2 * Math.PI * frequency / samepleRate) * i));
                         break;
 
                     case WaveType.SQUARE:
-                        wave[i] = Convert.ToInt16(frequency * Math.Sign(Math.Sin(2 * Math.PI * frequency / samepleRate * i)));
+                        wave[i] = Convert.ToInt16(frequency * Math.Sign(Math.Sin((2 * Math.PI * frequency / samepleRate) * i)));
                         break;
 
-                    case WaveType.SAWTOOTH:
+                    case WaveType.SAW:
                         tempSample += amplitudeStep;
                         wave[i] = Convert.ToInt16(tempSample);
                         break;
@@ -66,4 +127,10 @@ namespace GreyParrotSynthesizer
         }
 
     }
+
+    /*
+     - Note Keys: q2w3er5t6y7ui9o0p
+     - Octave Keys: -, +
+     + 
+     */
 }
