@@ -66,6 +66,7 @@ namespace GreyParrotSynthesizer
                         break;
                 }
             }
+            e.Handled = true;
         }
 
         private void WaveFormDropDown_SelectedIndexChanged(object sender, EventArgs e)
