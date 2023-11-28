@@ -6,11 +6,12 @@ namespace GreyParrotSynthesizer
 {
     public partial class MainSythesizer : Form
     {
-
         WaveType waveType = WaveType.SINE;
         float frequency = 200f;
         short amplitude = 1000;
         float seconds = 0.5f;
+        // ranges 0 to 8
+        short octave = 4;
 
         public MainSythesizer()
         {
