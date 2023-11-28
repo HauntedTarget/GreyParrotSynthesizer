@@ -211,5 +211,10 @@ namespace GreyParrotSynthesizer
         {
             Application.Exit();
         }
+
+        private void MainSythesizer_Activated(object sender, EventArgs e)
+        {
+            FormManager.Current.OpenForm(FormManager.FormSelection.UserWaveView);
+        }
     }
 }
