@@ -47,6 +47,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(TestButton);
+            Location = new Point(1000, 0);
             Name = "UserWaveView";
             Text = "UserWaveView";
             ResumeLayout(false);

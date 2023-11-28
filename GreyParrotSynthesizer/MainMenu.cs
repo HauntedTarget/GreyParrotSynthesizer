@@ -20,6 +20,8 @@ namespace GreyParrotSynthesizer
         private void button1_Click(object sender, EventArgs e)
         {
             FormManager.Current.OpenOneForm(FormManager.FormSelection.MainSynthesizer);
+            MainSythesizer ms = Application.OpenForms.OfType<MainSythesizer>().First();
+            ms.SetDesktopLocation(200, 200);
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -505,11 +505,11 @@
             exitButton.BackColor = Color.Black;
             exitButton.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
             exitButton.ForeColor = Color.DodgerBlue;
-            exitButton.Location = new Point(1060, 1);
+            exitButton.Location = new Point(1073, 12);
             exitButton.Name = "exitButton";
             exitButton.Size = new Size(50, 50);
             exitButton.TabIndex = 27;
-            exitButton.Text = "X";
+            exitButton.Text = "?";
             exitButton.TextAlign = ContentAlignment.TopCenter;
             exitButton.UseVisualStyleBackColor = false;
             exitButton.Click += exitButton_Click;
