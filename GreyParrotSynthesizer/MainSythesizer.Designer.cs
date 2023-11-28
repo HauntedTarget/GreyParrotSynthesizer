@@ -477,9 +477,10 @@
             Controls.Add(outlinecolor);
             Controls.Add(outlinecolor2);
             Margin = new Padding(2);
+            KeyPreview = true;
             Name = "MainSythesizer";
             Text = "Form1";
-            KeyDown += MainSythesizer_KeyDown;
+            KeyPress += OnKeyPress;
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).EndInit();
             radioButtonGroup.ResumeLayout(false);
