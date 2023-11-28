@@ -50,7 +50,7 @@ namespace GreyParrotSynthesizer
         {
             if (!e.KeyChar.Equals('-') && !e.KeyChar.Equals('='))
             {
-                float frequencyPress = WaveUtils.KeyToNote(e, octave);
+                float frequencyPress = KeyToNote(e, octave);
 
                 if (frequencyPress > 19) Audio.PlaySound(frequencyPress, amplitude, waveType, seconds);
             }
