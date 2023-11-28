@@ -66,6 +66,7 @@ namespace GreyParrotSynthesizer
                         break;
                 }
             }
+            // Fix found here: https://stackoverflow.com/questions/9648381/how-to-prevent-manual-input-into-a-combobox-in-c-sharp
             e.Handled = true;
         }
 
