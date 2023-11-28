@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using System.Media;
 using System.IO;
 using System.Drawing.Text;
-using static GreyParrotSynthesizer.Main.WaveUtils;
+using static GreyParrotSynthesizer.WaveUtils;
 using System.ComponentModel.Design;
 using Accord.Statistics.Kernels;
 
-namespace GreyParrotSynthesizer.Main
+namespace GreyParrotSynthesizer
 {
     internal class Audio
     {
@@ -18,9 +18,6 @@ namespace GreyParrotSynthesizer.Main
         // Every second, there will be 16 bits per sample (i.e. 16 bits per sample)
         private const int SAMPLE_RATE = 44100;
         private const short BITS_PER_SAMPLE = 16;
-
-        public enum WaveType { SINE, SQUARE, SAWTOOTH, TRIANGLE, NOISE };
-        public event EventHandler<short[]> DataSend;
 
         public static void PlaySound(float frequency, short amplitude, WaveType waveType, float seconds, int seed = -1)
         {
@@ -66,17 +63,12 @@ namespace GreyParrotSynthesizer.Main
 
         }
 
-        private void SendData(short[] wave)
-        {
-            DataSend?.Invoke(this, wave);
-        }
-
         public static void PlaySoundFromFile(string filename)
         {
             new SoundPlayer(filename + ".wav").Play();
 
             // need to figure out how to get length of sound in milliseconds
-            wait(1000);
+            wait(1000); 
         }
 
         private static void wait(int milliseconds)
@@ -146,8 +138,8 @@ namespace GreyParrotSynthesizer.Main
                 fileStream.Close();
 
                 //new SoundPlayer(filepath).Play();
-
-
+                
+                
             }
         }
 
