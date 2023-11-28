@@ -13,15 +13,15 @@ namespace GreyParrotSynthesizer.Main
 
         private List<Form> forms = new List<Form>();
 
-        public enum FormSelection { MainSynthesizer = 0, UserWaveView = 1, TestForm = 2 }
+        public enum FormSelection { MainSynthesizer = 0, UserWaveView = 1, MainMenu = 2 }
         public FormManager()
         {
             //adds forms
             forms.Add(CreateForm<MainSythesizer>());
             forms.Add(CreateForm<UserWaveView>());
-            forms.Add(CreateForm<TestForm>());
+            forms.Add(CreateForm<MainMenu>());
             //sets first form to the main one
-            OpenOneForm(FormSelection.MainSynthesizer);
+            OpenOneForm(FormSelection.MainMenu);
         }
 
         //opens one form closes the others
@@ -47,13 +47,13 @@ namespace GreyParrotSynthesizer.Main
                 forms[(int)FormSelection.UserWaveView].Hide();
             }
 
-            if (FormToOpen == FormSelection.TestForm)
+            if (FormToOpen == FormSelection.MainMenu)
             {
-                forms[(int)FormSelection.TestForm].Show();
+                forms[(int)FormSelection.MainMenu].Show();
             }
             else
             {
-                forms[(int)FormSelection.TestForm].Hide();
+                forms[(int)FormSelection.MainMenu].Hide();
             }
         }
 

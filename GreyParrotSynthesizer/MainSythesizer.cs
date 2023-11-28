@@ -1,83 +1,57 @@
 using System.Diagnostics.CodeAnalysis;
-using GreyParrotSynthesizer.Main;
-using static GreyParrotSynthesizer.Main.WaveUtils;
+
+using static GreyParrotSynthesizer.WaveUtils;
 
 namespace GreyParrotSynthesizer
 {
     public partial class MainSythesizer : Form
     {
-        private static string directoryPath = Path.Combine(Environment.CurrentDirectory, "Sounds");
-        private string filename;
-        private string existingSound = Path.Combine(directoryPath, "sound");
 
-        Audio.WaveType waveType = Audio.WaveType.SINE;
+        WaveType waveType = WaveType.SINE;
         float frequency = 200f;
         short amplitude = 1000;
-        float seconds = 0.5f;
-
-        public event EventHandler<short[]> DataSend;
 
         public MainSythesizer()
         {
             InitializeComponent();
             WaveFormDropDown_Load();
-
-            CreateFiles();
-            ShowWaveGraph();
-        }
-
-        private void ShowWaveGraph()
-        {
-            WaveGraph waveGraph = new WaveGraph();
-            waveGraph.Show();
-        }
-
-        private void CreateFiles()
-        {
-            if (File.Exists(existingSound + "1"))
-            {
-                return;
-            }
-            else
-            {
-                Directory.CreateDirectory(directoryPath);
-                for (int i = 0; i < 10; i++)
-                {
-                    Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + (i + 1).ToString());
-                }
-            }
         }
 
         private void WaveFormDropDown_Load()
         {
-            WaveFormDropDown.DataSource = System.Enum.GetValues(typeof(Audio.WaveType));
+            WaveFormDropDown.DataSource = System.Enum.GetValues(typeof(WaveType));
         }
 
         private void MainSythesizer_KeyDown(object sender, KeyEventArgs e)
         {
-            Audio.PlaySound(440f, (short)1000, Audio.WaveType.SINE, seconds);
+            Audio.PlaySound(440f, (short)1000, WaveType.SINE);
         }
 
         private void WaveFormDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             string str = WaveFormDropDown.Items[WaveFormDropDown.SelectedIndex].ToString();
-            waveType = (Audio.WaveType)Enum.Parse(typeof(Audio.WaveType), str);
+            waveType = (WaveType)Enum.Parse(typeof(WaveType), str);
         }
 
         private void PlaySound_Click(object sender, EventArgs e)
         {
-            Audio.PlaySound(frequency, amplitude, waveType, seconds);
-            //Audio.SaveSound(frequency, amplitude, waveType, "test.wav");
+            Audio.PlaySound(frequency, amplitude, waveType);
         }
 
         private void FrequencyBar_Scroll(object sender, EventArgs e)
         {
             frequency = FrequencyBar.Value;
+            frequencyValueDisplay.Text = frequency.ToString();
         }
 
         private void AmplitudeBar_Scroll(object sender, EventArgs e)
         {
             amplitude = (short)AmplitudeBar.Value;
+            amplitudeDisplay.Text = amplitude.ToString();
+        }
+        private void durationBar_Scroll(object sender, EventArgs e)
+        {
+            durationValueDisplay.Text = durationBar.Value.ToString();
         }
 
         //changes padding of radio buttons to 0
@@ -233,34 +207,9 @@ namespace GreyParrotSynthesizer
             changeRBPaddingImageVisible(radioButton8);
         }
 
-        private void saveButtton_Click(object sender, EventArgs e)
+        private void exitButton_Click(object sender, EventArgs e)
         {
-
-            if(/*textbox with filename not empty*/ false)
-            {
-                Audio.SaveSound(frequency, amplitude, waveType, seconds, Path.Combine(directoryPath,/*textbox filename*/ "") );
-            }
-
-
-            if (radioButton1.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "1");
-            else if (radioButton2.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "2");
-            else if (radioButton3.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "3");
-            else if (radioButton4.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "4");
-            else if (radioButton5.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "5");
-            else if (radioButton6.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "6");
-            else if (radioButton7.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "7");
-            else if (radioButton8.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "8");
-            else if (radioButton9.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "9");
-            else if (radioButton10.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "10");
-        }
-
-        private void playSoundStorage_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                string temp = existingSound + (i + 1).ToString();
-                Audio.PlaySoundFromFile(temp);
-            }
+            Application.Exit();
         }
     }
 }
