@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GreyParrotSynthesizer.Main
+namespace GreyParrotSynthesizer
 {
     internal class FormManager : ApplicationContext
     {

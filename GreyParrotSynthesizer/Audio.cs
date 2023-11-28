@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Media;
 using System.IO;
 using System.Drawing.Text;
+using static GreyParrotSynthesizer.Audio;
 using static GreyParrotSynthesizer.WaveUtils;
 using System.ComponentModel.Design;
 using Accord.Statistics.Kernels;
@@ -19,6 +20,8 @@ namespace GreyParrotSynthesizer
         private const int SAMPLE_RATE = 44100;
         private const short BITS_PER_SAMPLE = 16;
 
+        public event EventHandler<short[]> DataSend;
+
         public static void PlaySound(float frequency, short amplitude, WaveType waveType, float seconds, int seed = -1)
         {
             // Only plays for like 1 second though.
@@ -28,7 +31,7 @@ namespace GreyParrotSynthesizer
 
             // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
             // wave alogirthms made with help from the above link
-            wave = WaveUtils.WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
+            wave = WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
 
 
 
@@ -63,12 +66,17 @@ namespace GreyParrotSynthesizer
 
         }
 
+        private void SendData(short[] wave)
+        {
+            DataSend?.Invoke(this, wave);
+        }
+
         public static void PlaySoundFromFile(string filename)
         {
             new SoundPlayer(filename + ".wav").Play();
 
             // need to figure out how to get length of sound in milliseconds
-            wait(1000); 
+            wait(1000);
         }
 
         private static void wait(int milliseconds)
@@ -94,7 +102,7 @@ namespace GreyParrotSynthesizer
             }
         }
 
-        public static void SaveSound(float frequency, short amplitude, WaveType waveType, float seconds, string filepath, int seed = -1)
+        public static void SaveSound(float frequency, short amplitude, WaveUtils.WaveType waveType, float seconds, string filepath, int seed = -1)
         {
             filepath = filepath + ".wav";
             // Only plays for like 1 second though.
@@ -104,7 +112,7 @@ namespace GreyParrotSynthesizer
 
             // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
             // wave alogirthms made with help from the above link
-            wave = WaveUtils.WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
+            wave = WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
 
 
 
@@ -138,8 +146,8 @@ namespace GreyParrotSynthesizer
                 fileStream.Close();
 
                 //new SoundPlayer(filepath).Play();
-                
-                
+
+
             }
         }
 
