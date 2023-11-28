@@ -19,28 +19,28 @@ namespace GreyParrotSynthesizer
         private const int SAMPLE_RATE = 44100;
         private const short BITS_PER_SAMPLE = 16;
 
-        public static void PlaySound(float frequency, short amplitude, WaveType waveType, float seconds, int seed = -1)
+        public static void PlaySound(float frequency, short amplitude, WaveType waveType, int seed = -1) // WE MIGHT WANT TO ADD AN AMPLITUDE PARAMETER
+
         {
             // Only plays for like 1 second though.
-            int waveLength = (int)(SAMPLE_RATE * seconds);
-            short[] wave = new short[waveLength];
-            byte[] binaryWave = new byte[waveLength * sizeof(short)]; // 2 * size of wave
+            short[] wave = new short[SAMPLE_RATE];
+            byte[] binaryWave = new byte[SAMPLE_RATE * sizeof(short)]; // 2 * samplerate
 
             // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
             // wave alogirthms made with help from the above link
-            wave = WaveUtils.WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
+            wave = WaveUtils.WaveCalc(wave, frequency, waveType, SAMPLE_RATE, seed);
 
 
 
-            // https://docs.fileformat.com/audio/wav/
+            // http://soundfile.sapp.org/doc/WaveFormat/
             // wave file format made with help from the above link
-            Buffer.BlockCopy(wave, 0, binaryWave, 0, wave.Length * sizeof(short));
+            Buffer.BlockCopy(wave, 0, binaryWave, 0, wave.Length* sizeof(short));
             // Can also use FileSteam to write to a file so we can save it for later
             using (MemoryStream memoryStream = new MemoryStream())
             using (BinaryWriter binWriter = new BinaryWriter(memoryStream))
             {
                 short blockAlign = BITS_PER_SAMPLE / 8;
-                int subChunkTwoSize = (int)(SAMPLE_RATE * blockAlign * seconds);
+                int subChunkTwoSize = SAMPLE_RATE * blockAlign;
                 // HEAD CHUNK
                 binWriter.Write(new char[] { 'R', 'I', 'F', 'F' });
                 binWriter.Write(36 + subChunkTwoSize);
@@ -63,24 +63,21 @@ namespace GreyParrotSynthesizer
 
         }
 
+        public static void SaveSound(float frequency, short amplitude, WaveType waveType, string filepath, int seed = -1)
+        {
+            short[] wave = new short[2];
+            DataSend?.Invoke(this, wave);
+        }
+
         public static void PlaySoundFromFile(string filename)
         {
-            new SoundPlayer(filename +".wav").Play();
+            new SoundPlayer(filename + ".wav").Play();
+
+            // need to figure out how to get length of sound in milliseconds
+            wait(1000);
         }
 
-        public static void PlayAllSoundsFromFiles(string filename)
-        {
-            for (int i = 1; i <= 8; i++)
-            {
-                new SoundPlayer(filename + i + ".wav").Play();
-
-                // need to figure out how to get length of sound in milliseconds
-                Wait(500); 
-            }
-
-        }
-
-        private static void Wait(int milliseconds)
+        private static void wait(int milliseconds)
         {
             var timer1 = new System.Windows.Forms.Timer();
             if (milliseconds == 0 || milliseconds < 0) return;
@@ -107,17 +104,15 @@ namespace GreyParrotSynthesizer
         {
             filepath = filepath + ".wav";
             // Only plays for like 1 second though.
-            int waveLength = (int)(SAMPLE_RATE * seconds);
-            short[] wave = new short[waveLength];
-            byte[] binaryWave = new byte[waveLength * sizeof(short)]; // 2 * size of wave
+            short[] wave = new short[SAMPLE_RATE];
+            byte[] binaryWave = new byte[SAMPLE_RATE * sizeof(short)]; // 2 * samplerate
 
             // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
             // wave alogirthms made with help from the above link
-            wave = WaveUtils.WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
+            wave = WaveUtils.WaveCalc(wave, frequency, waveType, SAMPLE_RATE, seed);
 
 
-
-            // https://docs.fileformat.com/audio/wav/
+            // http://soundfile.sapp.org/doc/WaveFormat/
             // wave file format made with help from the above link
             Buffer.BlockCopy(wave, 0, binaryWave, 0, wave.Length * sizeof(short));
             // Can also use FileSteam to write to a file so we can save it for later
@@ -145,8 +140,6 @@ namespace GreyParrotSynthesizer
                 // Close the file
                 binWriter.Close();
                 fileStream.Close();
-
-                //new SoundPlayer(filepath).Play();
                 
                 
             }
