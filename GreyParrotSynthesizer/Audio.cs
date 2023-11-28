@@ -65,13 +65,22 @@ namespace GreyParrotSynthesizer
 
         public static void PlaySoundFromFile(string filename)
         {
-            new SoundPlayer(filename + ".wav").Play();
-
-            // need to figure out how to get length of sound in milliseconds
-            wait(1000); 
+            new SoundPlayer(filename +".wav").Play();
         }
 
-        private static void wait(int milliseconds)
+        public static void PlayAllSoundsFromFiles(string filename)
+        {
+            for (int i = 1; i <= 8; i++)
+            {
+                new SoundPlayer(filename + i + ".wav").Play();
+
+                // need to figure out how to get length of sound in milliseconds
+                Wait(500); 
+            }
+
+        }
+
+        private static void Wait(int milliseconds)
         {
             var timer1 = new System.Windows.Forms.Timer();
             if (milliseconds == 0 || milliseconds < 0) return;
