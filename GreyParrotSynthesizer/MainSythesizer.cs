@@ -48,7 +48,7 @@ namespace GreyParrotSynthesizer
 
         private void OnKeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar.Equals((char)Keys.Escape)) 
+            if (e.KeyChar.Equals((char)Keys.Escape))
             {
                 this.Close();
             }
@@ -259,7 +259,7 @@ namespace GreyParrotSynthesizer
         private void saveButtton_Click(object sender, EventArgs e)
         {
 
-            if(/*textbox with filename not empty*/ false)
+            if (/*textbox with filename not empty*/ false)
             {
                 Audio.SaveSound(frequency, amplitude, waveType, seconds, Path.Combine(directoryPath,/*textbox filename*/ ""));
             }
@@ -279,9 +279,11 @@ namespace GreyParrotSynthesizer
 
         private void playSoundStorage_Click(object sender, EventArgs e)
         {
-            
+
             Audio.PlayAllSoundsFromFiles(existingSound);
-          
+
         }
+
+
     }
 }

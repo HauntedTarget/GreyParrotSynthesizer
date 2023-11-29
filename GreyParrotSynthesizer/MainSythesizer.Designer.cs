@@ -89,9 +89,8 @@
             PlaySound.BackColor = Color.Black;
             PlaySound.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             PlaySound.ForeColor = Color.DodgerBlue;
-            PlaySound.Location = new Point(34, 87);
-            PlaySound.Margin = new Padding(2);
             PlaySound.Location = new Point(95, 172);
+            PlaySound.Margin = new Padding(2);
             PlaySound.Name = "PlaySound";
             PlaySound.Size = new Size(130, 32);
             PlaySound.TabIndex = 1;
@@ -104,9 +103,8 @@
             // 
             FrequencyBar.Anchor = AnchorStyles.None;
             FrequencyBar.BackColor = SystemColors.ActiveCaptionText;
-            FrequencyBar.Location = new Point(491, 80);
-            FrequencyBar.Margin = new Padding(2);
             FrequencyBar.Location = new Point(717, 95);
+            FrequencyBar.Margin = new Padding(2);
             FrequencyBar.Maximum = 400;
             FrequencyBar.Minimum = 200;
             FrequencyBar.Name = "FrequencyBar";
@@ -421,7 +419,7 @@
             // 
             label1.Anchor = AnchorStyles.None;
             label1.BackColor = Color.Black;
-            label1.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.DodgerBlue;
             label1.Location = new Point(856, 45);
             label1.Name = "label1";
@@ -449,7 +447,7 @@
             durationBar.Minimum = 200;
             durationBar.Name = "durationBar";
             durationBar.Orientation = Orientation.Vertical;
-            durationBar.Size = new Size(69, 277);
+            durationBar.Size = new Size(45, 277);
             durationBar.TabIndex = 22;
             durationBar.TickFrequency = 20;
             durationBar.TickStyle = TickStyle.Both;
@@ -470,7 +468,7 @@
             // 
             amplitudeDisplay.Anchor = AnchorStyles.None;
             amplitudeDisplay.BackColor = Color.Black;
-            amplitudeDisplay.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            amplitudeDisplay.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             amplitudeDisplay.ForeColor = Color.DodgerBlue;
             amplitudeDisplay.Location = new Point(530, 375);
             amplitudeDisplay.Name = "amplitudeDisplay";
@@ -483,7 +481,7 @@
             // 
             frequencyValueDisplay.Anchor = AnchorStyles.None;
             frequencyValueDisplay.BackColor = Color.Black;
-            frequencyValueDisplay.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            frequencyValueDisplay.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             frequencyValueDisplay.ForeColor = Color.DodgerBlue;
             frequencyValueDisplay.Location = new Point(702, 375);
             frequencyValueDisplay.Name = "frequencyValueDisplay";
@@ -496,7 +494,7 @@
             // 
             durationValueDisplay.Anchor = AnchorStyles.None;
             durationValueDisplay.BackColor = Color.Black;
-            durationValueDisplay.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            durationValueDisplay.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             durationValueDisplay.ForeColor = Color.DodgerBlue;
             durationValueDisplay.Location = new Point(875, 375);
             durationValueDisplay.Name = "durationValueDisplay";
@@ -509,7 +507,7 @@
             // 
             exitButton.Anchor = AnchorStyles.None;
             exitButton.BackColor = Color.Black;
-            exitButton.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            exitButton.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             exitButton.ForeColor = Color.DodgerBlue;
             exitButton.Location = new Point(1073, 12);
             exitButton.Name = "exitButton";
@@ -518,7 +516,6 @@
             exitButton.Text = "?";
             exitButton.TextAlign = ContentAlignment.TopCenter;
             exitButton.UseVisualStyleBackColor = false;
-            //exitButton.Click += exitButton_Click;
             // 
             // MainSythesizer
             // 
@@ -550,12 +547,11 @@
             Controls.Add(backcolor2);
             Controls.Add(outlinecolor);
             Controls.Add(outlinecolor2);
-            Margin = new Padding(2);
             KeyPreview = true;
+            Margin = new Padding(2);
             Name = "MainSythesizer";
             Text = "Form1";
-            //Activated += MainSythesizer_Activated;
-            //KeyDown += MainSythesizer_KeyDown;
+            //KeyDown += OnKeyPress;
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).EndInit();
             radioButtonGroup.ResumeLayout(false);
