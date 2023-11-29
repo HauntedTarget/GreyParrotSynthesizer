@@ -48,6 +48,11 @@ namespace GreyParrotSynthesizer
 
         private void OnKeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar.Equals((char)Keys.Escape)) 
+            {
+                this.Close();
+            }
+
             if (!e.KeyChar.Equals('-') && !e.KeyChar.Equals('='))
             {
                 float frequencyPress = KeyToNote(e, octave);
