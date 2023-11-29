@@ -58,8 +58,8 @@ namespace GreyParrotSynthesizer
         public static int sinFM(double index, float carrierFrequency, float carrierAmplitude, float carrierRate, float inputFrequency, float inputRate)
         {
             return Convert.ToInt16(carrierAmplitude * 
-                Math.Sin(2 * Math.PI * carrierFrequency * carrierRate + index *
-                Math.Sin(2*Math.PI * inputFrequency * inputRate)));
+                Math.Sin(2 * Math.PI * (carrierFrequency + index *
+                Math.Sin(2*Math.PI * inputFrequency * inputRate))));
         }
     }
 }
