@@ -518,7 +518,7 @@
             exitButton.Text = "?";
             exitButton.TextAlign = ContentAlignment.TopCenter;
             exitButton.UseVisualStyleBackColor = false;
-            exitButton.Click += exitButton_Click;
+            //exitButton.Click += exitButton_Click;
             // 
             // MainSythesizer
             // 
@@ -554,8 +554,8 @@
             KeyPreview = true;
             Name = "MainSythesizer";
             Text = "Form1";
-            Activated += MainSythesizer_Activated;
-            KeyDown += MainSythesizer_KeyDown;
+            //Activated += MainSythesizer_Activated;
+            //KeyDown += MainSythesizer_KeyDown;
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).EndInit();
             radioButtonGroup.ResumeLayout(false);
