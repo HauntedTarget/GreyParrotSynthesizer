@@ -550,7 +550,7 @@
             KeyPreview = true;
             Margin = new Padding(2);
             Name = "MainSythesizer";
-            Text = "Form1";
+            Text = "Main Synthesizer";
             KeyPress += OnKeyPress;
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).EndInit();
