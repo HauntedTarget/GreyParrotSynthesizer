@@ -17,6 +17,11 @@ namespace GreyParrotSynthesizer
             InitializeComponent();
         }
 
+        private void InitiateGraph()
+        {
+            
+        }
+
         private void TestButton_Click(object sender, EventArgs e)
         {
             FormManager.Current.HideForm(FormManager.FormSelection.MainSynthesizer);

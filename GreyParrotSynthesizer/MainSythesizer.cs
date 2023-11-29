@@ -7,7 +7,7 @@ namespace GreyParrotSynthesizer
     public partial class MainSythesizer : Form
     {
         private static string directoryPath = Path.Combine(Environment.CurrentDirectory, "Sounds");
-        private string filename;
+        //private string filename;
         private string existingSound = Path.Combine(directoryPath, "sound");
 
         WaveUtils.WaveType waveType = WaveUtils.WaveType.SINE;
