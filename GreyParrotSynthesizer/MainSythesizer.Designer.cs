@@ -74,12 +74,12 @@
             WaveFormDropDown.Anchor = AnchorStyles.None;
             WaveFormDropDown.BackColor = Color.Black;
             WaveFormDropDown.DropDownStyle = ComboBoxStyle.DropDownList;
-            WaveFormDropDown.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            WaveFormDropDown.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             WaveFormDropDown.ForeColor = Color.DodgerBlue;
             WaveFormDropDown.FormattingEnabled = true;
             WaveFormDropDown.Location = new Point(95, 66);
             WaveFormDropDown.Name = "WaveFormDropDown";
-            WaveFormDropDown.Size = new Size(185, 40);
+            WaveFormDropDown.Size = new Size(131, 33);
             WaveFormDropDown.TabIndex = 0;
             WaveFormDropDown.SelectedIndexChanged += WaveFormDropDown_SelectedIndexChanged;
             // 
@@ -87,11 +87,13 @@
             // 
             PlaySound.Anchor = AnchorStyles.None;
             PlaySound.BackColor = Color.Black;
-            PlaySound.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            PlaySound.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             PlaySound.ForeColor = Color.DodgerBlue;
+            PlaySound.Location = new Point(34, 87);
+            PlaySound.Margin = new Padding(2);
             PlaySound.Location = new Point(95, 172);
             PlaySound.Name = "PlaySound";
-            PlaySound.Size = new Size(185, 53);
+            PlaySound.Size = new Size(130, 32);
             PlaySound.TabIndex = 1;
             PlaySound.Text = "Play Sound";
             PlaySound.TextAlign = ContentAlignment.TopCenter;
@@ -102,12 +104,14 @@
             // 
             FrequencyBar.Anchor = AnchorStyles.None;
             FrequencyBar.BackColor = SystemColors.ActiveCaptionText;
+            FrequencyBar.Location = new Point(491, 80);
+            FrequencyBar.Margin = new Padding(2);
             FrequencyBar.Location = new Point(717, 95);
             FrequencyBar.Maximum = 400;
             FrequencyBar.Minimum = 200;
             FrequencyBar.Name = "FrequencyBar";
             FrequencyBar.Orientation = Orientation.Vertical;
-            FrequencyBar.Size = new Size(69, 277);
+            FrequencyBar.Size = new Size(45, 166);
             FrequencyBar.TabIndex = 2;
             FrequencyBar.TickFrequency = 20;
             FrequencyBar.TickStyle = TickStyle.Both;
@@ -123,7 +127,7 @@
             AmplitudeBar.Minimum = 1000;
             AmplitudeBar.Name = "AmplitudeBar";
             AmplitudeBar.Orientation = Orientation.Vertical;
-            AmplitudeBar.Size = new Size(69, 277);
+            AmplitudeBar.Size = new Size(45, 166);
             AmplitudeBar.TabIndex = 3;
             AmplitudeBar.TickFrequency = 300;
             AmplitudeBar.TickStyle = TickStyle.Both;
@@ -289,11 +293,11 @@
             // 
             frequencyLabel.Anchor = AnchorStyles.None;
             frequencyLabel.BackColor = Color.Black;
-            frequencyLabel.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            frequencyLabel.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             frequencyLabel.ForeColor = Color.DodgerBlue;
             frequencyLabel.Location = new Point(672, 45);
             frequencyLabel.Name = "frequencyLabel";
-            frequencyLabel.Size = new Size(178, 47);
+            frequencyLabel.Size = new Size(125, 28);
             frequencyLabel.TabIndex = 7;
             frequencyLabel.Text = "FREQUENCY";
             frequencyLabel.TextAlign = ContentAlignment.TopCenter;
@@ -302,11 +306,11 @@
             // 
             amplitudeLabel.Anchor = AnchorStyles.None;
             amplitudeLabel.BackColor = Color.Black;
-            amplitudeLabel.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            amplitudeLabel.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             amplitudeLabel.ForeColor = Color.DodgerBlue;
             amplitudeLabel.Location = new Point(488, 45);
             amplitudeLabel.Name = "amplitudeLabel";
-            amplitudeLabel.Size = new Size(178, 47);
+            amplitudeLabel.Size = new Size(125, 28);
             amplitudeLabel.TabIndex = 8;
             amplitudeLabel.Text = "AMPLITUDE";
             amplitudeLabel.TextAlign = ContentAlignment.TopCenter;
@@ -335,7 +339,7 @@
             // 
             soundBarLabel.Anchor = AnchorStyles.None;
             soundBarLabel.BackColor = Color.Black;
-            soundBarLabel.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            soundBarLabel.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             soundBarLabel.ForeColor = Color.DodgerBlue;
             soundBarLabel.Location = new Point(182, 396);
             soundBarLabel.Name = "soundBarLabel";
@@ -366,25 +370,26 @@
             // 
             saveButtton.Anchor = AnchorStyles.None;
             saveButtton.BackColor = Color.Black;
-            saveButtton.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            saveButtton.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             saveButtton.ForeColor = Color.DodgerBlue;
             saveButtton.Location = new Point(95, 231);
             saveButtton.Name = "saveButtton";
-            saveButtton.Size = new Size(185, 53);
+            saveButtton.Size = new Size(130, 32);
             saveButtton.TabIndex = 15;
             saveButtton.Text = "Save Sound";
             saveButtton.TextAlign = ContentAlignment.TopCenter;
             saveButtton.UseVisualStyleBackColor = false;
+            saveButtton.Click += saveButtton_Click;
             // 
             // deleteSoundButton
             // 
             deleteSoundButton.Anchor = AnchorStyles.None;
             deleteSoundButton.BackColor = Color.Black;
-            deleteSoundButton.Font = new Font("Segoe Fluent Icons", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            deleteSoundButton.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             deleteSoundButton.ForeColor = Color.DodgerBlue;
             deleteSoundButton.Location = new Point(95, 290);
             deleteSoundButton.Name = "deleteSoundButton";
-            deleteSoundButton.Size = new Size(185, 53);
+            deleteSoundButton.Size = new Size(130, 32);
             deleteSoundButton.TabIndex = 16;
             deleteSoundButton.Text = "Delete Sound";
             deleteSoundButton.TextAlign = ContentAlignment.TopCenter;
@@ -396,7 +401,7 @@
             line1.BackColor = Color.White;
             line1.Location = new Point(173, 436);
             line1.Name = "line1";
-            line1.Size = new Size(340, 5);
+            line1.Size = new Size(238, 3);
             line1.TabIndex = 17;
             // 
             // playSoundStorage
@@ -407,9 +412,10 @@
             playSoundStorage.BackgroundImageLayout = ImageLayout.Zoom;
             playSoundStorage.Location = new Point(86, 389);
             playSoundStorage.Name = "playSoundStorage";
-            playSoundStorage.Size = new Size(81, 110);
+            playSoundStorage.Size = new Size(57, 66);
             playSoundStorage.TabIndex = 19;
             playSoundStorage.UseVisualStyleBackColor = false;
+            playSoundStorage.Click += playSoundStorage_Click;
             // 
             // label1
             // 
@@ -516,7 +522,7 @@
             // 
             // MainSythesizer
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DodgerBlue;
             ClientSize = new Size(1135, 509);
@@ -544,6 +550,8 @@
             Controls.Add(backcolor2);
             Controls.Add(outlinecolor);
             Controls.Add(outlinecolor2);
+            Margin = new Padding(2);
+            KeyPreview = true;
             Name = "MainSythesizer";
             Text = "Form1";
             Activated += MainSythesizer_Activated;

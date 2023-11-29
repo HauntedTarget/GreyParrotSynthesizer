@@ -6,15 +6,39 @@ namespace GreyParrotSynthesizer
 {
     public partial class MainSythesizer : Form
     {
+        private static string directoryPath = Path.Combine(Environment.CurrentDirectory, "Sounds");
+        private string filename;
+        private string existingSound = Path.Combine(directoryPath, "sound");
 
-        WaveType waveType = WaveType.SINE;
+        WaveUtils.WaveType waveType = WaveUtils.WaveType.SINE;
         float frequency = 200f;
         short amplitude = 1000;
+        float seconds = 0.5f;
+        // ranges 0 to 8
+        short octave = 4;
 
         public MainSythesizer()
         {
             InitializeComponent();
             WaveFormDropDown_Load();
+
+            CreateFiles();
+        }
+
+        private void CreateFiles()
+        {
+            if (File.Exists(existingSound + "1"))
+            {
+                return;
+            }
+            else
+            {
+                Directory.CreateDirectory(directoryPath);
+                for (int i = 0; i < 8; i++)
+                {
+                    Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + (i + 1).ToString());
+                }
+            }
         }
 
         private void WaveFormDropDown_Load()
@@ -22,20 +46,45 @@ namespace GreyParrotSynthesizer
             WaveFormDropDown.DataSource = System.Enum.GetValues(typeof(WaveType));
         }
 
-        private void MainSythesizer_KeyDown(object sender, KeyEventArgs e)
+        private void OnKeyPress(object sender, KeyPressEventArgs e)
         {
-            Audio.PlaySound(440f, (short)1000, WaveType.SINE);
+            if (e.KeyChar.Equals((char)Keys.Escape)) 
+            {
+                this.Close();
+            }
+
+            if (!e.KeyChar.Equals('-') && !e.KeyChar.Equals('='))
+            {
+                float frequencyPress = KeyToNote(e, octave);
+
+                if (frequencyPress > 19) Audio.PlaySound(frequencyPress, amplitude, waveType, seconds);
+            }
+            else
+            {
+                switch (e.KeyChar)
+                {
+                    default:
+                        if (octave > 0) octave--;
+                        break;
+                    case '=':
+                        if (octave < 8) octave++;
+                        break;
+                }
+            }
+            // Fix found here: https://stackoverflow.com/questions/9648381/how-to-prevent-manual-input-into-a-combobox-in-c-sharp
+            e.Handled = true;
         }
 
         private void WaveFormDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string str = WaveFormDropDown.Items[WaveFormDropDown.SelectedIndex].ToString();
+            string str = WaveFormDropDown.Items[WaveFormDropDown.SelectedIndex].ToString() + "";
             waveType = (WaveType)Enum.Parse(typeof(WaveType), str);
         }
 
         private void PlaySound_Click(object sender, EventArgs e)
         {
-            Audio.PlaySound(frequency, amplitude, waveType);
+            Audio.PlaySound(frequency, amplitude, waveType, seconds);
+            //Audio.SaveSound(frequency, amplitude, waveType, "test.wav");
         }
 
         private void FrequencyBar_Scroll(object sender, EventArgs e)
@@ -207,16 +256,32 @@ namespace GreyParrotSynthesizer
             changeRBPaddingImageVisible(radioButton8);
         }
 
-        private void exitButton_Click(object sender, EventArgs e)
+        private void saveButtton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+
+            if(/*textbox with filename not empty*/ false)
+            {
+                Audio.SaveSound(frequency, amplitude, waveType, seconds, Path.Combine(directoryPath,/*textbox filename*/ ""));
+            }
+
+
+            if (radioButton1.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "1");
+            else if (radioButton2.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "2");
+            else if (radioButton3.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "3");
+            else if (radioButton4.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "4");
+            else if (radioButton5.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "5");
+            else if (radioButton6.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "6");
+            else if (radioButton7.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "7");
+            else if (radioButton8.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "8");
+            else if (radioButton9.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "9");
+            else if (radioButton10.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "10");
         }
 
-        private void MainSythesizer_Activated(object sender, EventArgs e)
+        private void playSoundStorage_Click(object sender, EventArgs e)
         {
-            FormManager.Current.OpenForm(FormManager.FormSelection.UserWaveView);
-            UserWaveView uwv = Application.OpenForms.OfType<UserWaveView>().First();
-            uwv.SetDesktopLocation(200, 875);
+            
+            Audio.PlayAllSoundsFromFiles(existingSound);
+          
         }
     }
 }
