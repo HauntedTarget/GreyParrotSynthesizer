@@ -146,7 +146,7 @@
             radioButton1.TabIndex = 4;
             radioButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
             radioButton1.UseVisualStyleBackColor = true;
-            radioButton1.Click += radioButton1_Click;
+            radioButton1.Click += RadioButton1_Click;
             // 
             // radioButtonGroup
             // 
@@ -182,7 +182,7 @@
             radioButton10.Size = new Size(36, 42);
             radioButton10.TabIndex = 13;
             radioButton10.UseVisualStyleBackColor = false;
-            radioButton10.Click += radioButton10_Click;
+            radioButton10.Click += RadioButton10_Click;
             // 
             // radioButton9
             // 
@@ -196,7 +196,7 @@
             radioButton9.Size = new Size(36, 42);
             radioButton9.TabIndex = 12;
             radioButton9.UseVisualStyleBackColor = false;
-            radioButton9.Click += radioButton9_Click;
+            radioButton9.Click += RadioButton9_Click;
             // 
             // radioButton7
             // 
@@ -210,7 +210,7 @@
             radioButton7.Size = new Size(36, 42);
             radioButton7.TabIndex = 11;
             radioButton7.UseVisualStyleBackColor = false;
-            radioButton7.Click += radioButton7_Click;
+            radioButton7.Click += RadioButton7_Click;
             // 
             // radioButton8
             // 
@@ -224,7 +224,7 @@
             radioButton8.Size = new Size(36, 42);
             radioButton8.TabIndex = 10;
             radioButton8.UseVisualStyleBackColor = false;
-            radioButton8.Click += radioButton8_Click;
+            radioButton8.Click += RadioButton8_Click;
             // 
             // radioButton6
             // 
@@ -238,7 +238,7 @@
             radioButton6.Size = new Size(36, 42);
             radioButton6.TabIndex = 9;
             radioButton6.UseVisualStyleBackColor = false;
-            radioButton6.Click += radioButton6_Click;
+            radioButton6.Click += RadioButton6_Click;
             // 
             // radioButton5
             // 
@@ -252,7 +252,7 @@
             radioButton5.Size = new Size(36, 42);
             radioButton5.TabIndex = 8;
             radioButton5.UseVisualStyleBackColor = false;
-            radioButton5.Click += radioButton5_Click;
+            radioButton5.Click += RadioButton5_Click;
             // 
             // radioButton4
             // 
@@ -266,7 +266,7 @@
             radioButton4.Size = new Size(36, 42);
             radioButton4.TabIndex = 7;
             radioButton4.UseVisualStyleBackColor = false;
-            radioButton4.Click += radioButton4_Click;
+            radioButton4.Click += RadioButton4_Click;
             // 
             // radioButton3
             // 
@@ -280,7 +280,7 @@
             radioButton3.Size = new Size(36, 42);
             radioButton3.TabIndex = 6;
             radioButton3.UseVisualStyleBackColor = false;
-            radioButton3.Click += radioButton3_Click;
+            radioButton3.Click += RadioButton3_Click;
             // 
             // radioButton2
             // 
@@ -296,7 +296,7 @@
             radioButton2.TabIndex = 5;
             radioButton2.TextImageRelation = TextImageRelation.ImageBeforeText;
             radioButton2.UseVisualStyleBackColor = true;
-            radioButton2.Click += radioButton2_Click;
+            radioButton2.Click += RadioButton2_Click;
             // 
             // frequencyLabel
             // 
@@ -396,7 +396,7 @@
             saveButtton.Text = "Save Sound";
             saveButtton.TextAlign = ContentAlignment.TopCenter;
             saveButtton.UseVisualStyleBackColor = false;
-            saveButtton.Click += saveButtton_Click;
+            saveButtton.Click += SaveButtton_Click;
             // 
             // deleteSoundButton
             // 
@@ -435,7 +435,7 @@
             playSoundStorage.Size = new Size(81, 110);
             playSoundStorage.TabIndex = 19;
             playSoundStorage.UseVisualStyleBackColor = false;
-            playSoundStorage.Click += playSoundStorage_Click;
+            playSoundStorage.Click += PlaySoundStorage_Click;
             // 
             // label1
             // 

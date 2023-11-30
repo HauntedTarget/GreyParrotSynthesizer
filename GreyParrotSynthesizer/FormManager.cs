@@ -8,10 +8,14 @@ namespace GreyParrotSynthesizer
 {
     internal class FormManager : ApplicationContext
     {
-        private static Lazy<FormManager> _current = new Lazy<FormManager>();
+#pragma warning disable IDE0044 // Add readonly modifier
+        private static Lazy<FormManager> _current = new();
+#pragma warning restore IDE0044 // Add readonly modifier
         public static FormManager Current => _current.Value;
 
-        private List<Form> forms = new List<Form>();
+#pragma warning disable IDE0044 // Add readonly modifier
+        private List<Form> forms = new();
+#pragma warning restore IDE0044 // Add readonly modifier
 
         public enum FormSelection { MainSynthesizer = 0, UserWaveView = 1, MainMenu = 2 }
         public FormManager()
@@ -75,7 +79,7 @@ namespace GreyParrotSynthesizer
             forms[(int)FormToHide].Hide();
         }
 
-        private void onFormClosed(object sender, EventArgs e)
+        private void OnFormClosed(object sender, EventArgs e)
         {
             if (Application.OpenForms.Count == 0)
             {
@@ -86,7 +90,7 @@ namespace GreyParrotSynthesizer
         public T CreateForm<T>() where T : Form, new()
         {
             var ret = new T();
-            ret.FormClosed += onFormClosed;
+            ret.FormClosed += OnFormClosed;
             return ret;
         }
     }
