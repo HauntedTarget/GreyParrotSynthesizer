@@ -14,10 +14,8 @@ namespace GreyParrotSynthesizer
         WaveUtils.WaveType waveType = WaveUtils.WaveType.SINE;
         float frequency = 200f;
         short amplitude = 1000;
-#pragma warning disable IDE0044 // Add readonly modifier
-        float seconds = 0.5f;
-#pragma warning restore IDE0044 // Add readonly modifier
-                               // ranges 0 to 8
+        float seconds = 0.1f;
+        // ranges 0 to 8
         short octave = 4;
 
         public MainSythesizer()
