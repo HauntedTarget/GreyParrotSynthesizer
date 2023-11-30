@@ -538,10 +538,10 @@
             exitButton.BackColor = Color.Black;
             exitButton.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             exitButton.ForeColor = Color.DodgerBlue;
-            exitButton.Location = new Point(1520, 43);
+            exitButton.Location = new Point(1511, 14);
             exitButton.Margin = new Padding(4, 5, 4, 5);
             exitButton.Name = "exitButton";
-            exitButton.Size = new Size(71, 83);
+            exitButton.Size = new Size(71, 50);
             exitButton.TabIndex = 27;
             exitButton.Text = "?";
             exitButton.TextAlign = ContentAlignment.TopCenter;
