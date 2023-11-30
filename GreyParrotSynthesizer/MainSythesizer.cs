@@ -6,15 +6,23 @@ namespace GreyParrotSynthesizer
 {
     public partial class MainSythesizer : Form
     {
-        private static string directoryPath = Path.Combine(Environment.CurrentDirectory, "Sounds");
+        private static readonly string directoryPath = Path.Combine(Environment.CurrentDirectory, "Sounds");
+#pragma warning disable IDE0044 // Add readonly modifier
+#pragma warning disable IDE0051 // Remove unused private members
         private string filename = "";
+#pragma warning restore IDE0051 // Remove unused private members
+#pragma warning restore IDE0044 // Add readonly modifier
+#pragma warning disable IDE0044 // Add readonly modifier
         private string existingSound = Path.Combine(directoryPath, "sound");
+#pragma warning restore IDE0044 // Add readonly modifier
 
         WaveUtils.WaveType waveType = WaveUtils.WaveType.SINE;
         float frequency = 200f;
         short amplitude = 1000;
+#pragma warning disable IDE0044 // Add readonly modifier
         float seconds = 0.5f;
-        // ranges 0 to 8
+#pragma warning restore IDE0044 // Add readonly modifier
+                               // ranges 0 to 8
         short octave = 4;
 
         public MainSythesizer()
@@ -98,164 +106,166 @@ namespace GreyParrotSynthesizer
         }
 
         //changes padding of radio buttons to 0
-        private void changeRBPadding0(RadioButton radioButton)
+        private static void ChangeRBPadding0(RadioButton radioButton)
         {
             radioButton.Padding = new Padding(0, 0, 0, 0);
         }
 
         //sets bottom padding to 100, this makes it so the background image is visible
-        private void changeRBPaddingImageVisible(RadioButton radioButton)
+        private static void ChangeRBPaddingImageVisible(RadioButton radioButton)
         {
             radioButton.Padding = new Padding(0, 100, 0, 0);
         }
 
-        private void radioButton1_Click(object sender, EventArgs e)
+        private void RadioButton1_Click(object sender, EventArgs e)
         {
             //for each of these it changes the padding of the active radiobutton back to 0 to indicate that it has been accessed
             //it sets the other ones to 100 so that you can see the button image again
-            changeRBPadding0(radioButton1);
-            changeRBPaddingImageVisible(radioButton2);
-            changeRBPaddingImageVisible(radioButton3);
-            changeRBPaddingImageVisible(radioButton4);
-            changeRBPaddingImageVisible(radioButton5);
-            changeRBPaddingImageVisible(radioButton6);
-            changeRBPaddingImageVisible(radioButton8);
-            changeRBPaddingImageVisible(radioButton7);
-            changeRBPaddingImageVisible(radioButton9);
-            changeRBPaddingImageVisible(radioButton10);
+            ChangeRBPadding0(radioButton1);
+            ChangeRBPaddingImageVisible(radioButton2);
+            ChangeRBPaddingImageVisible(radioButton3);
+            ChangeRBPaddingImageVisible(radioButton4);
+            ChangeRBPaddingImageVisible(radioButton5);
+            ChangeRBPaddingImageVisible(radioButton6);
+            ChangeRBPaddingImageVisible(radioButton8);
+            ChangeRBPaddingImageVisible(radioButton7);
+            ChangeRBPaddingImageVisible(radioButton9);
+            ChangeRBPaddingImageVisible(radioButton10);
         }
-        private void radioButton2_Click(object sender, EventArgs e)
+        private void RadioButton2_Click(object sender, EventArgs e)
         {
-            changeRBPadding0(radioButton2);
-            changeRBPaddingImageVisible(radioButton1);
-            changeRBPaddingImageVisible(radioButton3);
-            changeRBPaddingImageVisible(radioButton4);
-            changeRBPaddingImageVisible(radioButton5);
-            changeRBPaddingImageVisible(radioButton6);
-            changeRBPaddingImageVisible(radioButton8);
-            changeRBPaddingImageVisible(radioButton7);
-            changeRBPaddingImageVisible(radioButton9);
-            changeRBPaddingImageVisible(radioButton10);
+            ChangeRBPadding0(radioButton2);
+            ChangeRBPaddingImageVisible(radioButton1);
+            ChangeRBPaddingImageVisible(radioButton3);
+            ChangeRBPaddingImageVisible(radioButton4);
+            ChangeRBPaddingImageVisible(radioButton5);
+            ChangeRBPaddingImageVisible(radioButton6);
+            ChangeRBPaddingImageVisible(radioButton8);
+            ChangeRBPaddingImageVisible(radioButton7);
+            ChangeRBPaddingImageVisible(radioButton9);
+            ChangeRBPaddingImageVisible(radioButton10);
         }
 
-        private void radioButton3_Click(object sender, EventArgs e)
+        private void RadioButton3_Click(object sender, EventArgs e)
         {
-            changeRBPadding0(radioButton3);
-            changeRBPaddingImageVisible(radioButton1);
-            changeRBPaddingImageVisible(radioButton2);
-            changeRBPaddingImageVisible(radioButton4);
-            changeRBPaddingImageVisible(radioButton5);
-            changeRBPaddingImageVisible(radioButton6);
-            changeRBPaddingImageVisible(radioButton8);
-            changeRBPaddingImageVisible(radioButton7);
-            changeRBPaddingImageVisible(radioButton9);
-            changeRBPaddingImageVisible(radioButton10);
+            ChangeRBPadding0(radioButton3);
+            ChangeRBPaddingImageVisible(radioButton1);
+            ChangeRBPaddingImageVisible(radioButton2);
+            ChangeRBPaddingImageVisible(radioButton4);
+            ChangeRBPaddingImageVisible(radioButton5);
+            ChangeRBPaddingImageVisible(radioButton6);
+            ChangeRBPaddingImageVisible(radioButton8);
+            ChangeRBPaddingImageVisible(radioButton7);
+            ChangeRBPaddingImageVisible(radioButton9);
+            ChangeRBPaddingImageVisible(radioButton10);
         }
 
-        private void radioButton4_Click(object sender, EventArgs e)
+        private void RadioButton4_Click(object sender, EventArgs e)
         {
-            changeRBPadding0(radioButton4);
-            changeRBPaddingImageVisible(radioButton1);
-            changeRBPaddingImageVisible(radioButton3);
-            changeRBPaddingImageVisible(radioButton2);
-            changeRBPaddingImageVisible(radioButton5);
-            changeRBPaddingImageVisible(radioButton6);
-            changeRBPaddingImageVisible(radioButton8);
-            changeRBPaddingImageVisible(radioButton7);
-            changeRBPaddingImageVisible(radioButton9);
-            changeRBPaddingImageVisible(radioButton10);
+            ChangeRBPadding0(radioButton4);
+            ChangeRBPaddingImageVisible(radioButton1);
+            ChangeRBPaddingImageVisible(radioButton3);
+            ChangeRBPaddingImageVisible(radioButton2);
+            ChangeRBPaddingImageVisible(radioButton5);
+            ChangeRBPaddingImageVisible(radioButton6);
+            ChangeRBPaddingImageVisible(radioButton8);
+            ChangeRBPaddingImageVisible(radioButton7);
+            ChangeRBPaddingImageVisible(radioButton9);
+            ChangeRBPaddingImageVisible(radioButton10);
         }
 
-        private void radioButton5_Click(object sender, EventArgs e)
+        private void RadioButton5_Click(object sender, EventArgs e)
         {
-            changeRBPadding0(radioButton5);
-            changeRBPaddingImageVisible(radioButton1);
-            changeRBPaddingImageVisible(radioButton3);
-            changeRBPaddingImageVisible(radioButton4);
-            changeRBPaddingImageVisible(radioButton2);
-            changeRBPaddingImageVisible(radioButton6);
-            changeRBPaddingImageVisible(radioButton8);
-            changeRBPaddingImageVisible(radioButton7);
-            changeRBPaddingImageVisible(radioButton9);
-            changeRBPaddingImageVisible(radioButton10);
+            ChangeRBPadding0(radioButton5);
+            ChangeRBPaddingImageVisible(radioButton1);
+            ChangeRBPaddingImageVisible(radioButton3);
+            ChangeRBPaddingImageVisible(radioButton4);
+            ChangeRBPaddingImageVisible(radioButton2);
+            ChangeRBPaddingImageVisible(radioButton6);
+            ChangeRBPaddingImageVisible(radioButton8);
+            ChangeRBPaddingImageVisible(radioButton7);
+            ChangeRBPaddingImageVisible(radioButton9);
+            ChangeRBPaddingImageVisible(radioButton10);
         }
 
-        private void radioButton6_Click(object sender, EventArgs e)
+        private void RadioButton6_Click(object sender, EventArgs e)
         {
-            changeRBPadding0(radioButton6);
-            changeRBPaddingImageVisible(radioButton1);
-            changeRBPaddingImageVisible(radioButton3);
-            changeRBPaddingImageVisible(radioButton4);
-            changeRBPaddingImageVisible(radioButton5);
-            changeRBPaddingImageVisible(radioButton2);
-            changeRBPaddingImageVisible(radioButton8);
-            changeRBPaddingImageVisible(radioButton7);
-            changeRBPaddingImageVisible(radioButton9);
-            changeRBPaddingImageVisible(radioButton10);
+            ChangeRBPadding0(radioButton6);
+            ChangeRBPaddingImageVisible(radioButton1);
+            ChangeRBPaddingImageVisible(radioButton3);
+            ChangeRBPaddingImageVisible(radioButton4);
+            ChangeRBPaddingImageVisible(radioButton5);
+            ChangeRBPaddingImageVisible(radioButton2);
+            ChangeRBPaddingImageVisible(radioButton8);
+            ChangeRBPaddingImageVisible(radioButton7);
+            ChangeRBPaddingImageVisible(radioButton9);
+            ChangeRBPaddingImageVisible(radioButton10);
         }
 
-        private void radioButton7_Click(object sender, EventArgs e)
+        private void RadioButton7_Click(object sender, EventArgs e)
         {
-            changeRBPadding0(radioButton7);
-            changeRBPaddingImageVisible(radioButton1);
-            changeRBPaddingImageVisible(radioButton3);
-            changeRBPaddingImageVisible(radioButton4);
-            changeRBPaddingImageVisible(radioButton5);
-            changeRBPaddingImageVisible(radioButton6);
-            changeRBPaddingImageVisible(radioButton8);
-            changeRBPaddingImageVisible(radioButton2);
-            changeRBPaddingImageVisible(radioButton9);
-            changeRBPaddingImageVisible(radioButton10);
+            ChangeRBPadding0(radioButton7);
+            ChangeRBPaddingImageVisible(radioButton1);
+            ChangeRBPaddingImageVisible(radioButton3);
+            ChangeRBPaddingImageVisible(radioButton4);
+            ChangeRBPaddingImageVisible(radioButton5);
+            ChangeRBPaddingImageVisible(radioButton6);
+            ChangeRBPaddingImageVisible(radioButton8);
+            ChangeRBPaddingImageVisible(radioButton2);
+            ChangeRBPaddingImageVisible(radioButton9);
+            ChangeRBPaddingImageVisible(radioButton10);
         }
 
-        private void radioButton8_Click(object sender, EventArgs e)
+        private void RadioButton8_Click(object sender, EventArgs e)
         {
-            changeRBPadding0(radioButton8);
-            changeRBPaddingImageVisible(radioButton1);
-            changeRBPaddingImageVisible(radioButton3);
-            changeRBPaddingImageVisible(radioButton4);
-            changeRBPaddingImageVisible(radioButton5);
-            changeRBPaddingImageVisible(radioButton6);
-            changeRBPaddingImageVisible(radioButton7);
-            changeRBPaddingImageVisible(radioButton2);
-            changeRBPaddingImageVisible(radioButton9);
-            changeRBPaddingImageVisible(radioButton10);
+            ChangeRBPadding0(radioButton8);
+            ChangeRBPaddingImageVisible(radioButton1);
+            ChangeRBPaddingImageVisible(radioButton3);
+            ChangeRBPaddingImageVisible(radioButton4);
+            ChangeRBPaddingImageVisible(radioButton5);
+            ChangeRBPaddingImageVisible(radioButton6);
+            ChangeRBPaddingImageVisible(radioButton7);
+            ChangeRBPaddingImageVisible(radioButton2);
+            ChangeRBPaddingImageVisible(radioButton9);
+            ChangeRBPaddingImageVisible(radioButton10);
         }
 
-        private void radioButton9_Click(object sender, EventArgs e)
+        private void RadioButton9_Click(object sender, EventArgs e)
         {
-            changeRBPadding0(radioButton9);
-            changeRBPaddingImageVisible(radioButton1);
-            changeRBPaddingImageVisible(radioButton3);
-            changeRBPaddingImageVisible(radioButton4);
-            changeRBPaddingImageVisible(radioButton5);
-            changeRBPaddingImageVisible(radioButton6);
-            changeRBPaddingImageVisible(radioButton7);
-            changeRBPaddingImageVisible(radioButton2);
-            changeRBPaddingImageVisible(radioButton8);
-            changeRBPaddingImageVisible(radioButton10);
+            ChangeRBPadding0(radioButton9);
+            ChangeRBPaddingImageVisible(radioButton1);
+            ChangeRBPaddingImageVisible(radioButton3);
+            ChangeRBPaddingImageVisible(radioButton4);
+            ChangeRBPaddingImageVisible(radioButton5);
+            ChangeRBPaddingImageVisible(radioButton6);
+            ChangeRBPaddingImageVisible(radioButton7);
+            ChangeRBPaddingImageVisible(radioButton2);
+            ChangeRBPaddingImageVisible(radioButton8);
+            ChangeRBPaddingImageVisible(radioButton10);
         }
 
-        private void radioButton10_Click(object sender, EventArgs e)
+        private void RadioButton10_Click(object sender, EventArgs e)
         {
-            changeRBPadding0(radioButton10);
-            changeRBPaddingImageVisible(radioButton1);
-            changeRBPaddingImageVisible(radioButton3);
-            changeRBPaddingImageVisible(radioButton4);
-            changeRBPaddingImageVisible(radioButton5);
-            changeRBPaddingImageVisible(radioButton6);
-            changeRBPaddingImageVisible(radioButton7);
-            changeRBPaddingImageVisible(radioButton2);
-            changeRBPaddingImageVisible(radioButton9);
-            changeRBPaddingImageVisible(radioButton8);
+            ChangeRBPadding0(radioButton10);
+            ChangeRBPaddingImageVisible(radioButton1);
+            ChangeRBPaddingImageVisible(radioButton3);
+            ChangeRBPaddingImageVisible(radioButton4);
+            ChangeRBPaddingImageVisible(radioButton5);
+            ChangeRBPaddingImageVisible(radioButton6);
+            ChangeRBPaddingImageVisible(radioButton7);
+            ChangeRBPaddingImageVisible(radioButton2);
+            ChangeRBPaddingImageVisible(radioButton9);
+            ChangeRBPaddingImageVisible(radioButton8);
         }
 
-        private void saveButtton_Click(object sender, EventArgs e)
+        private void SaveButtton_Click(object sender, EventArgs e)
         {
 
             if(/*textbox with filename not empty*/ false)
             {
+#pragma warning disable CS0162 // Unreachable code detected
                 Audio.SaveSound(frequency, amplitude, waveType, seconds, Path.Combine(directoryPath,/*textbox filename*/ ""));
+#pragma warning restore CS0162 // Unreachable code detected
             }
 
 
@@ -271,7 +281,7 @@ namespace GreyParrotSynthesizer
             else if (radioButton10.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "10");
         }
 
-        private void playSoundStorage_Click(object sender, EventArgs e)
+        private void PlaySoundStorage_Click(object sender, EventArgs e)
         {
             
             Audio.PlayAllSoundsFromFiles(existingSound);
