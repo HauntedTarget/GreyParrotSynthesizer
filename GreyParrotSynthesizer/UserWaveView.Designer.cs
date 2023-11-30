@@ -37,18 +37,24 @@
             // 
             // chart1
             // 
+            chart1.BackColor = Color.Black;
+            chart1.BackgroundImageLayout = ImageLayout.Center;
+            chart1.BorderlineColor = Color.DimGray;
+            chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chart1.BorderlineWidth = 0;
             chartArea1.Name = "ChartArea1";
             chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             chart1.Legends.Add(legend1);
-            chart1.Location = new Point(12, 12);
+            chart1.Location = new Point(-69, -11);
             chart1.Name = "chart1";
+            chart1.RightToLeft = RightToLeft.Yes;
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             chart1.Series.Add(series1);
-            chart1.Size = new Size(681, 374);
+            chart1.Size = new Size(907, 439);
             chart1.TabIndex = 0;
             chart1.Text = "WaveVisualizer";
             // 
@@ -59,7 +65,7 @@
             ClientSize = new Size(705, 398);
             Controls.Add(chart1);
             Location = new Point(1000, 0);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "UserWaveView";
             Text = "UserWaveView";
             ((System.ComponentModel.ISupportInitialize)chart1).EndInit();

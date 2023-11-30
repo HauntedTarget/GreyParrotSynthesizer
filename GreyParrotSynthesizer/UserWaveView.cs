@@ -14,21 +14,25 @@ namespace GreyParrotSynthesizer
     {
 
         System.Windows.Forms.Timer timer;
-        double x;
+        double time;
+        short[] wave;
 
         public UserWaveView()
         {
             InitializeComponent();
-        }
+            InitializeChart();
+            InitializeTimer();
 
-        private void InitiateGraph()
-        {
-            
         }
 
         private void TestButton_Click(object sender, EventArgs e)
         {
             FormManager.Current.HideForm(FormManager.FormSelection.MainSynthesizer);
+        }
+
+        public void RecieveData(short[] wave)
+        {
+            this.wave = wave;
         }
 
         private void InitializeChart()
@@ -39,16 +43,20 @@ namespace GreyParrotSynthesizer
             // Customize chart
             chart1.BackColor = Color.Black;
 
+
             // Series?
             //chart1.Series[0].ChartType = SeriesChartType.Line;
+            double y = 0;
             chart1.Series[0].Color = Color.Green;
+            chart1.RightToLeft = RightToLeft.Yes;
+            chart1.Series[0].Points.DataBindXY(new double[] { time }, new double[] { y });
 
         }
 
         private void InitializeTimer()
         {
             timer = new System.Windows.Forms.Timer();
-            timer.Interval = 5;
+            timer.Interval = 1;
             timer.Tick += Timer_Tick;
             timer.Start();
         }
@@ -56,15 +64,33 @@ namespace GreyParrotSynthesizer
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            chart1.Series[0].Points.AddXY(x, Math.Cos(x));
+
+            if (wave != null)
+            {
+                for (int i = 0; i < wave.Length; i++)
+                {
+                    // test purposes
+                    double y = wave[i];
+                    chart1.Series[0].Points.DataBindXY(new double[] { time }, new double[] { y });
+                    time += 1;
+                }
+                wave = null;
+            }
+            //else
+            //{
+            //    chart1.Series[0].Points.AddXY(time, 0);
+            //}
+
 
             if (chart1.Series[0].Points.Count > 100)
                 chart1.Series[0].Points.RemoveAt(0);
 
             chart1.ChartAreas[0].AxisX.Minimum = chart1.Series[0].Points[0].XValue;
-            chart1.ChartAreas[0].AxisX.Maximum = x;
+            chart1.ChartAreas[0].AxisX.Maximum = chart1.Series[0].Points[0].XValue+100;
+            chart1.ChartAreas[0].AxisY.Minimum = -10000.1;
+            chart1.ChartAreas[0].AxisY.Maximum = 10000.1;
 
-            x += 0.1;
+            time += 1;
         }
     }
 }

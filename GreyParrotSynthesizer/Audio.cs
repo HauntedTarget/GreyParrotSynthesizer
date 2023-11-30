@@ -14,6 +14,7 @@ namespace GreyParrotSynthesizer
 {
     internal class Audio
     {
+        static UserWaveView userWaveView = new UserWaveView();
         // Every second we want to generate SAMPLE_RATE samples (i.e. 44100 samples per second)
         // Every second, there will be 16 bits per sample (i.e. 16 bits per sample)
         private const int SAMPLE_RATE = 44100;
@@ -29,7 +30,8 @@ namespace GreyParrotSynthesizer
             // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
             // wave alogirthms made with help from the above link
             wave = WaveUtils.WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
-
+            // Send wave to userWaveView
+            userWaveView.RecieveData(wave);
 
 
             // https://docs.fileformat.com/audio/wav/
