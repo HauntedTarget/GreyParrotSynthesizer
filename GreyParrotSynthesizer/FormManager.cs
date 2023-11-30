@@ -8,10 +8,14 @@ namespace GreyParrotSynthesizer
 {
     internal class FormManager : ApplicationContext
     {
-        private static Lazy<FormManager> _current = new Lazy<FormManager>();
+#pragma warning disable IDE0044 // Add readonly modifier
+        private static Lazy<FormManager> _current = new();
+#pragma warning restore IDE0044 // Add readonly modifier
         public static FormManager Current => _current.Value;
 
-        private List<Form> forms = new List<Form>();
+#pragma warning disable IDE0044 // Add readonly modifier
+        private List<Form> forms = new();
+#pragma warning restore IDE0044 // Add readonly modifier
 
         public enum FormSelection { MainSynthesizer = 0, UserWaveView = 1, TestForm = 2 }
         public FormManager()
