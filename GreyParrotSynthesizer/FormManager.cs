@@ -75,7 +75,7 @@ namespace GreyParrotSynthesizer
             forms[(int)FormToHide].Hide();
         }
 
-        private void onFormClosed(object sender, EventArgs e)
+        private void OnFormClosed(object sender, EventArgs e)
         {
             if (Application.OpenForms.Count == 0)
             {
@@ -86,7 +86,7 @@ namespace GreyParrotSynthesizer
         public T CreateForm<T>() where T : Form, new()
         {
             var ret = new T();
-            ret.FormClosed += onFormClosed;
+            ret.FormClosed += OnFormClosed;
             return ret;
         }
     }
