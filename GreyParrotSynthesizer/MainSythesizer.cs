@@ -23,7 +23,7 @@ namespace GreyParrotSynthesizer
             WaveFormDropDown_Load();
 
             CreateFiles();
-            
+
         }
 
         private void CreateFiles()
