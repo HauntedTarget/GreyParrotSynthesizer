@@ -77,7 +77,7 @@
             WaveFormDropDown.Size = new Size(185, 45);
             WaveFormDropDown.TabIndex = 0;
             WaveFormDropDown.SelectedIndexChanged += WaveFormDropDown_SelectedIndexChanged;
-            WaveFormDropDown.MouseMove += OnMoveMove;
+            WaveFormDropDown.MouseMove += OnMouseMove;
             WaveFormDropDown.MouseHover += OnHover;
             WaveFormDropDown.MouseLeave += OnLeave;
             // 
@@ -486,7 +486,7 @@
             Name = "MainSythesizer";
             Text = "Form1";
             KeyPress += OnKeyPress;
-            MouseMove += OnMoveMove;
+            MouseMove += OnMouseMove;
             MouseHover += OnHover;
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).EndInit();

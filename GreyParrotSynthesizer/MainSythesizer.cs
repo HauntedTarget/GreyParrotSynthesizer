@@ -302,7 +302,7 @@ namespace GreyParrotSynthesizer
             }
         }
 
-        private void OnMoveMove(object sender, MouseEventArgs e)
+        private void OnMouseMove(object sender, MouseEventArgs e)
         {
             if (cb_hoverTut.Checked == true)
             {
