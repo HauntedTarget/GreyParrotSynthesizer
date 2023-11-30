@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.Devices;
 using System.Diagnostics.CodeAnalysis;
 
 using static GreyParrotSynthesizer.WaveUtils;
@@ -22,7 +23,7 @@ namespace GreyParrotSynthesizer
 #pragma warning disable IDE0044 // Add readonly modifier
         float seconds = 0.5f;
 #pragma warning restore IDE0044 // Add readonly modifier
-                               // ranges 0 to 8
+        // ranges 0 to 8
         short octave = 4;
 
         public MainSythesizer()
@@ -56,7 +57,7 @@ namespace GreyParrotSynthesizer
 
         private void OnKeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar.Equals((char)Keys.Escape)) 
+            if (e.KeyChar.Equals((char)Keys.Escape))
             {
                 this.Close();
             }
@@ -261,7 +262,7 @@ namespace GreyParrotSynthesizer
         private void SaveButtton_Click(object sender, EventArgs e)
         {
 
-            if(/*textbox with filename not empty*/ false)
+            if (/*textbox with filename not empty*/ false)
             {
 #pragma warning disable CS0162 // Unreachable code detected
                 Audio.SaveSound(frequency, amplitude, waveType, seconds, Path.Combine(directoryPath,/*textbox filename*/ ""));
@@ -283,9 +284,40 @@ namespace GreyParrotSynthesizer
 
         private void PlaySoundStorage_Click(object sender, EventArgs e)
         {
-            
+
             Audio.PlayAllSoundsFromFiles(existingSound);
-          
+
+        }
+
+        private void OnHover(object sender, EventArgs e)
+        {
+            l_tip.Visible = true;
+            if (sender == WaveFormDropDown)
+            {
+                l_tip.Text = "Use the dropdown to change waveform.";
+            }
+            else
+            {
+                l_tip.Visible = false;
+            }
+        }
+
+        private void OnMoveMove(object sender, MouseEventArgs e)
+        {
+            if (cb_hoverTut.Checked == true)
+            {
+                Point mousePoint = PointToClient(MousePosition);
+                mousePoint.Y -= l_tip.Height;
+                l_tip.Location = mousePoint;
+            }
+            else
+            {
+                l_tip.Visible = false;
+            }
+        }
+        private void OnLeave(object sender, EventArgs e)
+        {
+            l_tip.Visible = false;
         }
     }
 }
