@@ -15,7 +15,8 @@ namespace GreyParrotSynthesizer
 
         System.Windows.Forms.Timer timer;
         double time;
-        short[] wave;
+        public static short[] wave;
+        double y;
 
         public UserWaveView()
         {
@@ -28,11 +29,6 @@ namespace GreyParrotSynthesizer
         private void TestButton_Click(object sender, EventArgs e)
         {
             FormManager.Current.HideForm(FormManager.FormSelection.MainSynthesizer);
-        }
-
-        public void RecieveData(short[] wave)
-        {
-            this.wave = wave;
         }
 
         private void InitializeChart()
@@ -70,15 +66,25 @@ namespace GreyParrotSynthesizer
                 for (int i = 0; i < wave.Length; i++)
                 {
                     // test purposes
-                    double y = wave[i];
-                    chart1.Series[0].Points.DataBindXY(new double[] { time }, new double[] { y });
+                    y = wave[i];
+                    chart1.Series[0].Points.AddXY(time, y);
                     time += 1;
                 }
                 wave = null;
             }
-            //else
+            else
+            {
+                chart1.Series[0].Points.AddXY(time, 0);
+            }
+            //if (wave == null)
+            //    return;
+
+            //for (int i = 0; i < wave.Length; i++)
             //{
-            //    chart1.Series[0].Points.AddXY(time, 0);
+            //    // test purposes
+            //    y = wave[i];
+            //    chart1.Series[0].Points.AddXY(time, y);
+            //    time += 1;
             //}
 
 
@@ -86,9 +92,9 @@ namespace GreyParrotSynthesizer
                 chart1.Series[0].Points.RemoveAt(0);
 
             chart1.ChartAreas[0].AxisX.Minimum = chart1.Series[0].Points[0].XValue;
-            chart1.ChartAreas[0].AxisX.Maximum = chart1.Series[0].Points[0].XValue+100;
-            chart1.ChartAreas[0].AxisY.Minimum = -10000.1;
-            chart1.ChartAreas[0].AxisY.Maximum = 10000.1;
+            chart1.ChartAreas[0].AxisX.Maximum = chart1.Series[0].Points[0].XValue + 100;
+            chart1.ChartAreas[0].AxisY.Minimum = -1000000.1;
+            chart1.ChartAreas[0].AxisY.Maximum = 1000000.1;
 
             time += 1;
         }

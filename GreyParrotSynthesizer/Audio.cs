@@ -31,7 +31,7 @@ namespace GreyParrotSynthesizer
             // wave alogirthms made with help from the above link
             wave = WaveUtils.WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
             // Send wave to userWaveView
-            userWaveView.RecieveData(wave);
+            UserWaveView.wave = wave;
 
 
             // https://docs.fileformat.com/audio/wav/
