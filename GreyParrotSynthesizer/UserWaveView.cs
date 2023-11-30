@@ -76,10 +76,10 @@ namespace GreyParrotSynthesizer
                 }
                 wave = null;
             }
-            //else
-            //{
-            //    chart1.Series[0].Points.AddXY(time, 0);
-            //}
+            else
+            {
+                chart1.Series[0].Points.AddXY(time, 0);
+            }
 
 
             if (chart1.Series[0].Points.Count > 100)

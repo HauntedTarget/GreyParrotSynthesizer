@@ -25,7 +25,7 @@ namespace GreyParrotSynthesizer
 
             FormManager.Current.OpenForm(FormManager.FormSelection.UserWaveView);
             UserWaveView userWaveView = Application.OpenForms.OfType<UserWaveView>().First();
-            userWaveView.SetDesktopLocation(1170, 200);
+            userWaveView.SetDesktopLocation(1500, 431);
         }
 
         private void button2_Click(object sender, EventArgs e)
