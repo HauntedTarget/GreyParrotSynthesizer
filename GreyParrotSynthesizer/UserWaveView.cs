@@ -17,6 +17,9 @@ namespace GreyParrotSynthesizer
         double time;
         public static short[] wave;
         double y;
+        bool ready = true;
+        int waveLength = 0;
+        int waveIndex = 0;
 
         public UserWaveView()
         {
@@ -24,6 +27,23 @@ namespace GreyParrotSynthesizer
             InitializeChart();
             InitializeTimer();
 
+        }
+
+        public static void Wave(short[] value)
+        {
+
+                int newIndex = 0;
+                short[] newWave = new short[(value.Length / 1000) + 1];
+                for (int i = 0; i < value.Length; i++)
+                {
+                    if (i % 1000 == 0)
+                    {
+                        newWave[newIndex] = value[i];
+                        newIndex++;
+                    }
+                }
+                wave = newWave;
+            
         }
 
         private void TestButton_Click(object sender, EventArgs e)
@@ -63,18 +83,32 @@ namespace GreyParrotSynthesizer
 
             if (wave != null)
             {
+                waveLength = wave.Length;
+                waveIndex = 0;
                 for (int i = 0; i < wave.Length; i++)
                 {
-                    // test purposes
                     y = wave[i];
                     chart1.Series[0].Points.AddXY(time, y);
                     time += 1;
                 }
-                wave = null;
+                wave = null; 
+                ready = false;
+            }
+            else if (!ready)
+            {
+                if (waveLength <= waveIndex)
+                {
+                    ready = true;
+                }
+                else
+                {
+                    waveIndex++;
+                }
             }
             else
             {
                 chart1.Series[0].Points.AddXY(time, 0);
+                time += 1;
             }
             //if (wave == null)
             //    return;
@@ -93,10 +127,9 @@ namespace GreyParrotSynthesizer
 
             chart1.ChartAreas[0].AxisX.Minimum = chart1.Series[0].Points[0].XValue;
             chart1.ChartAreas[0].AxisX.Maximum = chart1.Series[0].Points[0].XValue + 100;
-            chart1.ChartAreas[0].AxisY.Minimum = -1000000.1;
-            chart1.ChartAreas[0].AxisY.Maximum = 1000000.1;
+            chart1.ChartAreas[0].AxisY.Minimum = -100000.1;
+            chart1.ChartAreas[0].AxisY.Maximum = 100000.1;
 
-            time += 1;
         }
     }
 }

@@ -31,7 +31,8 @@ namespace GreyParrotSynthesizer
             // wave alogirthms made with help from the above link
             wave = WaveUtils.WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
             // Send wave to userWaveView
-            UserWaveView.wave = wave;
+
+            SendWaveToWaveView(wave);
 
 
             // https://docs.fileformat.com/audio/wav/
@@ -72,13 +73,19 @@ namespace GreyParrotSynthesizer
 
         public static void PlayAllSoundsFromFiles(string filename)
         {
-            for (int i = 1; i <= 8; i++)
+            int numeberOfFiles = 8;
+            for (int i = 1; i <= numeberOfFiles; i++)
             {
                 new SoundPlayer(filename + i + ".wav").Play();
 
                 // need to figure out how to get length of sound in milliseconds
                 Wait(500); 
             }
+
+        }
+
+        public static void GetWaveFromFile(string filename)
+        {
 
         }
 
@@ -105,6 +112,22 @@ namespace GreyParrotSynthesizer
             }
         }
 
+        private static void SendWaveToWaveView(short[] wave)
+        {
+            int newIndex = 0;
+            int cutby = 735;
+            short[] newWave = new short[(wave.Length / cutby) + 1];
+            for (int i = 0; i < wave.Length; i++)
+            {
+                if (i % cutby == 0)
+                {
+                    newWave[newIndex] = wave[i];
+                    newIndex++;
+                }
+            }
+            UserWaveView.wave = newWave;
+        }   
+
         public static void SaveSound(float frequency, short amplitude, WaveType waveType, float seconds, string filepath, int seed = -1)
         {
             filepath = filepath + ".wav";
@@ -116,7 +139,7 @@ namespace GreyParrotSynthesizer
             // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
             // wave alogirthms made with help from the above link
             wave = WaveUtils.WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
-
+            SendWaveToWaveView(wave);
 
 
             // https://docs.fileformat.com/audio/wav/

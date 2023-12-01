@@ -13,7 +13,7 @@ namespace GreyParrotSynthesizer
         WaveUtils.WaveType waveType = WaveUtils.WaveType.SINE;
         float frequency = 200f;
         short amplitude = 1000;
-        float seconds = 0.1f;
+        float seconds = 1f;
         // ranges 0 to 8
         short octave = 4;
 
