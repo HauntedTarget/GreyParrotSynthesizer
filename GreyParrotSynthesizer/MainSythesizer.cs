@@ -296,6 +296,13 @@ namespace GreyParrotSynthesizer
             {
                 l_tip.Text = "Use the dropdown to change waveform.";
             }
+            else if (sender == l_tip)
+            {
+                Point mousePoint = PointToClient(MousePosition);
+                mousePoint.Y -= l_tip.Height;
+                l_tip.Location = mousePoint;
+                l_tip.Visible = false;
+            }
             else
             {
                 l_tip.Visible = false;
@@ -315,6 +322,7 @@ namespace GreyParrotSynthesizer
                 l_tip.Visible = false;
             }
         }
+
         private void OnLeave(object sender, EventArgs e)
         {
             l_tip.Visible = false;

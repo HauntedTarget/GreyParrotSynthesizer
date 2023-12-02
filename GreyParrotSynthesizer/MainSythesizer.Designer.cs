@@ -95,6 +95,9 @@
             PlaySound.TextAlign = ContentAlignment.TopCenter;
             PlaySound.UseVisualStyleBackColor = false;
             PlaySound.Click += PlaySound_Click;
+            PlaySound.MouseMove += OnMouseMove;
+            PlaySound.MouseHover += OnHover;
+            PlaySound.MouseLeave += OnLeave;
             // 
             // FrequencyBar
             // 
@@ -111,6 +114,9 @@
             FrequencyBar.TickStyle = TickStyle.Both;
             FrequencyBar.Value = 200;
             FrequencyBar.Scroll += FrequencyBar_Scroll;
+            FrequencyBar.MouseMove += OnMouseMove;
+            FrequencyBar.MouseHover += OnHover;
+            FrequencyBar.MouseLeave += OnLeave;
             // 
             // AmplitudeBar
             // 
@@ -127,6 +133,9 @@
             AmplitudeBar.TickStyle = TickStyle.Both;
             AmplitudeBar.Value = 1000;
             AmplitudeBar.Scroll += AmplitudeBar_Scroll;
+            AmplitudeBar.MouseMove += OnMouseMove;
+            AmplitudeBar.MouseHover += OnHover;
+            AmplitudeBar.MouseLeave += OnLeave;
             // 
             // radioButton1
             // 
@@ -456,6 +465,9 @@
             l_tip.TabIndex = 21;
             l_tip.Text = "placeholder";
             l_tip.Visible = false;
+            AmplitudeBar.MouseMove += OnMouseMove;
+            AmplitudeBar.MouseHover += OnHover;
+            AmplitudeBar.MouseLeave += OnLeave;
             // 
             // MainSythesizer
             // 
