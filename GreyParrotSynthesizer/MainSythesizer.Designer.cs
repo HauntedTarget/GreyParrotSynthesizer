@@ -62,7 +62,8 @@
             amplitudeDisplay = new Label();
             frequencyValueDisplay = new Label();
             durationValueDisplay = new Label();
-            exitButton = new Button();
+            cb_hoverTut = new CheckBox();
+            l_tip = new Label();
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).BeginInit();
             radioButtonGroup.SuspendLayout();
@@ -532,20 +533,29 @@
             durationValueDisplay.Text = "200";
             durationValueDisplay.TextAlign = ContentAlignment.TopCenter;
             // 
-            // exitButton
+            // cb_hoverTut
             // 
-            exitButton.Anchor = AnchorStyles.None;
-            exitButton.BackColor = Color.Black;
-            exitButton.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            exitButton.ForeColor = Color.DodgerBlue;
-            exitButton.Location = new Point(1511, 14);
-            exitButton.Margin = new Padding(4, 5, 4, 5);
-            exitButton.Name = "exitButton";
-            exitButton.Size = new Size(71, 50);
-            exitButton.TabIndex = 27;
-            exitButton.Text = "?";
-            exitButton.TextAlign = ContentAlignment.TopCenter;
-            exitButton.UseVisualStyleBackColor = false;
+            cb_hoverTut.AutoSize = true;
+            cb_hoverTut.Location = new Point(12, 12);
+            cb_hoverTut.Name = "cb_hoverTut";
+            cb_hoverTut.Size = new Size(121, 29);
+            cb_hoverTut.TabIndex = 28;
+            cb_hoverTut.Text = "checkBox1";
+            cb_hoverTut.UseVisualStyleBackColor = true;
+            // 
+            // l_tip
+            // 
+            l_tip.Anchor = AnchorStyles.None;
+            l_tip.AutoSize = true;
+            l_tip.BackColor = SystemColors.ActiveBorder;
+            l_tip.BorderStyle = BorderStyle.FixedSingle;
+            l_tip.Font = new Font("Segoe UI Historic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            l_tip.Location = new Point(1464, 12);
+            l_tip.Name = "l_tip";
+            l_tip.Size = new Size(119, 30);
+            l_tip.TabIndex = 29;
+            l_tip.Text = "PlaceHolder";
+            l_tip.Visible = false;
             // 
             // MainSythesizer
             // 
@@ -553,7 +563,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DodgerBlue;
             ClientSize = new Size(1595, 894);
-            Controls.Add(exitButton);
+            Controls.Add(l_tip);
+            Controls.Add(cb_hoverTut);
             Controls.Add(durationValueDisplay);
             Controls.Add(frequencyValueDisplay);
             Controls.Add(amplitudeDisplay);
@@ -624,6 +635,7 @@
         private Label amplitudeDisplay;
         private Label frequencyValueDisplay;
         private Label durationValueDisplay;
-        private Button exitButton;
+        private CheckBox cb_hoverTut;
+        private Label l_tip;
     }
 }
