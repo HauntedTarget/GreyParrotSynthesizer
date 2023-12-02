@@ -55,6 +55,11 @@ namespace GreyParrotSynthesizer
                 this.Close();
             }
 
+            if (e.KeyChar.Equals('h'))
+            {
+                cb_hoverTut.Checked = !cb_hoverTut.Checked;
+            }
+
             if (!e.KeyChar.Equals('-') && !e.KeyChar.Equals('='))
             {
                 float frequencyPress = KeyToNote(e, octave);
@@ -294,6 +299,10 @@ namespace GreyParrotSynthesizer
             if (sender == WaveFormDropDown)
             {
                 l_tip.Text = "Use the dropdown to change waveform.";
+            }
+            if (sender == cb_hoverTut)
+            {
+                l_tip.Text = "Shows tips when hovering over items. (Shortcut: h)";
             }
             else if (sender == l_tip)
             {
