@@ -85,7 +85,19 @@ namespace GreyParrotSynthesizer
 
         private void PlaySound_Click(object sender, EventArgs e)
         {
-            Audio.PlaySound(frequency, amplitude, waveType, seconds);
+            if(/*textbox not empty*/ false)
+            {
+                if(!File.Exists(Path.Combine(directoryPath, ""/*textbox filename*/ + ".wav")))
+                {
+                    MessageBox.Show("File does not exist.");
+                }
+                Audio.PlaySoundFromFile(Path.Combine(directoryPath, ""/*textbox filename*/ + ".wav"));
+            }
+            //implement radial button selection
+            else
+            {
+                Audio.PlaySound(frequency, amplitude, waveType, seconds);
+            }
             //Audio.SaveSound(frequency, amplitude, waveType, "test.wav");
         }
 
@@ -264,7 +276,7 @@ namespace GreyParrotSynthesizer
             if (/*textbox with filename not empty*/ false)
             {
 #pragma warning disable CS0162 // Unreachable code detected
-                Audio.SaveSound(frequency, amplitude, waveType, seconds, Path.Combine(directoryPath,/*textbox filename*/ ""));
+                Audio.SaveSound(frequency, amplitude, waveType, seconds, Path.Combine(directoryPath,/*textbox filename*/ "" + ".wav"));
 #pragma warning restore CS0162 // Unreachable code detected
             }
 
