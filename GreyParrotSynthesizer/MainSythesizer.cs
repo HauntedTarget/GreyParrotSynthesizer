@@ -55,6 +55,11 @@ namespace GreyParrotSynthesizer
                 this.Close();
             }
 
+            if (e.KeyChar.Equals((char)Keys.Space))
+            {
+                PlaySoundStorage_Click(sender, e);
+            }
+
             if (e.KeyChar.Equals('h'))
             {
                 cb_hoverTut.Checked = !cb_hoverTut.Checked;
@@ -300,9 +305,13 @@ namespace GreyParrotSynthesizer
             {
                 l_tip.Text = "Use the dropdown to change waveform.";
             }
-            if (sender == cb_hoverTut)
+            else if (sender == cb_hoverTut)
             {
                 l_tip.Text = "Shows tips when hovering over items. (Shortcut: h)";
+            }
+            else if (sender == playSoundStorage)
+            {
+                l_tip.Text = "Plays the set of saved sounds in order. (Shortcut: Space)";
             }
             else if (sender == l_tip)
             {
