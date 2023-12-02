@@ -63,6 +63,7 @@ namespace GreyParrotSynthesizer
             if (e.KeyChar.Equals('h'))
             {
                 cb_hoverTut.Checked = !cb_hoverTut.Checked;
+                if (!cb_hoverTut.Checked) l_tip.Visible = false;
             }
 
             if (!e.KeyChar.Equals('-') && !e.KeyChar.Equals('='))
