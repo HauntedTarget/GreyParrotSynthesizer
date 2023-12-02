@@ -327,5 +327,9 @@ namespace GreyParrotSynthesizer
             l_tip.Visible = false;
         }
 
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

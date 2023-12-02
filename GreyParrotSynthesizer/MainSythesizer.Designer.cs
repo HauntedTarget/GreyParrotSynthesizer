@@ -64,6 +64,7 @@
             durationValueDisplay = new Label();
             cb_hoverTut = new CheckBox();
             l_tip = new Label();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).BeginInit();
             radioButtonGroup.SuspendLayout();
@@ -536,12 +537,17 @@
             // cb_hoverTut
             // 
             cb_hoverTut.AutoSize = true;
-            cb_hoverTut.Location = new Point(12, 12);
+            cb_hoverTut.BackColor = SystemColors.ActiveCaptionText;
+            cb_hoverTut.Font = new Font("Segoe UI Symbol", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            cb_hoverTut.ForeColor = SystemColors.MenuHighlight;
+            cb_hoverTut.Location = new Point(12, 11);
             cb_hoverTut.Name = "cb_hoverTut";
-            cb_hoverTut.Size = new Size(121, 29);
+            cb_hoverTut.Padding = new Padding(10, 2, 0, 3);
+            cb_hoverTut.Size = new Size(152, 37);
             cb_hoverTut.TabIndex = 28;
-            cb_hoverTut.Text = "checkBox1";
-            cb_hoverTut.UseVisualStyleBackColor = true;
+            cb_hoverTut.Text = "Hover Text";
+            cb_hoverTut.TextAlign = ContentAlignment.MiddleCenter;
+            cb_hoverTut.UseVisualStyleBackColor = false;
             // 
             // l_tip
             // 
@@ -556,6 +562,17 @@
             l_tip.TabIndex = 29;
             l_tip.Text = "PlaceHolder";
             l_tip.Visible = false;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.None;
+            label4.BackColor = Color.White;
+            label4.Location = new Point(8, 8);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(159, 43);
+            label4.TabIndex = 0;
+            label4.Click += label4_Click;
             // 
             // MainSythesizer
             // 
@@ -588,6 +605,7 @@
             Controls.Add(backcolor2);
             Controls.Add(outlinecolor);
             Controls.Add(outlinecolor2);
+            Controls.Add(label4);
             KeyPreview = true;
             Name = "MainSythesizer";
             Text = "Main Synthesizer";
@@ -637,5 +655,6 @@
         private Label durationValueDisplay;
         private CheckBox cb_hoverTut;
         private Label l_tip;
+        private Label label4;
     }
 }
