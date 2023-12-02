@@ -58,6 +58,7 @@ namespace GreyParrotSynthesizer
 
             // Customize chart
             chart1.BackColor = Color.Black;
+            
 
 
             // Series?
@@ -80,36 +81,38 @@ namespace GreyParrotSynthesizer
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-
-            if (wave != null)
+            try
             {
-                waveLength = wave.Length;
-                waveIndex = 0;
-                for (int i = 0; i < wave.Length; i++)
+                if (wave != null)
                 {
-                    y = wave[i];
-                    chart1.Series[0].Points.AddXY(time, y);
-                    time += 1;
+                    waveLength = wave.Length;
+                    waveIndex = 0;
+                    for (int i = 0; i < wave.Length; i++)
+                    {
+                        y = wave[i];
+                        chart1.Series[0].Points.AddXY(time, y);
+                        time += 1;
+                    }
+                    wave = null;
+                    ready = false;
                 }
-                wave = null; 
-                ready = false;
-            }
-            else if (!ready)
-            {
-                if (waveLength <= waveIndex)
+                else if (!ready)
                 {
-                    ready = true;
+                    if (waveLength <= waveIndex)
+                    {
+                        ready = true;
+                    }
+                    else
+                    {
+                        waveIndex++;
+                    }
                 }
                 else
                 {
-                    waveIndex++;
+                    chart1.Series[0].Points.AddXY(time, 0);
+                    time += 1;
                 }
-            }
-            else
-            {
-                chart1.Series[0].Points.AddXY(time, 0);
-                time += 1;
-            }
+            
             //if (wave == null)
             //    return;
 
@@ -129,6 +132,13 @@ namespace GreyParrotSynthesizer
             chart1.ChartAreas[0].AxisX.Maximum = chart1.Series[0].Points[0].XValue + 100;
             chart1.ChartAreas[0].AxisY.Minimum = -100000.1;
             chart1.ChartAreas[0].AxisY.Maximum = 100000.1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
 
         }
     }
