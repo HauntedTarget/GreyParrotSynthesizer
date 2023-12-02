@@ -15,7 +15,7 @@ namespace GreyParrotSynthesizer
 
         System.Windows.Forms.Timer timer;
         double time;
-        public static short[] wave;
+        public static short[]? wave;
         double y;
 
         public UserWaveView()

@@ -318,18 +318,13 @@ namespace GreyParrotSynthesizer
             }
             else
             {
-                cb_hoverTut.Visible = false;
+                l_tip.Visible = false;
             }
         }
 
         private void OnLeave(object sender, EventArgs e)
         {
             l_tip.Visible = false;
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

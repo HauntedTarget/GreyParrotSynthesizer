@@ -85,6 +85,9 @@
             WaveFormDropDown.Size = new Size(185, 45);
             WaveFormDropDown.TabIndex = 0;
             WaveFormDropDown.SelectedIndexChanged += WaveFormDropDown_SelectedIndexChanged;
+            WaveFormDropDown.MouseMove += OnMouseMove;
+            WaveFormDropDown.MouseHover += OnHover;
+            WaveFormDropDown.MouseLeave += OnLeave;
             // 
             // PlaySound
             // 
@@ -100,6 +103,9 @@
             PlaySound.TextAlign = ContentAlignment.TopCenter;
             PlaySound.UseVisualStyleBackColor = false;
             PlaySound.Click += PlaySound_Click;
+            PlaySound.MouseMove += OnMouseMove;
+            PlaySound.MouseHover += OnHover;
+            PlaySound.MouseLeave += OnLeave;
             // 
             // FrequencyBar
             // 
@@ -116,6 +122,9 @@
             FrequencyBar.TickStyle = TickStyle.Both;
             FrequencyBar.Value = 200;
             FrequencyBar.Scroll += FrequencyBar_Scroll;
+            FrequencyBar.MouseMove += OnMouseMove;
+            FrequencyBar.MouseHover += OnHover;
+            FrequencyBar.MouseLeave += OnLeave;
             // 
             // AmplitudeBar
             // 
@@ -133,6 +142,9 @@
             AmplitudeBar.TickStyle = TickStyle.Both;
             AmplitudeBar.Value = 1000;
             AmplitudeBar.Scroll += AmplitudeBar_Scroll;
+            AmplitudeBar.MouseMove += OnMouseMove;
+            AmplitudeBar.MouseHover += OnHover;
+            AmplitudeBar.MouseLeave += OnLeave;
             // 
             // radioButton1
             // 
@@ -149,6 +161,9 @@
             radioButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
             radioButton1.UseVisualStyleBackColor = true;
             radioButton1.Click += RadioButton1_Click;
+            radioButton1.MouseMove += OnMouseMove;
+            radioButton1.MouseHover += OnHover;
+            radioButton1.MouseLeave += OnLeave;
             // 
             // radioButtonGroup
             // 
@@ -171,6 +186,9 @@
             radioButtonGroup.Name = "radioButtonGroup";
             radioButtonGroup.Size = new Size(1219, 80);
             radioButtonGroup.TabIndex = 6;
+            radioButtonGroup.MouseMove += OnMouseMove;
+            radioButtonGroup.MouseHover += OnHover;
+            radioButtonGroup.MouseLeave += OnLeave;
             // 
             // radioButton10
             // 
@@ -185,6 +203,9 @@
             radioButton10.TabIndex = 13;
             radioButton10.UseVisualStyleBackColor = false;
             radioButton10.Click += RadioButton10_Click;
+            radioButton10.MouseMove += OnMouseMove;
+            radioButton10.MouseHover += OnHover;
+            radioButton10.MouseLeave += OnLeave;
             // 
             // radioButton9
             // 
@@ -199,6 +220,9 @@
             radioButton9.TabIndex = 12;
             radioButton9.UseVisualStyleBackColor = false;
             radioButton9.Click += RadioButton9_Click;
+            radioButton9.MouseMove += OnMouseMove;
+            radioButton9.MouseHover += OnHover;
+            radioButton9.MouseLeave += OnLeave;
             // 
             // radioButton7
             // 
@@ -213,6 +237,9 @@
             radioButton7.TabIndex = 11;
             radioButton7.UseVisualStyleBackColor = false;
             radioButton7.Click += RadioButton7_Click;
+            radioButton7.MouseMove += OnMouseMove;
+            radioButton7.MouseHover += OnHover;
+            radioButton7.MouseLeave += OnLeave;
             // 
             // radioButton8
             // 
@@ -227,6 +254,9 @@
             radioButton8.TabIndex = 10;
             radioButton8.UseVisualStyleBackColor = false;
             radioButton8.Click += RadioButton8_Click;
+            radioButton8.MouseMove += OnMouseMove;
+            radioButton8.MouseHover += OnHover;
+            radioButton8.MouseLeave += OnLeave;
             // 
             // radioButton6
             // 
@@ -241,6 +271,9 @@
             radioButton6.TabIndex = 9;
             radioButton6.UseVisualStyleBackColor = false;
             radioButton6.Click += RadioButton6_Click;
+            radioButton6.MouseMove += OnMouseMove;
+            radioButton6.MouseHover += OnHover;
+            radioButton6.MouseLeave += OnLeave;
             // 
             // radioButton5
             // 
@@ -255,6 +288,9 @@
             radioButton5.TabIndex = 8;
             radioButton5.UseVisualStyleBackColor = false;
             radioButton5.Click += RadioButton5_Click;
+            radioButton5.MouseMove += OnMouseMove;
+            radioButton5.MouseHover += OnHover;
+            radioButton5.MouseLeave += OnLeave;
             // 
             // radioButton4
             // 
@@ -269,6 +305,9 @@
             radioButton4.TabIndex = 7;
             radioButton4.UseVisualStyleBackColor = false;
             radioButton4.Click += RadioButton4_Click;
+            radioButton4.MouseMove += OnMouseMove;
+            radioButton4.MouseHover += OnHover;
+            radioButton4.MouseLeave += OnLeave;
             // 
             // radioButton3
             // 
@@ -283,6 +322,9 @@
             radioButton3.TabIndex = 6;
             radioButton3.UseVisualStyleBackColor = false;
             radioButton3.Click += RadioButton3_Click;
+            radioButton3.MouseMove += OnMouseMove;
+            radioButton3.MouseHover += OnHover;
+            radioButton3.MouseLeave += OnLeave;
             // 
             // radioButton2
             // 
@@ -299,6 +341,9 @@
             radioButton2.TextImageRelation = TextImageRelation.ImageBeforeText;
             radioButton2.UseVisualStyleBackColor = true;
             radioButton2.Click += RadioButton2_Click;
+            radioButton2.MouseMove += OnMouseMove;
+            radioButton2.MouseHover += OnHover;
+            radioButton2.MouseLeave += OnLeave;
             // 
             // frequencyLabel
             // 
@@ -313,6 +358,9 @@
             frequencyLabel.TabIndex = 7;
             frequencyLabel.Text = "FREQUENCY";
             frequencyLabel.TextAlign = ContentAlignment.TopCenter;
+            frequencyLabel.MouseMove += OnMouseMove;
+            frequencyLabel.MouseHover += OnHover;
+            frequencyLabel.MouseLeave += OnLeave;
             // 
             // amplitudeLabel
             // 
@@ -327,6 +375,9 @@
             amplitudeLabel.TabIndex = 8;
             amplitudeLabel.Text = "AMPLITUDE";
             amplitudeLabel.TextAlign = ContentAlignment.TopCenter;
+            amplitudeLabel.MouseMove += OnMouseMove;
+            amplitudeLabel.MouseHover += OnHover;
+            amplitudeLabel.MouseLeave += OnLeave;
             // 
             // backgroundColor
             // 
@@ -338,6 +389,9 @@
             backgroundColor.Size = new Size(85, 652);
             backgroundColor.TabIndex = 9;
             backgroundColor.Text = "label2";
+            backgroundColor.MouseMove += OnMouseMove;
+            backgroundColor.MouseHover += OnHover;
+            backgroundColor.MouseLeave += OnLeave;
             // 
             // backcolor2
             // 
@@ -349,6 +403,9 @@
             backcolor2.Size = new Size(161, 652);
             backcolor2.TabIndex = 10;
             backcolor2.Text = "label2";
+            backcolor2.MouseMove += OnMouseMove;
+            backcolor2.MouseHover += OnHover;
+            backcolor2.MouseLeave += OnLeave;
             // 
             // soundBarLabel
             // 
@@ -363,6 +420,9 @@
             soundBarLabel.TabIndex = 12;
             soundBarLabel.Text = "SOUND STORAGE";
             soundBarLabel.TextAlign = ContentAlignment.TopCenter;
+            soundBarLabel.MouseMove += OnMouseMove;
+            soundBarLabel.MouseHover += OnHover;
+            soundBarLabel.MouseLeave += OnLeave;
             // 
             // outlinecolor
             // 
@@ -373,6 +433,9 @@
             outlinecolor.Name = "outlinecolor";
             outlinecolor.Size = new Size(803, 678);
             outlinecolor.TabIndex = 13;
+            outlinecolor.MouseMove += OnMouseMove;
+            outlinecolor.MouseHover += OnHover;
+            outlinecolor.MouseLeave += OnLeave;
             // 
             // outlinecolor2
             // 
@@ -383,6 +446,9 @@
             outlinecolor2.Name = "outlinecolor2";
             outlinecolor2.Size = new Size(1239, 183);
             outlinecolor2.TabIndex = 14;
+            outlinecolor2.MouseMove += OnMouseMove;
+            outlinecolor2.MouseHover += OnHover;
+            outlinecolor2.MouseLeave += OnLeave;
             // 
             // saveButtton
             // 
@@ -399,6 +465,9 @@
             saveButtton.TextAlign = ContentAlignment.TopCenter;
             saveButtton.UseVisualStyleBackColor = false;
             saveButtton.Click += SaveButtton_Click;
+            saveButtton.MouseMove += OnMouseMove;
+            saveButtton.MouseHover += OnHover;
+            saveButtton.MouseLeave += OnLeave;
             // 
             // deleteSoundButton
             // 
@@ -414,6 +483,9 @@
             deleteSoundButton.Text = "Delete Sound";
             deleteSoundButton.TextAlign = ContentAlignment.TopCenter;
             deleteSoundButton.UseVisualStyleBackColor = false;
+            deleteSoundButton.MouseMove += OnMouseMove;
+            deleteSoundButton.MouseHover += OnHover;
+            deleteSoundButton.MouseLeave += OnLeave;
             // 
             // line1
             // 
@@ -424,6 +496,9 @@
             line1.Name = "line1";
             line1.Size = new Size(340, 5);
             line1.TabIndex = 17;
+            line1.MouseMove += OnMouseMove;
+            line1.MouseHover += OnHover;
+            line1.MouseLeave += OnLeave;
             // 
             // playSoundStorage
             // 
@@ -438,6 +513,9 @@
             playSoundStorage.TabIndex = 19;
             playSoundStorage.UseVisualStyleBackColor = false;
             playSoundStorage.Click += PlaySoundStorage_Click;
+            playSoundStorage.MouseMove += OnMouseMove;
+            playSoundStorage.MouseHover += OnHover;
+            playSoundStorage.MouseLeave += OnLeave;
             // 
             // label1
             // 
@@ -452,6 +530,9 @@
             label1.TabIndex = 20;
             label1.Text = "DURATION";
             label1.TextAlign = ContentAlignment.TopCenter;
+            label1.MouseMove += OnMouseMove;
+            label1.MouseHover += OnHover;
+            label1.MouseLeave += OnLeave;
             // 
             // label2
             // 
@@ -463,6 +544,9 @@
             label2.Size = new Size(166, 652);
             label2.TabIndex = 21;
             label2.Text = "label2";
+            label2.MouseMove += OnMouseMove;
+            label2.MouseHover += OnHover;
+            label2.MouseLeave += OnLeave;
             // 
             // durationBar
             // 
@@ -480,6 +564,9 @@
             durationBar.TickStyle = TickStyle.Both;
             durationBar.Value = 200;
             durationBar.Scroll += durationBar_Scroll;
+            durationBar.MouseMove += OnMouseMove;
+            durationBar.MouseHover += OnHover;
+            durationBar.MouseLeave += OnLeave;
             // 
             // label3
             // 
@@ -491,6 +578,9 @@
             label3.Size = new Size(115, 652);
             label3.TabIndex = 23;
             label3.Text = "label3";
+            label3.MouseMove += OnMouseMove;
+            label3.MouseHover += OnHover;
+            label3.MouseLeave += OnLeave;
             // 
             // amplitudeDisplay
             // 
@@ -505,6 +595,9 @@
             amplitudeDisplay.TabIndex = 24;
             amplitudeDisplay.Text = "1000";
             amplitudeDisplay.TextAlign = ContentAlignment.TopCenter;
+            amplitudeDisplay.MouseMove += OnMouseMove;
+            amplitudeDisplay.MouseHover += OnHover;
+            amplitudeDisplay.MouseLeave += OnLeave;
             // 
             // frequencyValueDisplay
             // 
@@ -519,6 +612,9 @@
             frequencyValueDisplay.TabIndex = 25;
             frequencyValueDisplay.Text = "200";
             frequencyValueDisplay.TextAlign = ContentAlignment.TopCenter;
+            frequencyValueDisplay.MouseMove += OnMouseMove;
+            frequencyValueDisplay.MouseHover += OnHover;
+            frequencyValueDisplay.MouseLeave += OnLeave;
             // 
             // durationValueDisplay
             // 
@@ -533,6 +629,9 @@
             durationValueDisplay.TabIndex = 26;
             durationValueDisplay.Text = "200";
             durationValueDisplay.TextAlign = ContentAlignment.TopCenter;
+            durationValueDisplay.MouseMove += OnMouseMove;
+            durationValueDisplay.MouseHover += OnHover;
+            durationValueDisplay.MouseLeave += OnLeave;
             // 
             // cb_hoverTut
             // 
@@ -548,6 +647,9 @@
             cb_hoverTut.Text = "Hover Text";
             cb_hoverTut.TextAlign = ContentAlignment.MiddleCenter;
             cb_hoverTut.UseVisualStyleBackColor = false;
+            cb_hoverTut.MouseMove += OnMouseMove;
+            cb_hoverTut.MouseHover += OnHover;
+            cb_hoverTut.MouseLeave += OnLeave;
             // 
             // l_tip
             // 
@@ -562,6 +664,9 @@
             l_tip.TabIndex = 29;
             l_tip.Text = "PlaceHolder";
             l_tip.Visible = false;
+            l_tip.MouseMove += OnMouseMove;
+            l_tip.MouseHover += OnHover;
+            l_tip.MouseLeave += OnLeave;
             // 
             // label4
             // 
@@ -572,7 +677,9 @@
             label4.Name = "label4";
             label4.Size = new Size(159, 43);
             label4.TabIndex = 0;
-            label4.Click += label4_Click;
+            label4.MouseMove += OnMouseMove;
+            label4.MouseHover += OnHover;
+            label4.MouseLeave += OnLeave;
             // 
             // MainSythesizer
             // 
@@ -610,6 +717,8 @@
             Name = "MainSythesizer";
             Text = "Main Synthesizer";
             KeyPress += OnKeyPress;
+            MouseMove += OnMouseMove;
+            MouseHover += OnHover;
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).EndInit();
             radioButtonGroup.ResumeLayout(false);
