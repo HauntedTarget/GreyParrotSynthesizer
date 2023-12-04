@@ -17,12 +17,32 @@ namespace GreyParrotSynthesizer
         double time;
         public static short[]? wave;
         double y;
+        bool ready = true;
+        int waveLength = 0;
+        int waveIndex = 0;
 
         public UserWaveView()
         {
             InitializeComponent();
             InitializeChart();
             InitializeTimer();
+
+        }
+
+        public static void Wave(short[] value)
+        {
+
+            int newIndex = 0;
+            short[] newWave = new short[(value.Length / 1000) + 1];
+            for (int i = 0; i < value.Length; i++)
+            {
+                if (i % 1000 == 0)
+                {
+                    newWave[newIndex] = value[i];
+                    newIndex++;
+                }
+            }
+            wave = newWave;
 
         }
 
@@ -38,6 +58,7 @@ namespace GreyParrotSynthesizer
 
             // Customize chart
             chart1.BackColor = Color.Black;
+
 
 
             // Series?
@@ -60,43 +81,70 @@ namespace GreyParrotSynthesizer
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-
-            if (wave != null)
+            try
             {
-                for (int i = 0; i < wave.Length; i++)
+                if (wave != null)
                 {
-                    // test purposes
-                    y = wave[i];
-                    chart1.Series[0].Points.AddXY(time, y);
+                    waveLength = wave.Length;
+                    waveIndex = 0;
+                    for (int i = 0; i < wave.Length; i++)
+                    {
+                        y = wave[i];
+                        chart1.Series[0].Points.AddXY(time, y);
+                        time += 1;
+                    }
+                    wave = null;
+                    ready = false;
+                }
+                else if (!ready)
+                {
+                    if (waveLength <= waveIndex)
+                    {
+                        ready = true;
+                    }
+                    else
+                    {
+                        waveIndex++;
+                    }
+                }
+                else
+                {
+                    chart1.Series[0].Points.AddXY(time, 0);
                     time += 1;
                 }
-                wave = null;
+
+                //if (wave == null)
+                //    return;
+
+                //for (int i = 0; i < wave.Length; i++)
+                //{
+                //    // test purposes
+                //    y = wave[i];
+                //    chart1.Series[0].Points.AddXY(time, y);
+                //    time += 1;
+                //}
+
+
+                if (chart1.Series[0].Points.Count > 100)
+                    chart1.Series[0].Points.RemoveAt(0);
+
+                chart1.ChartAreas[0].AxisX.Minimum = chart1.Series[0].Points[0].XValue;
+                chart1.ChartAreas[0].AxisX.Maximum = chart1.Series[0].Points[0].XValue + 100;
+                chart1.ChartAreas[0].AxisY.Minimum = -100000.1;
+                chart1.ChartAreas[0].AxisY.Maximum = 100000.1;
             }
-            else
+            catch (Exception ex)
             {
-                chart1.Series[0].Points.AddXY(time, 0);
+                Console.WriteLine(ex.Message);
             }
-            //if (wave == null)
-            //    return;
-
-            //for (int i = 0; i < wave.Length; i++)
-            //{
-            //    // test purposes
-            //    y = wave[i];
-            //    chart1.Series[0].Points.AddXY(time, y);
-            //    time += 1;
-            //}
 
 
-            if (chart1.Series[0].Points.Count > 100)
-                chart1.Series[0].Points.RemoveAt(0);
 
-            chart1.ChartAreas[0].AxisX.Minimum = chart1.Series[0].Points[0].XValue;
-            chart1.ChartAreas[0].AxisX.Maximum = chart1.Series[0].Points[0].XValue + 100;
-            chart1.ChartAreas[0].AxisY.Minimum = -1000000.1;
-            chart1.ChartAreas[0].AxisY.Maximum = 1000000.1;
+        }
 
-            time += 1;
+        private void UserWaveView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer.Stop();
         }
     }
 }

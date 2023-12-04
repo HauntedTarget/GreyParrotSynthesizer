@@ -31,7 +31,8 @@ namespace GreyParrotSynthesizer
             // wave alogirthms made with help from the above link
             wave = WaveUtils.WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
             // Send wave to userWaveView
-            UserWaveView.wave = wave;
+
+            SendWaveToWaveView(wave);
 
 
             // https://docs.fileformat.com/audio/wav/
@@ -67,20 +68,26 @@ namespace GreyParrotSynthesizer
 
         public static void PlaySoundFromFile(string filename)
         {
+            GetWaveFromWav(filename);
             new SoundPlayer(filename +".wav").Play();
         }
 
         public static void PlayAllSoundsFromFiles(string filename)
         {
-            for (int i = 1; i <= 8; i++)
+            int numeberOfFiles = 8;
+            string path;
+            for (int i = 1; i <= numeberOfFiles; i++)
             {
-                new SoundPlayer(filename + i + ".wav").Play();
+                path = filename + i + ".wav";
+                GetWaveFromWav(path);
+                new SoundPlayer(path).Play();
 
                 // need to figure out how to get length of sound in milliseconds
                 Wait(500); 
             }
 
         }
+
 
         private static void Wait(int milliseconds)
         {
@@ -105,6 +112,54 @@ namespace GreyParrotSynthesizer
             }
         }
 
+        private static void SendWaveToWaveView(short[] wave)
+        {
+            //MessageBox.Show("Wave length: " + wave.Length);
+            int newIndex = 0;
+            int cutby = 735;
+            short[] newWave = new short[(wave.Length / cutby) + 1];
+            //MessageBox.Show("New wave length: " + newWave.Length + " Wave Length: " + wave.Length);
+            for (int i = 0; i < wave.Length; i++)
+            {
+                if (i % cutby == 0)
+                {
+                    newWave[newIndex] = wave[i];
+                    newIndex++;
+                }
+            }
+            UserWaveView.wave = newWave;
+        }
+        
+        private static void GetWaveFromWav(string filepath)
+        {
+            if (File.Exists(filepath))
+            {
+                using (FileStream fileStream = new FileStream(filepath, FileMode.Open, FileAccess.ReadWrite))
+                using (BinaryReader binReader = new BinaryReader(fileStream))
+                {
+                    binReader.ReadBytes(4); // RIFF
+                    int arraysize = binReader.ReadInt32(); // ChunkSize
+                    binReader.ReadBytes(8); // WAVEfmt
+                    binReader.ReadInt32(); // Subchunk1Size
+                    binReader.ReadBytes(2); // AudioFormat
+                    binReader.ReadBytes(2); // NumChannels
+                    binReader.ReadInt32(); // SampleRate
+                    binReader.ReadInt32(); // ByteRate
+                    binReader.ReadBytes(2); // BlockAlign
+                    binReader.ReadBytes(2); // BitsPerSample
+                    binReader.ReadBytes(4); // data
+                    binReader.ReadInt32(); // Subchunk2Size
+                    byte[] bytearray = binReader.ReadBytes(arraysize - 32); // Data
+                    short[] wave = new short[bytearray.Length / 2];
+                    Buffer.BlockCopy(bytearray, 0, wave, 0, bytearray.Length);
+                    if (wave.Length > 0) {
+                        SendWaveToWaveView(wave);
+                    }
+                    
+                }
+            }
+        }
+
         public static void SaveSound(float frequency, short amplitude, WaveType waveType, float seconds, string filepath, int seed = -1)
         {
             filepath = filepath + ".wav";
@@ -116,7 +171,7 @@ namespace GreyParrotSynthesizer
             // https://learn.microsoft.com/en-us/archive/blogs/dawate/intro-to-audio-programming-part-4-algorithms-for-different-sound-waves-in-c
             // wave alogirthms made with help from the above link
             wave = WaveUtils.WaveCalc(wave, amplitude, frequency, waveType, SAMPLE_RATE, seed);
-
+            //SendWaveToWaveView(wave);
 
 
             // https://docs.fileformat.com/audio/wav/

@@ -79,10 +79,9 @@
             WaveFormDropDown.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             WaveFormDropDown.ForeColor = Color.DodgerBlue;
             WaveFormDropDown.FormattingEnabled = true;
-            WaveFormDropDown.Location = new Point(123, 133);
-            WaveFormDropDown.Margin = new Padding(4, 5, 4, 5);
+            WaveFormDropDown.Location = new Point(86, 80);
             WaveFormDropDown.Name = "WaveFormDropDown";
-            WaveFormDropDown.Size = new Size(185, 45);
+            WaveFormDropDown.Size = new Size(131, 33);
             WaveFormDropDown.TabIndex = 0;
             WaveFormDropDown.SelectedIndexChanged += WaveFormDropDown_SelectedIndexChanged;
             WaveFormDropDown.MouseMove += OnMouseMove;
@@ -95,9 +94,10 @@
             PlaySound.BackColor = Color.Black;
             PlaySound.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             PlaySound.ForeColor = Color.DodgerBlue;
-            PlaySound.Location = new Point(123, 310);
+            PlaySound.Location = new Point(86, 186);
+            PlaySound.Margin = new Padding(2);
             PlaySound.Name = "PlaySound";
-            PlaySound.Size = new Size(186, 53);
+            PlaySound.Size = new Size(130, 32);
             PlaySound.TabIndex = 1;
             PlaySound.Text = "Play Sound";
             PlaySound.TextAlign = ContentAlignment.TopCenter;
@@ -111,12 +111,13 @@
             // 
             FrequencyBar.Anchor = AnchorStyles.None;
             FrequencyBar.BackColor = SystemColors.ActiveCaptionText;
-            FrequencyBar.Location = new Point(1022, 136);
+            FrequencyBar.Location = new Point(715, 82);
+            FrequencyBar.Margin = new Padding(2);
             FrequencyBar.Maximum = 400;
             FrequencyBar.Minimum = 200;
             FrequencyBar.Name = "FrequencyBar";
             FrequencyBar.Orientation = Orientation.Vertical;
-            FrequencyBar.Size = new Size(69, 513);
+            FrequencyBar.Size = new Size(45, 308);
             FrequencyBar.TabIndex = 2;
             FrequencyBar.TickFrequency = 20;
             FrequencyBar.TickStyle = TickStyle.Both;
@@ -130,13 +131,12 @@
             // 
             AmplitudeBar.Anchor = AnchorStyles.None;
             AmplitudeBar.BackColor = SystemColors.ActiveCaptionText;
-            AmplitudeBar.Location = new Point(777, 133);
-            AmplitudeBar.Margin = new Padding(4, 5, 4, 5);
+            AmplitudeBar.Location = new Point(544, 80);
             AmplitudeBar.Maximum = 10000;
             AmplitudeBar.Minimum = 1000;
             AmplitudeBar.Name = "AmplitudeBar";
             AmplitudeBar.Orientation = Orientation.Vertical;
-            AmplitudeBar.Size = new Size(69, 516);
+            AmplitudeBar.Size = new Size(45, 310);
             AmplitudeBar.TabIndex = 3;
             AmplitudeBar.TickFrequency = 300;
             AmplitudeBar.TickStyle = TickStyle.Both;
@@ -152,11 +152,10 @@
             radioButton1.BackgroundImage = (Image)resources.GetObject("radioButton1.BackgroundImage");
             radioButton1.BackgroundImageLayout = ImageLayout.Zoom;
             radioButton1.ForeColor = Color.Transparent;
-            radioButton1.Location = new Point(17, 17);
-            radioButton1.Margin = new Padding(4, 5, 4, 5);
+            radioButton1.Location = new Point(12, 10);
             radioButton1.Name = "radioButton1";
-            radioButton1.Padding = new Padding(0, 167, 0, 0);
-            radioButton1.Size = new Size(36, 42);
+            radioButton1.Padding = new Padding(0, 100, 0, 0);
+            radioButton1.Size = new Size(25, 25);
             radioButton1.TabIndex = 4;
             radioButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
             radioButton1.UseVisualStyleBackColor = true;
@@ -181,10 +180,9 @@
             radioButtonGroup.Controls.Add(radioButton2);
             radioButtonGroup.Controls.Add(radioButton1);
             radioButtonGroup.ForeColor = Color.Black;
-            radioButtonGroup.Location = new Point(246, 763);
-            radioButtonGroup.Margin = new Padding(4, 5, 4, 5);
+            radioButtonGroup.Location = new Point(172, 458);
             radioButtonGroup.Name = "radioButtonGroup";
-            radioButtonGroup.Size = new Size(1219, 80);
+            radioButtonGroup.Size = new Size(853, 48);
             radioButtonGroup.TabIndex = 6;
             radioButtonGroup.MouseMove += OnMouseMove;
             radioButtonGroup.MouseHover += OnHover;
@@ -195,11 +193,10 @@
             radioButton10.BackColor = Color.Transparent;
             radioButton10.BackgroundImage = (Image)resources.GetObject("radioButton10.BackgroundImage");
             radioButton10.BackgroundImageLayout = ImageLayout.Zoom;
-            radioButton10.Location = new Point(1160, 17);
-            radioButton10.Margin = new Padding(4, 5, 4, 5);
+            radioButton10.Location = new Point(812, 10);
             radioButton10.Name = "radioButton10";
-            radioButton10.Padding = new Padding(0, 167, 0, 0);
-            radioButton10.Size = new Size(36, 42);
+            radioButton10.Padding = new Padding(0, 100, 0, 0);
+            radioButton10.Size = new Size(25, 25);
             radioButton10.TabIndex = 13;
             radioButton10.UseVisualStyleBackColor = false;
             radioButton10.Click += RadioButton10_Click;
@@ -212,11 +209,10 @@
             radioButton9.BackColor = Color.Transparent;
             radioButton9.BackgroundImage = (Image)resources.GetObject("radioButton9.BackgroundImage");
             radioButton9.BackgroundImageLayout = ImageLayout.Zoom;
-            radioButton9.Location = new Point(1046, 17);
-            radioButton9.Margin = new Padding(4, 5, 4, 5);
+            radioButton9.Location = new Point(732, 10);
             radioButton9.Name = "radioButton9";
-            radioButton9.Padding = new Padding(0, 167, 0, 0);
-            radioButton9.Size = new Size(36, 42);
+            radioButton9.Padding = new Padding(0, 100, 0, 0);
+            radioButton9.Size = new Size(25, 25);
             radioButton9.TabIndex = 12;
             radioButton9.UseVisualStyleBackColor = false;
             radioButton9.Click += RadioButton9_Click;
@@ -229,11 +225,10 @@
             radioButton7.BackColor = Color.Transparent;
             radioButton7.BackgroundImage = (Image)resources.GetObject("radioButton7.BackgroundImage");
             radioButton7.BackgroundImageLayout = ImageLayout.Zoom;
-            radioButton7.Location = new Point(789, 17);
-            radioButton7.Margin = new Padding(4, 5, 4, 5);
+            radioButton7.Location = new Point(552, 10);
             radioButton7.Name = "radioButton7";
-            radioButton7.Padding = new Padding(0, 167, 0, 0);
-            radioButton7.Size = new Size(36, 42);
+            radioButton7.Padding = new Padding(0, 100, 0, 0);
+            radioButton7.Size = new Size(25, 25);
             radioButton7.TabIndex = 11;
             radioButton7.UseVisualStyleBackColor = false;
             radioButton7.Click += RadioButton7_Click;
@@ -246,11 +241,10 @@
             radioButton8.BackColor = Color.Transparent;
             radioButton8.BackgroundImage = (Image)resources.GetObject("radioButton8.BackgroundImage");
             radioButton8.BackgroundImageLayout = ImageLayout.Zoom;
-            radioButton8.Location = new Point(917, 17);
-            radioButton8.Margin = new Padding(4, 5, 4, 5);
+            radioButton8.Location = new Point(642, 10);
             radioButton8.Name = "radioButton8";
-            radioButton8.Padding = new Padding(0, 167, 0, 0);
-            radioButton8.Size = new Size(36, 42);
+            radioButton8.Padding = new Padding(0, 100, 0, 0);
+            radioButton8.Size = new Size(25, 25);
             radioButton8.TabIndex = 10;
             radioButton8.UseVisualStyleBackColor = false;
             radioButton8.Click += RadioButton8_Click;
@@ -263,11 +257,10 @@
             radioButton6.BackColor = Color.Transparent;
             radioButton6.BackgroundImage = (Image)resources.GetObject("radioButton6.BackgroundImage");
             radioButton6.BackgroundImageLayout = ImageLayout.Zoom;
-            radioButton6.Location = new Point(660, 17);
-            radioButton6.Margin = new Padding(4, 5, 4, 5);
+            radioButton6.Location = new Point(462, 10);
             radioButton6.Name = "radioButton6";
-            radioButton6.Padding = new Padding(0, 167, 0, 0);
-            radioButton6.Size = new Size(36, 42);
+            radioButton6.Padding = new Padding(0, 100, 0, 0);
+            radioButton6.Size = new Size(25, 25);
             radioButton6.TabIndex = 9;
             radioButton6.UseVisualStyleBackColor = false;
             radioButton6.Click += RadioButton6_Click;
@@ -280,11 +273,10 @@
             radioButton5.BackColor = Color.Transparent;
             radioButton5.BackgroundImage = (Image)resources.GetObject("radioButton5.BackgroundImage");
             radioButton5.BackgroundImageLayout = ImageLayout.Zoom;
-            radioButton5.Location = new Point(531, 17);
-            radioButton5.Margin = new Padding(4, 5, 4, 5);
+            radioButton5.Location = new Point(372, 10);
             radioButton5.Name = "radioButton5";
-            radioButton5.Padding = new Padding(0, 167, 0, 0);
-            radioButton5.Size = new Size(36, 42);
+            radioButton5.Padding = new Padding(0, 100, 0, 0);
+            radioButton5.Size = new Size(25, 25);
             radioButton5.TabIndex = 8;
             radioButton5.UseVisualStyleBackColor = false;
             radioButton5.Click += RadioButton5_Click;
@@ -297,11 +289,10 @@
             radioButton4.BackColor = Color.Transparent;
             radioButton4.BackgroundImage = (Image)resources.GetObject("radioButton4.BackgroundImage");
             radioButton4.BackgroundImageLayout = ImageLayout.Zoom;
-            radioButton4.Location = new Point(403, 17);
-            radioButton4.Margin = new Padding(4, 5, 4, 5);
+            radioButton4.Location = new Point(282, 10);
             radioButton4.Name = "radioButton4";
-            radioButton4.Padding = new Padding(0, 167, 0, 0);
-            radioButton4.Size = new Size(36, 42);
+            radioButton4.Padding = new Padding(0, 100, 0, 0);
+            radioButton4.Size = new Size(25, 25);
             radioButton4.TabIndex = 7;
             radioButton4.UseVisualStyleBackColor = false;
             radioButton4.Click += RadioButton4_Click;
@@ -314,11 +305,10 @@
             radioButton3.BackColor = Color.Transparent;
             radioButton3.BackgroundImage = (Image)resources.GetObject("radioButton3.BackgroundImage");
             radioButton3.BackgroundImageLayout = ImageLayout.Zoom;
-            radioButton3.Location = new Point(274, 17);
-            radioButton3.Margin = new Padding(4, 5, 4, 5);
+            radioButton3.Location = new Point(192, 10);
             radioButton3.Name = "radioButton3";
-            radioButton3.Padding = new Padding(0, 167, 0, 0);
-            radioButton3.Size = new Size(36, 42);
+            radioButton3.Padding = new Padding(0, 100, 0, 0);
+            radioButton3.Size = new Size(25, 25);
             radioButton3.TabIndex = 6;
             radioButton3.UseVisualStyleBackColor = false;
             radioButton3.Click += RadioButton3_Click;
@@ -332,11 +322,10 @@
             radioButton2.BackgroundImage = (Image)resources.GetObject("radioButton2.BackgroundImage");
             radioButton2.BackgroundImageLayout = ImageLayout.Zoom;
             radioButton2.ForeColor = Color.Transparent;
-            radioButton2.Location = new Point(146, 17);
-            radioButton2.Margin = new Padding(4, 5, 4, 5);
+            radioButton2.Location = new Point(102, 10);
             radioButton2.Name = "radioButton2";
-            radioButton2.Padding = new Padding(0, 167, 0, 0);
-            radioButton2.Size = new Size(36, 42);
+            radioButton2.Padding = new Padding(0, 100, 0, 0);
+            radioButton2.Size = new Size(25, 25);
             radioButton2.TabIndex = 5;
             radioButton2.TextImageRelation = TextImageRelation.ImageBeforeText;
             radioButton2.UseVisualStyleBackColor = true;
@@ -351,10 +340,9 @@
             frequencyLabel.BackColor = Color.Black;
             frequencyLabel.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             frequencyLabel.ForeColor = Color.DodgerBlue;
-            frequencyLabel.Location = new Point(947, 98);
-            frequencyLabel.Margin = new Padding(4, 0, 4, 0);
+            frequencyLabel.Location = new Point(663, 59);
             frequencyLabel.Name = "frequencyLabel";
-            frequencyLabel.Size = new Size(252, 47);
+            frequencyLabel.Size = new Size(176, 28);
             frequencyLabel.TabIndex = 7;
             frequencyLabel.Text = "FREQUENCY";
             frequencyLabel.TextAlign = ContentAlignment.TopCenter;
@@ -368,10 +356,9 @@
             amplitudeLabel.BackColor = Color.Black;
             amplitudeLabel.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             amplitudeLabel.ForeColor = Color.DodgerBlue;
-            amplitudeLabel.Location = new Point(684, 98);
-            amplitudeLabel.Margin = new Padding(4, 0, 4, 0);
+            amplitudeLabel.Location = new Point(479, 59);
             amplitudeLabel.Name = "amplitudeLabel";
-            amplitudeLabel.Size = new Size(234, 47);
+            amplitudeLabel.Size = new Size(164, 28);
             amplitudeLabel.TabIndex = 8;
             amplitudeLabel.Text = "AMPLITUDE";
             amplitudeLabel.TextAlign = ContentAlignment.TopCenter;
@@ -383,10 +370,9 @@
             // 
             backgroundColor.Anchor = AnchorStyles.None;
             backgroundColor.BackColor = Color.Black;
-            backgroundColor.Location = new Point(684, 98);
-            backgroundColor.Margin = new Padding(4, 0, 4, 0);
+            backgroundColor.Location = new Point(479, 59);
             backgroundColor.Name = "backgroundColor";
-            backgroundColor.Size = new Size(85, 652);
+            backgroundColor.Size = new Size(60, 391);
             backgroundColor.TabIndex = 9;
             backgroundColor.Text = "label2";
             backgroundColor.MouseMove += OnMouseMove;
@@ -397,10 +383,9 @@
             // 
             backcolor2.Anchor = AnchorStyles.None;
             backcolor2.BackColor = Color.Black;
-            backcolor2.Location = new Point(854, 98);
-            backcolor2.Margin = new Padding(4, 0, 4, 0);
+            backcolor2.Location = new Point(598, 59);
             backcolor2.Name = "backcolor2";
-            backcolor2.Size = new Size(161, 652);
+            backcolor2.Size = new Size(113, 391);
             backcolor2.TabIndex = 10;
             backcolor2.Text = "label2";
             backcolor2.MouseMove += OnMouseMove;
@@ -413,10 +398,9 @@
             soundBarLabel.BackColor = Color.Black;
             soundBarLabel.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             soundBarLabel.ForeColor = Color.DodgerBlue;
-            soundBarLabel.Location = new Point(247, 683);
-            soundBarLabel.Margin = new Padding(4, 0, 4, 0);
+            soundBarLabel.Location = new Point(173, 410);
             soundBarLabel.Name = "soundBarLabel";
-            soundBarLabel.Size = new Size(473, 67);
+            soundBarLabel.Size = new Size(331, 40);
             soundBarLabel.TabIndex = 12;
             soundBarLabel.Text = "SOUND STORAGE";
             soundBarLabel.TextAlign = ContentAlignment.TopCenter;
@@ -428,10 +412,9 @@
             // 
             outlinecolor.Anchor = AnchorStyles.None;
             outlinecolor.BackColor = Color.White;
-            outlinecolor.Location = new Point(670, 83);
-            outlinecolor.Margin = new Padding(4, 0, 4, 0);
+            outlinecolor.Location = new Point(469, 50);
             outlinecolor.Name = "outlinecolor";
-            outlinecolor.Size = new Size(803, 678);
+            outlinecolor.Size = new Size(562, 407);
             outlinecolor.TabIndex = 13;
             outlinecolor.MouseMove += OnMouseMove;
             outlinecolor.MouseHover += OnHover;
@@ -441,10 +424,9 @@
             // 
             outlinecolor2.Anchor = AnchorStyles.None;
             outlinecolor2.BackColor = Color.White;
-            outlinecolor2.Location = new Point(234, 671);
-            outlinecolor2.Margin = new Padding(4, 0, 4, 0);
+            outlinecolor2.Location = new Point(164, 403);
             outlinecolor2.Name = "outlinecolor2";
-            outlinecolor2.Size = new Size(1239, 183);
+            outlinecolor2.Size = new Size(867, 110);
             outlinecolor2.TabIndex = 14;
             outlinecolor2.MouseMove += OnMouseMove;
             outlinecolor2.MouseHover += OnHover;
@@ -456,10 +438,9 @@
             saveButtton.BackColor = Color.Black;
             saveButtton.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             saveButtton.ForeColor = Color.DodgerBlue;
-            saveButtton.Location = new Point(123, 408);
-            saveButtton.Margin = new Padding(4, 5, 4, 5);
+            saveButtton.Location = new Point(86, 245);
             saveButtton.Name = "saveButtton";
-            saveButtton.Size = new Size(186, 53);
+            saveButtton.Size = new Size(130, 32);
             saveButtton.TabIndex = 15;
             saveButtton.Text = "Save Sound";
             saveButtton.TextAlign = ContentAlignment.TopCenter;
@@ -475,10 +456,9 @@
             deleteSoundButton.BackColor = Color.Black;
             deleteSoundButton.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             deleteSoundButton.ForeColor = Color.DodgerBlue;
-            deleteSoundButton.Location = new Point(123, 506);
-            deleteSoundButton.Margin = new Padding(4, 5, 4, 5);
+            deleteSoundButton.Location = new Point(86, 304);
             deleteSoundButton.Name = "deleteSoundButton";
-            deleteSoundButton.Size = new Size(186, 53);
+            deleteSoundButton.Size = new Size(130, 32);
             deleteSoundButton.TabIndex = 16;
             deleteSoundButton.Text = "Delete Sound";
             deleteSoundButton.TextAlign = ContentAlignment.TopCenter;
@@ -491,10 +471,9 @@
             // 
             line1.Anchor = AnchorStyles.None;
             line1.BackColor = Color.White;
-            line1.Location = new Point(234, 750);
-            line1.Margin = new Padding(4, 0, 4, 0);
+            line1.Location = new Point(164, 450);
             line1.Name = "line1";
-            line1.Size = new Size(340, 5);
+            line1.Size = new Size(238, 3);
             line1.TabIndex = 17;
             line1.MouseMove += OnMouseMove;
             line1.MouseHover += OnHover;
@@ -506,10 +485,9 @@
             playSoundStorage.BackColor = Color.Black;
             playSoundStorage.BackgroundImage = (Image)resources.GetObject("playSoundStorage.BackgroundImage");
             playSoundStorage.BackgroundImageLayout = ImageLayout.Zoom;
-            playSoundStorage.Location = new Point(110, 671);
-            playSoundStorage.Margin = new Padding(4, 5, 4, 5);
+            playSoundStorage.Location = new Point(77, 403);
             playSoundStorage.Name = "playSoundStorage";
-            playSoundStorage.Size = new Size(81, 110);
+            playSoundStorage.Size = new Size(57, 66);
             playSoundStorage.TabIndex = 19;
             playSoundStorage.UseVisualStyleBackColor = false;
             playSoundStorage.Click += PlaySoundStorage_Click;
@@ -523,10 +501,9 @@
             label1.BackColor = Color.Black;
             label1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.DodgerBlue;
-            label1.Location = new Point(1188, 98);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(832, 59);
             label1.Name = "label1";
-            label1.Size = new Size(254, 78);
+            label1.Size = new Size(178, 47);
             label1.TabIndex = 20;
             label1.Text = "DURATION";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -538,10 +515,9 @@
             // 
             label2.Anchor = AnchorStyles.None;
             label2.BackColor = Color.Black;
-            label2.Location = new Point(1098, 98);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(769, 59);
             label2.Name = "label2";
-            label2.Size = new Size(166, 652);
+            label2.Size = new Size(116, 391);
             label2.TabIndex = 21;
             label2.Text = "label2";
             label2.MouseMove += OnMouseMove;
@@ -552,17 +528,14 @@
             // 
             durationBar.Anchor = AnchorStyles.None;
             durationBar.BackColor = SystemColors.ActiveCaptionText;
-            durationBar.Location = new Point(1272, 136);
-            durationBar.Margin = new Padding(4, 5, 4, 5);
-            durationBar.Maximum = 400;
-            durationBar.Minimum = 200;
+            durationBar.Location = new Point(890, 82);
+            durationBar.Maximum = 100;
             durationBar.Name = "durationBar";
             durationBar.Orientation = Orientation.Vertical;
-            durationBar.Size = new Size(69, 513);
+            durationBar.Size = new Size(45, 308);
             durationBar.TabIndex = 22;
-            durationBar.TickFrequency = 20;
             durationBar.TickStyle = TickStyle.Both;
-            durationBar.Value = 200;
+            durationBar.Value = 10;
             durationBar.Scroll += durationBar_Scroll;
             durationBar.MouseMove += OnMouseMove;
             durationBar.MouseHover += OnHover;
@@ -572,10 +545,9 @@
             // 
             label3.Anchor = AnchorStyles.None;
             label3.BackColor = Color.Black;
-            label3.Location = new Point(1349, 98);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(944, 59);
             label3.Name = "label3";
-            label3.Size = new Size(115, 652);
+            label3.Size = new Size(80, 391);
             label3.TabIndex = 23;
             label3.Text = "label3";
             label3.MouseMove += OnMouseMove;
@@ -588,10 +560,9 @@
             amplitudeDisplay.BackColor = Color.Black;
             amplitudeDisplay.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             amplitudeDisplay.ForeColor = Color.DodgerBlue;
-            amplitudeDisplay.Location = new Point(744, 648);
-            amplitudeDisplay.Margin = new Padding(4, 0, 4, 0);
+            amplitudeDisplay.Location = new Point(521, 389);
             amplitudeDisplay.Name = "amplitudeDisplay";
-            amplitudeDisplay.Size = new Size(134, 102);
+            amplitudeDisplay.Size = new Size(94, 61);
             amplitudeDisplay.TabIndex = 24;
             amplitudeDisplay.Text = "1000";
             amplitudeDisplay.TextAlign = ContentAlignment.TopCenter;
@@ -605,10 +576,9 @@
             frequencyValueDisplay.BackColor = Color.Black;
             frequencyValueDisplay.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             frequencyValueDisplay.ForeColor = Color.DodgerBlue;
-            frequencyValueDisplay.Location = new Point(990, 648);
-            frequencyValueDisplay.Margin = new Padding(4, 0, 4, 0);
+            frequencyValueDisplay.Location = new Point(693, 389);
             frequencyValueDisplay.Name = "frequencyValueDisplay";
-            frequencyValueDisplay.Size = new Size(134, 102);
+            frequencyValueDisplay.Size = new Size(94, 61);
             frequencyValueDisplay.TabIndex = 25;
             frequencyValueDisplay.Text = "200";
             frequencyValueDisplay.TextAlign = ContentAlignment.TopCenter;
@@ -622,12 +592,11 @@
             durationValueDisplay.BackColor = Color.Black;
             durationValueDisplay.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             durationValueDisplay.ForeColor = Color.DodgerBlue;
-            durationValueDisplay.Location = new Point(1237, 648);
-            durationValueDisplay.Margin = new Padding(4, 0, 4, 0);
+            durationValueDisplay.Location = new Point(866, 389);
             durationValueDisplay.Name = "durationValueDisplay";
-            durationValueDisplay.Size = new Size(134, 102);
+            durationValueDisplay.Size = new Size(94, 61);
             durationValueDisplay.TabIndex = 26;
-            durationValueDisplay.Text = "200";
+            durationValueDisplay.Text = "1";
             durationValueDisplay.TextAlign = ContentAlignment.TopCenter;
             durationValueDisplay.MouseMove += OnMouseMove;
             durationValueDisplay.MouseHover += OnHover;
@@ -683,7 +652,7 @@
             // 
             // MainSythesizer
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DodgerBlue;
             ClientSize = new Size(1595, 894);
@@ -714,6 +683,7 @@
             Controls.Add(outlinecolor2);
             Controls.Add(label4);
             KeyPreview = true;
+            Margin = new Padding(2);
             Name = "MainSythesizer";
             Text = "Main Synthesizer";
             KeyPress += OnKeyPress;
