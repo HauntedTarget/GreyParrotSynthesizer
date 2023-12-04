@@ -46,8 +46,7 @@
             chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             chart1.Legends.Add(legend1);
-            chart1.Location = new Point(-99, -18);
-            chart1.Margin = new Padding(4, 5, 4, 5);
+            chart1.Location = new Point(-69, -11);
             chart1.Name = "chart1";
             chart1.RightToLeft = RightToLeft.Yes;
             series1.ChartArea = "ChartArea1";
@@ -55,19 +54,21 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             chart1.Series.Add(series1);
-            chart1.Size = new Size(1296, 732);
+            chart1.Size = new Size(907, 439);
             chart1.TabIndex = 0;
             chart1.Text = "WaveVisualizer";
             // 
             // UserWaveView
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1007, 663);
+            ClientSize = new Size(705, 398);
             Controls.Add(chart1);
             Location = new Point(1000, 0);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "UserWaveView";
             Text = "UserWaveView";
+            FormClosing += UserWaveView_FormClosing;
             ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
             ResumeLayout(false);
         }

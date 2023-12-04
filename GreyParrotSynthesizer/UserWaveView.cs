@@ -32,18 +32,18 @@ namespace GreyParrotSynthesizer
         public static void Wave(short[] value)
         {
 
-                int newIndex = 0;
-                short[] newWave = new short[(value.Length / 1000) + 1];
-                for (int i = 0; i < value.Length; i++)
+            int newIndex = 0;
+            short[] newWave = new short[(value.Length / 1000) + 1];
+            for (int i = 0; i < value.Length; i++)
+            {
+                if (i % 1000 == 0)
                 {
-                    if (i % 1000 == 0)
-                    {
-                        newWave[newIndex] = value[i];
-                        newIndex++;
-                    }
+                    newWave[newIndex] = value[i];
+                    newIndex++;
                 }
-                wave = newWave;
-            
+            }
+            wave = newWave;
+
         }
 
         private void TestButton_Click(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace GreyParrotSynthesizer
 
             // Customize chart
             chart1.BackColor = Color.Black;
-            
+
 
 
             // Series?
@@ -112,26 +112,26 @@ namespace GreyParrotSynthesizer
                     chart1.Series[0].Points.AddXY(time, 0);
                     time += 1;
                 }
-            
-            //if (wave == null)
-            //    return;
 
-            //for (int i = 0; i < wave.Length; i++)
-            //{
-            //    // test purposes
-            //    y = wave[i];
-            //    chart1.Series[0].Points.AddXY(time, y);
-            //    time += 1;
-            //}
+                //if (wave == null)
+                //    return;
+
+                //for (int i = 0; i < wave.Length; i++)
+                //{
+                //    // test purposes
+                //    y = wave[i];
+                //    chart1.Series[0].Points.AddXY(time, y);
+                //    time += 1;
+                //}
 
 
-            if (chart1.Series[0].Points.Count > 100)
-                chart1.Series[0].Points.RemoveAt(0);
+                if (chart1.Series[0].Points.Count > 100)
+                    chart1.Series[0].Points.RemoveAt(0);
 
-            chart1.ChartAreas[0].AxisX.Minimum = chart1.Series[0].Points[0].XValue;
-            chart1.ChartAreas[0].AxisX.Maximum = chart1.Series[0].Points[0].XValue + 100;
-            chart1.ChartAreas[0].AxisY.Minimum = -100000.1;
-            chart1.ChartAreas[0].AxisY.Maximum = 100000.1;
+                chart1.ChartAreas[0].AxisX.Minimum = chart1.Series[0].Points[0].XValue;
+                chart1.ChartAreas[0].AxisX.Maximum = chart1.Series[0].Points[0].XValue + 100;
+                chart1.ChartAreas[0].AxisY.Minimum = -100000.1;
+                chart1.ChartAreas[0].AxisY.Maximum = 100000.1;
             }
             catch (Exception ex)
             {
@@ -140,6 +140,11 @@ namespace GreyParrotSynthesizer
 
 
 
+        }
+
+        private void UserWaveView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer.Stop();
         }
     }
 }

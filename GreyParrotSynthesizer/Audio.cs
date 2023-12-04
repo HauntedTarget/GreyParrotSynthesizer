@@ -68,6 +68,7 @@ namespace GreyParrotSynthesizer
 
         public static void PlaySoundFromFile(string filename)
         {
+            GetWaveFromWav(filename);
             new SoundPlayer(filename +".wav").Play();
         }
 
@@ -78,8 +79,8 @@ namespace GreyParrotSynthesizer
             for (int i = 1; i <= numeberOfFiles; i++)
             {
                 path = filename + i + ".wav";
-                new SoundPlayer(path).Play();
                 GetWaveFromWav(path);
+                new SoundPlayer(path).Play();
 
                 // need to figure out how to get length of sound in milliseconds
                 Wait(500); 
@@ -113,9 +114,11 @@ namespace GreyParrotSynthesizer
 
         private static void SendWaveToWaveView(short[] wave)
         {
+            //MessageBox.Show("Wave length: " + wave.Length);
             int newIndex = 0;
-            int cutby = wave.Length / 145;
+            int cutby = 735;
             short[] newWave = new short[(wave.Length / cutby) + 1];
+            //MessageBox.Show("New wave length: " + newWave.Length + " Wave Length: " + wave.Length);
             for (int i = 0; i < wave.Length; i++)
             {
                 if (i % cutby == 0)
@@ -148,8 +151,11 @@ namespace GreyParrotSynthesizer
                     binReader.ReadInt32(); // Subchunk2Size
                     byte[] bytearray = binReader.ReadBytes(arraysize - 32); // Data
                     short[] wave = new short[bytearray.Length / 2];
-                    Buffer.BlockCopy(bytearray, 0, wave, 0, wave.Length);
-                    SendWaveToWaveView(wave);
+                    Buffer.BlockCopy(bytearray, 0, wave, 0, bytearray.Length);
+                    if (wave.Length > 0) {
+                        SendWaveToWaveView(wave);
+                    }
+                    
                 }
             }
         }

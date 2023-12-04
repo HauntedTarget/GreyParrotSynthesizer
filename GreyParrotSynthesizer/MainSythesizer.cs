@@ -23,11 +23,12 @@ namespace GreyParrotSynthesizer
             WaveFormDropDown_Load();
 
             CreateFiles();
-
+            seconds = 1f;
         }
 
         private void CreateFiles()
         {
+            seconds = 0f;
             if (File.Exists(existingSound + "1"))
             {
                 return;
@@ -101,7 +102,10 @@ namespace GreyParrotSynthesizer
         }
         private void durationBar_Scroll(object sender, EventArgs e)
         {
-            durationValueDisplay.Text = durationBar.Value.ToString();
+            // TODO: Please change the durationBar to a float with 0 min and 10 max with 0.1 increments
+            int duration = durationBar.Value;
+            seconds = (float)(duration / 10.0);
+            durationValueDisplay.Text = seconds.ToString();
         }
 
         //changes padding of radio buttons to 0
