@@ -30,6 +30,7 @@ namespace GreyParrotSynthesizer
         private void CreateFiles()
         {
             seconds = 0f;
+            int numFiles = 10;
             if (File.Exists(existingSound + "1"))
             {
                 return;
@@ -37,7 +38,7 @@ namespace GreyParrotSynthesizer
             else
             {
                 Directory.CreateDirectory(directoryPath);
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < numFiles; i++)
                 {
                     Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + (i + 1).ToString());
                 }

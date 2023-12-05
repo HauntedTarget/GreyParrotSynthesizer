@@ -69,7 +69,14 @@ namespace GreyParrotSynthesizer
         public static void PlaySoundFromFile(string filename)
         {
             GetWaveFromWav(filename);
-            new SoundPlayer(filename +".wav").Play();
+            try
+            {
+                new SoundPlayer(filename).Play();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public static void PlayAllSoundsFromFiles(string filename)
@@ -78,10 +85,9 @@ namespace GreyParrotSynthesizer
             string path;
             for (int i = 1; i <= numeberOfFiles; i++)
             {
-                path = filename + i + ".wav";
+                path = filename + i;
                 GetWaveFromWav(path);
-                new SoundPlayer(path).Play();
-
+                PlaySoundFromFile(path);
                 // need to figure out how to get length of sound in milliseconds
                 Wait(500); 
             }
