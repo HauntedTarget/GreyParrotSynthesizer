@@ -379,7 +379,7 @@
             soundBarLabel.Location = new Point(247, 683);
             soundBarLabel.Margin = new Padding(4, 0, 4, 0);
             soundBarLabel.Name = "soundBarLabel";
-            soundBarLabel.Size = new Size(415, 67);
+            soundBarLabel.Size = new Size(424, 67);
             soundBarLabel.TabIndex = 12;
             soundBarLabel.Text = "SOUND STORAGE";
             soundBarLabel.TextAlign = ContentAlignment.TopCenter;
