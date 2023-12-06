@@ -65,6 +65,8 @@
             cb_hoverTut = new CheckBox();
             l_tip = new Label();
             label4 = new Label();
+            FileNameLabel = new Label();
+            FileNameBox = new TextBox();
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).BeginInit();
             radioButtonGroup.SuspendLayout();
@@ -657,12 +659,31 @@
             label4.MouseHover += OnHover;
             label4.MouseMove += OnMouseMove;
             // 
+            // FileNameLabel
+            // 
+            FileNameLabel.AutoSize = true;
+            FileNameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            FileNameLabel.Location = new Point(123, 229);
+            FileNameLabel.Name = "FileNameLabel";
+            FileNameLabel.Size = new Size(181, 32);
+            FileNameLabel.TabIndex = 30;
+            FileNameLabel.Text = "Insert FileName";
+            // 
+            // FileNameBox
+            // 
+            FileNameBox.Location = new Point(123, 195);
+            FileNameBox.Name = "FileNameBox";
+            FileNameBox.Size = new Size(186, 31);
+            FileNameBox.TabIndex = 31;
+            // 
             // MainSythesizer
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DodgerBlue;
             ClientSize = new Size(1559, 919);
+            Controls.Add(FileNameBox);
+            Controls.Add(FileNameLabel);
             Controls.Add(l_tip);
             Controls.Add(cb_hoverTut);
             Controls.Add(durationValueDisplay);
@@ -741,5 +762,7 @@
         private CheckBox cb_hoverTut;
         private Label l_tip;
         private Label label4;
+        private Label FileNameLabel;
+        private TextBox FileNameBox;
     }
 }
