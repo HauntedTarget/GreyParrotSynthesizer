@@ -45,9 +45,7 @@
             radioButton3 = new RadioButton();
             radioButton2 = new RadioButton();
             frequencyLabel = new Label();
-            amplitudeLabel = new Label();
             backgroundColor = new Label();
-            backcolor2 = new Label();
             soundBarLabel = new Label();
             outlinecolor = new Label();
             outlinecolor2 = new Label();
@@ -56,15 +54,11 @@
             line1 = new Label();
             playSoundStorage = new Button();
             label1 = new Label();
-            label2 = new Label();
             durationBar = new TrackBar();
-            label3 = new Label();
-            amplitudeDisplay = new Label();
-            frequencyValueDisplay = new Label();
-            durationValueDisplay = new Label();
             cb_hoverTut = new CheckBox();
             l_tip = new Label();
             label4 = new Label();
+            amplitudeLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).BeginInit();
             radioButtonGroup.SuspendLayout();
@@ -91,6 +85,7 @@
             // PlaySound
             // 
             PlaySound.BackColor = Color.Black;
+            PlaySound.BackgroundImage = (Image)resources.GetObject("PlaySound.BackgroundImage");
             PlaySound.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             PlaySound.ForeColor = Color.DodgerBlue;
             PlaySound.Location = new Point(123, 310);
@@ -163,7 +158,8 @@
             // 
             // radioButtonGroup
             // 
-            radioButtonGroup.BackColor = Color.Black;
+            radioButtonGroup.BackColor = Color.Transparent;
+            radioButtonGroup.BackgroundImage = (Image)resources.GetObject("radioButtonGroup.BackgroundImage");
             radioButtonGroup.BackgroundImageLayout = ImageLayout.None;
             radioButtonGroup.Controls.Add(radioButton10);
             radioButtonGroup.Controls.Add(radioButton9);
@@ -345,7 +341,7 @@
             frequencyLabel.BackColor = Color.Black;
             frequencyLabel.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             frequencyLabel.ForeColor = Color.DodgerBlue;
-            frequencyLabel.Location = new Point(947, 98);
+            frequencyLabel.Location = new Point(930, 98);
             frequencyLabel.Margin = new Padding(4, 0, 4, 0);
             frequencyLabel.Name = "frequencyLabel";
             frequencyLabel.Size = new Size(251, 47);
@@ -356,57 +352,31 @@
             frequencyLabel.MouseHover += OnHover;
             frequencyLabel.MouseMove += OnMouseMove;
             // 
-            // amplitudeLabel
-            // 
-            amplitudeLabel.BackColor = Color.Black;
-            amplitudeLabel.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            amplitudeLabel.ForeColor = Color.DodgerBlue;
-            amplitudeLabel.Location = new Point(684, 98);
-            amplitudeLabel.Margin = new Padding(4, 0, 4, 0);
-            amplitudeLabel.Name = "amplitudeLabel";
-            amplitudeLabel.Size = new Size(234, 47);
-            amplitudeLabel.TabIndex = 8;
-            amplitudeLabel.Text = "AMPLITUDE";
-            amplitudeLabel.TextAlign = ContentAlignment.TopCenter;
-            amplitudeLabel.MouseLeave += OnLeave;
-            amplitudeLabel.MouseHover += OnHover;
-            amplitudeLabel.MouseMove += OnMouseMove;
-            // 
             // backgroundColor
             // 
-            backgroundColor.BackColor = Color.Black;
+            backgroundColor.BackColor = Color.Transparent;
+            backgroundColor.Image = (Image)resources.GetObject("backgroundColor.Image");
+            backgroundColor.ImageAlign = ContentAlignment.TopCenter;
             backgroundColor.Location = new Point(684, 98);
             backgroundColor.Margin = new Padding(4, 0, 4, 0);
             backgroundColor.Name = "backgroundColor";
-            backgroundColor.Size = new Size(86, 652);
+            backgroundColor.Size = new Size(781, 652);
             backgroundColor.TabIndex = 9;
             backgroundColor.Text = "label2";
             backgroundColor.MouseLeave += OnLeave;
             backgroundColor.MouseHover += OnHover;
             backgroundColor.MouseMove += OnMouseMove;
             // 
-            // backcolor2
-            // 
-            backcolor2.BackColor = Color.Black;
-            backcolor2.Location = new Point(854, 98);
-            backcolor2.Margin = new Padding(4, 0, 4, 0);
-            backcolor2.Name = "backcolor2";
-            backcolor2.Size = new Size(161, 652);
-            backcolor2.TabIndex = 10;
-            backcolor2.Text = "label2";
-            backcolor2.MouseLeave += OnLeave;
-            backcolor2.MouseHover += OnHover;
-            backcolor2.MouseMove += OnMouseMove;
-            // 
             // soundBarLabel
             // 
-            soundBarLabel.BackColor = Color.Black;
+            soundBarLabel.BackColor = Color.Transparent;
             soundBarLabel.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             soundBarLabel.ForeColor = Color.DodgerBlue;
+            soundBarLabel.Image = (Image)resources.GetObject("soundBarLabel.Image");
             soundBarLabel.Location = new Point(247, 683);
             soundBarLabel.Margin = new Padding(4, 0, 4, 0);
             soundBarLabel.Name = "soundBarLabel";
-            soundBarLabel.Size = new Size(473, 67);
+            soundBarLabel.Size = new Size(415, 67);
             soundBarLabel.TabIndex = 12;
             soundBarLabel.Text = "SOUND STORAGE";
             soundBarLabel.TextAlign = ContentAlignment.TopCenter;
@@ -441,6 +411,7 @@
             // saveButtton
             // 
             saveButtton.BackColor = Color.Black;
+            saveButtton.BackgroundImage = (Image)resources.GetObject("saveButtton.BackgroundImage");
             saveButtton.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             saveButtton.ForeColor = Color.DodgerBlue;
             saveButtton.Location = new Point(123, 408);
@@ -459,6 +430,7 @@
             // deleteSoundButton
             // 
             deleteSoundButton.BackColor = Color.Black;
+            deleteSoundButton.BackgroundImage = (Image)resources.GetObject("deleteSoundButton.BackgroundImage");
             deleteSoundButton.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             deleteSoundButton.ForeColor = Color.DodgerBlue;
             deleteSoundButton.Location = new Point(123, 507);
@@ -489,11 +461,12 @@
             // 
             playSoundStorage.BackColor = Color.Black;
             playSoundStorage.BackgroundImage = (Image)resources.GetObject("playSoundStorage.BackgroundImage");
-            playSoundStorage.BackgroundImageLayout = ImageLayout.Zoom;
-            playSoundStorage.Location = new Point(110, 672);
+            playSoundStorage.BackgroundImageLayout = ImageLayout.Stretch;
+            playSoundStorage.Image = (Image)resources.GetObject("playSoundStorage.Image");
+            playSoundStorage.Location = new Point(52, 672);
             playSoundStorage.Margin = new Padding(4, 5, 4, 5);
             playSoundStorage.Name = "playSoundStorage";
-            playSoundStorage.Size = new Size(81, 110);
+            playSoundStorage.Size = new Size(139, 171);
             playSoundStorage.TabIndex = 19;
             playSoundStorage.UseVisualStyleBackColor = false;
             playSoundStorage.Click += PlaySoundStorage_Click;
@@ -506,29 +479,16 @@
             label1.BackColor = Color.Black;
             label1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.DodgerBlue;
-            label1.Location = new Point(1189, 98);
+            label1.Location = new Point(1177, 98);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(254, 78);
+            label1.Size = new Size(288, 47);
             label1.TabIndex = 20;
             label1.Text = "DURATION";
             label1.TextAlign = ContentAlignment.TopCenter;
             label1.MouseLeave += OnLeave;
             label1.MouseHover += OnHover;
             label1.MouseMove += OnMouseMove;
-            // 
-            // label2
-            // 
-            label2.BackColor = Color.Black;
-            label2.Location = new Point(1099, 98);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(166, 652);
-            label2.TabIndex = 21;
-            label2.Text = "label2";
-            label2.MouseLeave += OnLeave;
-            label2.MouseHover += OnHover;
-            label2.MouseMove += OnMouseMove;
             // 
             // durationBar
             // 
@@ -547,71 +507,11 @@
             durationBar.MouseHover += OnHover;
             durationBar.MouseMove += OnMouseMove;
             // 
-            // label3
-            // 
-            label3.BackColor = Color.Black;
-            label3.Location = new Point(1349, 98);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(114, 652);
-            label3.TabIndex = 23;
-            label3.Text = "label3";
-            label3.MouseLeave += OnLeave;
-            label3.MouseHover += OnHover;
-            label3.MouseMove += OnMouseMove;
-            // 
-            // amplitudeDisplay
-            // 
-            amplitudeDisplay.BackColor = Color.Black;
-            amplitudeDisplay.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            amplitudeDisplay.ForeColor = Color.DodgerBlue;
-            amplitudeDisplay.Location = new Point(744, 648);
-            amplitudeDisplay.Margin = new Padding(4, 0, 4, 0);
-            amplitudeDisplay.Name = "amplitudeDisplay";
-            amplitudeDisplay.Size = new Size(134, 102);
-            amplitudeDisplay.TabIndex = 24;
-            amplitudeDisplay.Text = "1000";
-            amplitudeDisplay.TextAlign = ContentAlignment.TopCenter;
-            amplitudeDisplay.MouseLeave += OnLeave;
-            amplitudeDisplay.MouseHover += OnHover;
-            amplitudeDisplay.MouseMove += OnMouseMove;
-            // 
-            // frequencyValueDisplay
-            // 
-            frequencyValueDisplay.BackColor = Color.Black;
-            frequencyValueDisplay.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            frequencyValueDisplay.ForeColor = Color.DodgerBlue;
-            frequencyValueDisplay.Location = new Point(990, 648);
-            frequencyValueDisplay.Margin = new Padding(4, 0, 4, 0);
-            frequencyValueDisplay.Name = "frequencyValueDisplay";
-            frequencyValueDisplay.Size = new Size(134, 102);
-            frequencyValueDisplay.TabIndex = 25;
-            frequencyValueDisplay.Text = "200";
-            frequencyValueDisplay.TextAlign = ContentAlignment.TopCenter;
-            frequencyValueDisplay.MouseLeave += OnLeave;
-            frequencyValueDisplay.MouseHover += OnHover;
-            frequencyValueDisplay.MouseMove += OnMouseMove;
-            // 
-            // durationValueDisplay
-            // 
-            durationValueDisplay.BackColor = Color.Black;
-            durationValueDisplay.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            durationValueDisplay.ForeColor = Color.DodgerBlue;
-            durationValueDisplay.Location = new Point(1237, 648);
-            durationValueDisplay.Margin = new Padding(4, 0, 4, 0);
-            durationValueDisplay.Name = "durationValueDisplay";
-            durationValueDisplay.Size = new Size(134, 102);
-            durationValueDisplay.TabIndex = 26;
-            durationValueDisplay.Text = "1";
-            durationValueDisplay.TextAlign = ContentAlignment.TopCenter;
-            durationValueDisplay.MouseLeave += OnLeave;
-            durationValueDisplay.MouseHover += OnHover;
-            durationValueDisplay.MouseMove += OnMouseMove;
-            // 
             // cb_hoverTut
             // 
             cb_hoverTut.AutoSize = true;
             cb_hoverTut.BackColor = SystemColors.ActiveCaptionText;
+            cb_hoverTut.BackgroundImage = (Image)resources.GetObject("cb_hoverTut.BackgroundImage");
             cb_hoverTut.Font = new Font("Segoe UI Symbol", 10F, FontStyle.Bold, GraphicsUnit.Point);
             cb_hoverTut.ForeColor = SystemColors.MenuHighlight;
             cb_hoverTut.Location = new Point(17, 18);
@@ -657,22 +557,35 @@
             label4.MouseHover += OnHover;
             label4.MouseMove += OnMouseMove;
             // 
+            // amplitudeLabel
+            // 
+            amplitudeLabel.BackColor = Color.Black;
+            amplitudeLabel.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            amplitudeLabel.ForeColor = Color.DodgerBlue;
+            amplitudeLabel.Location = new Point(684, 98);
+            amplitudeLabel.Margin = new Padding(4, 0, 4, 0);
+            amplitudeLabel.Name = "amplitudeLabel";
+            amplitudeLabel.Size = new Size(247, 47);
+            amplitudeLabel.TabIndex = 8;
+            amplitudeLabel.Text = "AMPLITUDE";
+            amplitudeLabel.TextAlign = ContentAlignment.TopCenter;
+            amplitudeLabel.MouseLeave += OnLeave;
+            amplitudeLabel.MouseHover += OnHover;
+            amplitudeLabel.MouseMove += OnMouseMove;
+            // 
             // MainSythesizer
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DodgerBlue;
+            BackColor = Color.Black;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1559, 919);
             Controls.Add(l_tip);
             Controls.Add(cb_hoverTut);
-            Controls.Add(durationValueDisplay);
-            Controls.Add(frequencyValueDisplay);
-            Controls.Add(amplitudeDisplay);
             Controls.Add(label1);
             Controls.Add(frequencyLabel);
-            Controls.Add(label3);
             Controls.Add(durationBar);
-            Controls.Add(label2);
             Controls.Add(playSoundStorage);
             Controls.Add(line1);
             Controls.Add(deleteSoundButton);
@@ -685,7 +598,6 @@
             Controls.Add(PlaySound);
             Controls.Add(WaveFormDropDown);
             Controls.Add(backgroundColor);
-            Controls.Add(backcolor2);
             Controls.Add(outlinecolor);
             Controls.Add(outlinecolor2);
             Controls.Add(label4);
@@ -721,9 +633,7 @@
         private RadioButton radioButton5;
         private RadioButton radioButton4;
         private Label frequencyLabel;
-        private Label amplitudeLabel;
         private Label backgroundColor;
-        private Label backcolor2;
         private Label soundBarLabel;
         private Label outlinecolor;
         private Label outlinecolor2;
@@ -732,14 +642,10 @@
         private Label line1;
         private Button playSoundStorage;
         private Label label1;
-        private Label label2;
         private TrackBar durationBar;
-        private Label label3;
-        private Label amplitudeDisplay;
-        private Label frequencyValueDisplay;
-        private Label durationValueDisplay;
         private CheckBox cb_hoverTut;
         private Label l_tip;
         private Label label4;
+        private Label amplitudeLabel;
     }
 }
