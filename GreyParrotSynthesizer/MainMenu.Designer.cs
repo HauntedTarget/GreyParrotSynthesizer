@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             label1 = new Label();
             label2 = new Label();
             button1 = new Button();
@@ -40,6 +41,7 @@
             label1.Anchor = AnchorStyles.None;
             label1.BackColor = Color.Black;
             label1.ForeColor = Color.DodgerBlue;
+            label1.Image = (Image)resources.GetObject("label1.Image");
             label1.Location = new Point(199, 104);
             label1.Name = "label1";
             label1.Size = new Size(396, 38);
@@ -51,7 +53,9 @@
             // 
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe Fluent Icons", 8F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ImageAlign = ContentAlignment.TopCenter;
             label2.Location = new Point(89, 747);
             label2.Name = "label2";
             label2.Size = new Size(639, 16);
@@ -63,6 +67,7 @@
             button1.Anchor = AnchorStyles.None;
             button1.BackColor = Color.Black;
             button1.ForeColor = Color.DodgerBlue;
+            button1.Image = (Image)resources.GetObject("button1.Image");
             button1.Location = new Point(343, 301);
             button1.Name = "button1";
             button1.Size = new Size(109, 47);
@@ -77,6 +82,7 @@
             button2.Anchor = AnchorStyles.None;
             button2.BackColor = Color.Black;
             button2.ForeColor = Color.DodgerBlue;
+            button2.Image = (Image)resources.GetObject("button2.Image");
             button2.Location = new Point(343, 434);
             button2.Name = "button2";
             button2.Size = new Size(109, 47);
@@ -100,6 +106,8 @@
             AutoScaleDimensions = new SizeF(15F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DodgerBlue;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(794, 772);
             Controls.Add(button2);
             Controls.Add(button1);

@@ -59,6 +59,9 @@
             l_tip = new Label();
             label4 = new Label();
             amplitudeLabel = new Label();
+            amplitudeDisplay = new Label();
+            frequencyValueDisplay = new Label();
+            durationValueDisplay = new Label();
             ((System.ComponentModel.ISupportInitialize)FrequencyBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AmplitudeBar).BeginInit();
             radioButtonGroup.SuspendLayout();
@@ -386,7 +389,7 @@
             // 
             // outlinecolor
             // 
-            outlinecolor.BackColor = Color.White;
+            outlinecolor.BackColor = Color.Black;
             outlinecolor.Location = new Point(670, 83);
             outlinecolor.Margin = new Padding(4, 0, 4, 0);
             outlinecolor.Name = "outlinecolor";
@@ -398,7 +401,7 @@
             // 
             // outlinecolor2
             // 
-            outlinecolor2.BackColor = Color.White;
+            outlinecolor2.BackColor = Color.Black;
             outlinecolor2.Location = new Point(234, 672);
             outlinecolor2.Margin = new Padding(4, 0, 4, 0);
             outlinecolor2.Name = "outlinecolor2";
@@ -447,7 +450,7 @@
             // 
             // line1
             // 
-            line1.BackColor = Color.White;
+            line1.BackColor = Color.Black;
             line1.Location = new Point(234, 750);
             line1.Margin = new Padding(4, 0, 4, 0);
             line1.Name = "line1";
@@ -573,6 +576,45 @@
             amplitudeLabel.MouseHover += OnHover;
             amplitudeLabel.MouseMove += OnMouseMove;
             // 
+            // amplitudeDisplay
+            // 
+            amplitudeDisplay.BackColor = Color.Black;
+            amplitudeDisplay.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            amplitudeDisplay.ForeColor = Color.DodgerBlue;
+            amplitudeDisplay.Location = new Point(751, 650);
+            amplitudeDisplay.Margin = new Padding(4, 0, 4, 0);
+            amplitudeDisplay.Name = "amplitudeDisplay";
+            amplitudeDisplay.Size = new Size(120, 47);
+            amplitudeDisplay.TabIndex = 30;
+            amplitudeDisplay.Text = "1000";
+            amplitudeDisplay.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // frequencyValueDisplay
+            // 
+            frequencyValueDisplay.BackColor = Color.Black;
+            frequencyValueDisplay.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            frequencyValueDisplay.ForeColor = Color.DodgerBlue;
+            frequencyValueDisplay.Location = new Point(993, 650);
+            frequencyValueDisplay.Margin = new Padding(4, 0, 4, 0);
+            frequencyValueDisplay.Name = "frequencyValueDisplay";
+            frequencyValueDisplay.Size = new Size(120, 47);
+            frequencyValueDisplay.TabIndex = 31;
+            frequencyValueDisplay.Text = "200";
+            frequencyValueDisplay.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // durationValueDisplay
+            // 
+            durationValueDisplay.BackColor = Color.Black;
+            durationValueDisplay.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            durationValueDisplay.ForeColor = Color.DodgerBlue;
+            durationValueDisplay.Location = new Point(1246, 650);
+            durationValueDisplay.Margin = new Padding(4, 0, 4, 0);
+            durationValueDisplay.Name = "durationValueDisplay";
+            durationValueDisplay.Size = new Size(120, 47);
+            durationValueDisplay.TabIndex = 32;
+            durationValueDisplay.Text = "0";
+            durationValueDisplay.TextAlign = ContentAlignment.TopCenter;
+            // 
             // MainSythesizer
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -581,6 +623,9 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1559, 919);
+            Controls.Add(durationValueDisplay);
+            Controls.Add(frequencyValueDisplay);
+            Controls.Add(amplitudeDisplay);
             Controls.Add(l_tip);
             Controls.Add(cb_hoverTut);
             Controls.Add(label1);
@@ -647,5 +692,8 @@
         private Label l_tip;
         private Label label4;
         private Label amplitudeLabel;
+        private Label amplitudeDisplay;
+        private Label frequencyValueDisplay;
+        private Label durationValueDisplay;
     }
 }
