@@ -71,7 +71,7 @@ namespace GreyParrotSynthesizer
             GetWaveFromWav(filename);
             try
             {
-                new SoundPlayer(filename).Play();
+                new SoundPlayer(filename + ".wav").Play();
             }
             catch (Exception e)
             {

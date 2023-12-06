@@ -6,6 +6,8 @@ namespace GreyParrotSynthesizer
 {
     public partial class MainSythesizer : Form
     {
+        bool PlayMode = true;
+
         private static string directoryPath = Path.Combine(Environment.CurrentDirectory, "Sounds");
         //private string filename;
         private string existingSound = Path.Combine(directoryPath, "sound");
@@ -52,42 +54,47 @@ namespace GreyParrotSynthesizer
 
         private void OnKeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar.Equals((char)Keys.Escape))
-            {
-                this.Close();
-            }
 
-            if (e.KeyChar.Equals((char)Keys.Space))
+            if (ActiveControl != FileNameBox)
             {
-                PlaySoundStorage_Click(sender, e);
-            }
-
-            if (e.KeyChar.Equals('h'))
-            {
-                cb_hoverTut.Checked = !cb_hoverTut.Checked;
-                if (!cb_hoverTut.Checked) l_tip.Visible = false;
-            }
-
-            if (!e.KeyChar.Equals('-') && !e.KeyChar.Equals('='))
-            {
-                float frequencyPress = KeyToNote(e, octave);
-
-                if (frequencyPress > 19) Audio.PlaySound(frequencyPress, amplitude, waveType, seconds);
-            }
-            else
-            {
-                switch (e.KeyChar)
+                if (e.KeyChar.Equals((char)Keys.Escape))
                 {
-                    default:
-                        if (octave > 0) octave--;
-                        break;
-                    case '=':
-                        if (octave < 8) octave++;
-                        break;
+                    this.Close();
                 }
+
+                if (e.KeyChar.Equals((char)Keys.Space))
+                {
+                    PlaySoundStorage_Click(sender, e);
+                }
+
+                if (e.KeyChar.Equals('h'))
+                {
+                    cb_hoverTut.Checked = !cb_hoverTut.Checked;
+                    if (!cb_hoverTut.Checked) l_tip.Visible = false;
+                }
+
+                if (!e.KeyChar.Equals('-') && !e.KeyChar.Equals('='))
+                {
+                    float frequencyPress = KeyToNote(e, octave);
+
+                    if (frequencyPress > 19) Audio.PlaySound(frequencyPress, amplitude, waveType, seconds);
+                }
+                else
+                {
+                    switch (e.KeyChar)
+                    {
+                        default:
+                            if (octave > 0) octave--;
+                            break;
+                        case '=':
+                            if (octave < 8) octave++;
+                            break;
+                    }
+                }
+                // Fix found here: https://stackoverflow.com/questions/9648381/how-to-prevent-manual-input-into-a-combobox-in-c-sharp
+                e.Handled = true;
             }
-            // Fix found here: https://stackoverflow.com/questions/9648381/how-to-prevent-manual-input-into-a-combobox-in-c-sharp
-            e.Handled = true;
+            
         }
 
         private void WaveFormDropDown_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,7 +105,27 @@ namespace GreyParrotSynthesizer
 
         private void PlaySound_Click(object sender, EventArgs e)
         {
-            Audio.PlaySound(frequency, amplitude, waveType, seconds);
+            if (FileNameBox.Text.Length != 0)
+            {
+                if (!File.Exists(Path.Combine(directoryPath, FileNameBox.Text + ".wav")))
+                {
+                    MessageBox.Show("File does not exist.");
+                }
+                else Audio.PlaySoundFromFile(Path.Combine(directoryPath, FileNameBox.Text));
+                
+            }
+            else if (radioButton1.Checked) Audio.PlaySoundFromFile(Path.Combine(directoryPath, existingSound + "1"));
+            else if (radioButton2.Checked) Audio.PlaySoundFromFile(Path.Combine(directoryPath, existingSound + "2"));
+            else if (radioButton3.Checked) Audio.PlaySoundFromFile(Path.Combine(directoryPath, existingSound + "3"));
+            else if (radioButton4.Checked) Audio.PlaySoundFromFile(Path.Combine(directoryPath, existingSound + "4"));
+            else if (radioButton5.Checked) Audio.PlaySoundFromFile(Path.Combine(directoryPath, existingSound + "5"));
+            else if (radioButton6.Checked) Audio.PlaySoundFromFile(Path.Combine(directoryPath, existingSound + "6"));
+            else if (radioButton7.Checked) Audio.PlaySoundFromFile(Path.Combine(directoryPath, existingSound + "7"));
+            else if (radioButton8.Checked) Audio.PlaySoundFromFile(Path.Combine(directoryPath, existingSound + "8"));
+            else
+            {
+                Audio.PlaySound(frequency, amplitude, waveType, seconds);
+            }
             //Audio.SaveSound(frequency, amplitude, waveType, "test.wav");
         }
 
@@ -276,16 +303,13 @@ namespace GreyParrotSynthesizer
 
         private void SaveButtton_Click(object sender, EventArgs e)
         {
-
-            if (/*textbox with filename not empty*/ false)
+            if (FileNameBox.Text.Length != 0)
             {
-#pragma warning disable CS0162 // Unreachable code detected
-                Audio.SaveSound(frequency, amplitude, waveType, seconds, Path.Combine(directoryPath,/*textbox filename*/ ""));
-#pragma warning restore CS0162 // Unreachable code detected
+
+                Audio.SaveSound(frequency, amplitude, waveType, seconds, Path.Combine(directoryPath, FileNameBox.Text));
+
             }
-
-
-            if (radioButton1.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "1");
+            else if (radioButton1.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "1");
             else if (radioButton2.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "2");
             else if (radioButton3.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "3");
             else if (radioButton4.Checked) Audio.SaveSound(frequency, amplitude, waveType, seconds, existingSound + "4");
@@ -350,5 +374,7 @@ namespace GreyParrotSynthesizer
         {
             l_tip.Visible = false;
         }
+
+      
     }
 }
