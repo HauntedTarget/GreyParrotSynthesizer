@@ -343,6 +343,38 @@ namespace GreyParrotSynthesizer
             {
                 l_tip.Text = "Plays the set of saved sounds in order. (Shortcut: Space)";
             }
+            else if (sender.GetType() == typeof(RadioButton))
+            {
+                l_tip.Text = "Bound file you can save to within the sound storage.";
+            }
+            else if (sender == PlaySound)
+            {
+                l_tip.Text = "Play a sound based on the slider information. (Shortcut: QWERTY & Num Row)";
+            }
+            else if (sender == saveButtton)
+            {
+                l_tip.Text = "Saves sound to the selected sound storage button.";
+            }
+            else if (sender == deleteSoundButton)
+            {
+                l_tip.Text = "Deletes the held sound within the sound storage system selected.";
+            }
+            else if (sender == FileNameBox)
+            {
+                l_tip.Text = "Name of a file to load and play from internal storage.";
+            }
+            else if (sender == AmplitudeBar)
+            {
+                l_tip.Text = "Sets the amplitude.";
+            }
+            else if (sender == FrequencyBar)
+            {
+                l_tip.Text = "Sets the frequency.";
+            }
+            else if (sender == durationBar)
+            {
+                l_tip.Text = "Sets how long the sound will play for.";
+            }
             else if (sender == l_tip)
             {
                 Point mousePoint = PointToClient(MousePosition);
