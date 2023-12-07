@@ -364,11 +364,11 @@ namespace GreyParrotSynthesizer
             }
             else if (sender == AmplitudeBar)
             {
-                l_tip.Text = "Sets the amplitude.";
+                l_tip.Text = "Sets the volume.";
             }
             else if (sender == FrequencyBar)
             {
-                l_tip.Text = "Sets the frequency.";
+                l_tip.Text = "Sets the note pitch.";
             }
             else if (sender == durationBar)
             {
