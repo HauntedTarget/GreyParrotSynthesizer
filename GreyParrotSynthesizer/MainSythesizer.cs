@@ -6,7 +6,6 @@ namespace GreyParrotSynthesizer
 {
     public partial class MainSythesizer : Form
     {
-        bool PlayMode = true;
 
         private static string directoryPath = Path.Combine(Environment.CurrentDirectory, "Sounds");
         //private string filename;
@@ -32,7 +31,7 @@ namespace GreyParrotSynthesizer
         private void CreateFiles()
         {
             seconds = 0f;
-            int numFiles = 10;
+            int numFiles = 8;
             if (File.Exists(existingSound + "1"))
             {
                 return;
