@@ -166,6 +166,7 @@
             // radioButtonGroup
             // 
             radioButtonGroup.BackColor = Color.Black;
+            radioButtonGroup.BackgroundImage = (Image)resources.GetObject("radioButtonGroup.BackgroundImage");
             radioButtonGroup.BackgroundImageLayout = ImageLayout.None;
             radioButtonGroup.Controls.Add(radioButton10);
             radioButtonGroup.Controls.Add(radioButton9);
@@ -405,10 +406,11 @@
             soundBarLabel.BackColor = Color.Black;
             soundBarLabel.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold, GraphicsUnit.Point);
             soundBarLabel.ForeColor = Color.DodgerBlue;
+            soundBarLabel.Image = (Image)resources.GetObject("soundBarLabel.Image");
             soundBarLabel.Location = new Point(247, 683);
             soundBarLabel.Margin = new Padding(4, 0, 4, 0);
             soundBarLabel.Name = "soundBarLabel";
-            soundBarLabel.Size = new Size(473, 67);
+            soundBarLabel.Size = new Size(424, 67);
             soundBarLabel.TabIndex = 12;
             soundBarLabel.Text = "SOUND STORAGE";
             soundBarLabel.TextAlign = ContentAlignment.TopCenter;
@@ -491,11 +493,12 @@
             // 
             playSoundStorage.BackColor = Color.Black;
             playSoundStorage.BackgroundImage = (Image)resources.GetObject("playSoundStorage.BackgroundImage");
-            playSoundStorage.BackgroundImageLayout = ImageLayout.Zoom;
-            playSoundStorage.Location = new Point(110, 672);
+            playSoundStorage.BackgroundImageLayout = ImageLayout.Stretch;
+            playSoundStorage.Image = (Image)resources.GetObject("playSoundStorage.Image");
+            playSoundStorage.Location = new Point(36, 672);
             playSoundStorage.Margin = new Padding(4, 5, 4, 5);
             playSoundStorage.Name = "playSoundStorage";
-            playSoundStorage.Size = new Size(81, 110);
+            playSoundStorage.Size = new Size(155, 183);
             playSoundStorage.TabIndex = 19;
             playSoundStorage.UseVisualStyleBackColor = false;
             playSoundStorage.Click += PlaySoundStorage_Click;
@@ -662,15 +665,13 @@
             // FileNameLabel
             // 
             FileNameLabel.AutoSize = true;
+            FileNameLabel.BackColor = Color.Transparent;
             FileNameLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             FileNameLabel.Location = new Point(123, 229);
             FileNameLabel.Name = "FileNameLabel";
             FileNameLabel.Size = new Size(199, 29);
             FileNameLabel.TabIndex = 30;
             FileNameLabel.Text = "Insert FileName";
-            WaveFormDropDown.MouseLeave += OnLeave;
-            WaveFormDropDown.MouseHover += OnHover;
-            WaveFormDropDown.MouseMove += OnMouseMove;
             // 
             // FileNameBox
             // 
@@ -678,15 +679,13 @@
             FileNameBox.Name = "FileNameBox";
             FileNameBox.Size = new Size(186, 31);
             FileNameBox.TabIndex = 31;
-            WaveFormDropDown.MouseLeave += OnLeave;
-            WaveFormDropDown.MouseHover += OnHover;
-            WaveFormDropDown.MouseMove += OnMouseMove;
             // 
             // MainSythesizer
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DodgerBlue;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1559, 919);
             Controls.Add(FileNameBox);
             Controls.Add(FileNameLabel);
