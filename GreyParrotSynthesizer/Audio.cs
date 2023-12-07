@@ -81,7 +81,7 @@ namespace GreyParrotSynthesizer
 
         public static void PlayAllSoundsFromFiles(string filename)
         {
-            int numeberOfFiles = 10;
+            int numeberOfFiles = 8;
             string path;
             for (int i = 1; i <= numeberOfFiles; i++)
             {
