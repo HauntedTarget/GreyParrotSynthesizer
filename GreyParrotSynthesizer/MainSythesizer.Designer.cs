@@ -662,10 +662,10 @@
             // FileNameLabel
             // 
             FileNameLabel.AutoSize = true;
-            FileNameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            FileNameLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             FileNameLabel.Location = new Point(123, 229);
             FileNameLabel.Name = "FileNameLabel";
-            FileNameLabel.Size = new Size(181, 32);
+            FileNameLabel.Size = new Size(199, 29);
             FileNameLabel.TabIndex = 30;
             FileNameLabel.Text = "Insert FileName";
             // 
