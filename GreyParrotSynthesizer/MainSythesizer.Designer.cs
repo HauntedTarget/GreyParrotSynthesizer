@@ -668,6 +668,9 @@
             FileNameLabel.Size = new Size(181, 32);
             FileNameLabel.TabIndex = 30;
             FileNameLabel.Text = "Insert FileName";
+            WaveFormDropDown.MouseLeave += OnLeave;
+            WaveFormDropDown.MouseHover += OnHover;
+            WaveFormDropDown.MouseMove += OnMouseMove;
             // 
             // FileNameBox
             // 
@@ -675,6 +678,9 @@
             FileNameBox.Name = "FileNameBox";
             FileNameBox.Size = new Size(186, 31);
             FileNameBox.TabIndex = 31;
+            WaveFormDropDown.MouseLeave += OnLeave;
+            WaveFormDropDown.MouseHover += OnHover;
+            WaveFormDropDown.MouseMove += OnMouseMove;
             // 
             // MainSythesizer
             // 
