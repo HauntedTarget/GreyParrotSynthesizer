@@ -71,7 +71,7 @@ namespace GreyParrotSynthesizer
             GetWaveFromWav(filename);
             try
             {
-                new SoundPlayer(filename + ".wav").Play();
+                new SoundPlayer(filename + ".wav").PlaySync();
             }
             catch (Exception e)
             {
@@ -89,7 +89,7 @@ namespace GreyParrotSynthesizer
                 GetWaveFromWav(path);
                 PlaySoundFromFile(path);
                 // need to figure out how to get length of sound in milliseconds
-                Wait(500); 
+                //Wait(500); 
             }
 
         }
@@ -188,7 +188,7 @@ namespace GreyParrotSynthesizer
             using (BinaryWriter binWriter = new BinaryWriter(fileStream))
             {
                 short blockAlign = BITS_PER_SAMPLE / 8;
-                int subChunkTwoSize = SAMPLE_RATE * blockAlign;
+                int subChunkTwoSize = (int)(SAMPLE_RATE * blockAlign * seconds);
                 // HEAD CHUNK
                 binWriter.Write(new char[] { 'R', 'I', 'F', 'F' });
                 binWriter.Write(36 + subChunkTwoSize);
