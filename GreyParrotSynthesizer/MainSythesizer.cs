@@ -150,7 +150,7 @@ namespace GreyParrotSynthesizer
         //changes padding of radio buttons to 0
         private static void ChangeRBPadding0(RadioButton radioButton)
         {
-            radioButton.Padding = new Padding(0, 0, 0, 0);
+            radioButton.Padding = new Padding(8, 0, 0, 0);
         }
 
         //sets bottom padding to 100, this makes it so the background image is visible
